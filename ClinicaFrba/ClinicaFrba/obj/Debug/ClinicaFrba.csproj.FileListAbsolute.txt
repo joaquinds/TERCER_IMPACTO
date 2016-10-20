@@ -1,0 +1,22 @@
+C:\Users\Matias\Documents\Visual Studio 2012\Projects\ClinicaFrba\ClinicaFrba\ClinicaFrba\bin\Debug\ClinicaFrba.exe.config
+C:\Users\Matias\Documents\Visual Studio 2012\Projects\ClinicaFrba\ClinicaFrba\ClinicaFrba\bin\Debug\ClinicaFrba.exe
+C:\Users\Matias\Documents\Visual Studio 2012\Projects\ClinicaFrba\ClinicaFrba\ClinicaFrba\bin\Debug\ClinicaFrba.pdb
+C:\Users\Matias\Documents\Visual Studio 2012\Projects\ClinicaFrba\ClinicaFrba\ClinicaFrba\obj\Debug\ClinicaFrba.csprojResolveAssemblyReference.cache
+C:\Users\Matias\Documents\Visual Studio 2012\Projects\ClinicaFrba\ClinicaFrba\ClinicaFrba\obj\Debug\ClinicaFrba.Properties.Resources.resources
+C:\Users\Matias\Documents\Visual Studio 2012\Projects\ClinicaFrba\ClinicaFrba\ClinicaFrba\obj\Debug\ClinicaFrba.csproj.GenerateResource.Cache
+C:\Users\Matias\Documents\Visual Studio 2012\Projects\ClinicaFrba\ClinicaFrba\ClinicaFrba\obj\Debug\ClinicaFrba.exe
+C:\Users\Matias\Documents\Visual Studio 2012\Projects\ClinicaFrba\ClinicaFrba\ClinicaFrba\obj\Debug\ClinicaFrba.pdb
+D:\Downloads\TP CLINICA FRBA 1.0 - 2C 2016 (1)\Aplicacion Desktop\ClinicaFrba\ClinicaFrba\obj\Debug\ClinicaFrba.Properties.Resources.resources
+D:\Downloads\TP CLINICA FRBA 1.0 - 2C 2016 (1)\Aplicacion Desktop\ClinicaFrba\ClinicaFrba\obj\Debug\ClinicaFrba.csproj.GenerateResource.Cache
+D:\Downloads\TP CLINICA FRBA 1.0 - 2C 2016 (1)\Aplicacion Desktop\ClinicaFrba\ClinicaFrba\bin\Debug\ClinicaFrba.exe.config
+D:\Downloads\TP CLINICA FRBA 1.0 - 2C 2016 (1)\Aplicacion Desktop\ClinicaFrba\ClinicaFrba\bin\Debug\ClinicaFrba.exe
+D:\Downloads\TP CLINICA FRBA 1.0 - 2C 2016 (1)\Aplicacion Desktop\ClinicaFrba\ClinicaFrba\bin\Debug\ClinicaFrba.pdb
+D:\Downloads\TP CLINICA FRBA 1.0 - 2C 2016 (1)\Aplicacion Desktop\ClinicaFrba\ClinicaFrba\obj\Debug\ClinicaFrba.csprojResolveAssemblyReference.cache
+D:\Downloads\TP CLINICA FRBA 1.0 - 2C 2016 (1)\Aplicacion Desktop\ClinicaFrba\ClinicaFrba\obj\Debug\ClinicaFrba.exe
+D:\Downloads\TP CLINICA FRBA 1.0 - 2C 2016 (1)\Aplicacion Desktop\ClinicaFrba\ClinicaFrba\obj\Debug\ClinicaFrba.pdb
+D:\Downloads\TP CLINICA FRBA 1.0 - 2C 2016 (1)\Aplicacion Desktop\ClinicaFrba\ClinicaFrba\obj\Debug\ClinicaFrba.Login.resources
+D:\Downloads\TP CLINICA FRBA 1.0 - 2C 2016 (1)\Aplicacion Desktop\ClinicaFrba\ClinicaFrba\obj\Debug\ClinicaFrba.AbmRol.ABMrol.resources
+D:\Downloads\TP CLINICA FRBA 1.0 - 2C 2016 (1)\Aplicacion Desktop\ClinicaFrba\ClinicaFrba\obj\Debug\ClinicaFrba.AbmRol.Baja.resources
+D:\Downloads\TP CLINICA FRBA 1.0 - 2C 2016 (1)\Aplicacion Desktop\ClinicaFrba\ClinicaFrba\obj\Debug\ClinicaFrba.MenuPrincipal.Menu.resources
+D:\Downloads\TP CLINICA FRBA 1.0 - 2C 2016 (1)\Aplicacion Desktop\ClinicaFrba\ClinicaFrba\obj\Debug\ClinicaFrba.AbmRol.Alta.resources
+D:\Downloads\TP CLINICA FRBA 1.0 - 2C 2016 (1)\Aplicacion Desktop\ClinicaFrba\ClinicaFrba\obj\Debug\ClinicaFrba.AbmRol.Modificacion.resources
