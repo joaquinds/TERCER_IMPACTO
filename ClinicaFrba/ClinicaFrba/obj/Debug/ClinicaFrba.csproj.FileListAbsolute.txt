@@ -11,7 +11,6 @@ D:\Downloads\TP CLINICA FRBA 1.0 - 2C 2016 (1)\Aplicacion Desktop\ClinicaFrba\Cl
 D:\Downloads\TP CLINICA FRBA 1.0 - 2C 2016 (1)\Aplicacion Desktop\ClinicaFrba\ClinicaFrba\bin\Debug\ClinicaFrba.exe.config
 D:\Downloads\TP CLINICA FRBA 1.0 - 2C 2016 (1)\Aplicacion Desktop\ClinicaFrba\ClinicaFrba\bin\Debug\ClinicaFrba.exe
 D:\Downloads\TP CLINICA FRBA 1.0 - 2C 2016 (1)\Aplicacion Desktop\ClinicaFrba\ClinicaFrba\bin\Debug\ClinicaFrba.pdb
-D:\Downloads\TP CLINICA FRBA 1.0 - 2C 2016 (1)\Aplicacion Desktop\ClinicaFrba\ClinicaFrba\obj\Debug\ClinicaFrba.csprojResolveAssemblyReference.cache
 D:\Downloads\TP CLINICA FRBA 1.0 - 2C 2016 (1)\Aplicacion Desktop\ClinicaFrba\ClinicaFrba\obj\Debug\ClinicaFrba.exe
 D:\Downloads\TP CLINICA FRBA 1.0 - 2C 2016 (1)\Aplicacion Desktop\ClinicaFrba\ClinicaFrba\obj\Debug\ClinicaFrba.pdb
 D:\Downloads\TP CLINICA FRBA 1.0 - 2C 2016 (1)\Aplicacion Desktop\ClinicaFrba\ClinicaFrba\obj\Debug\ClinicaFrba.Login.resources
@@ -20,3 +19,6 @@ D:\Downloads\TP CLINICA FRBA 1.0 - 2C 2016 (1)\Aplicacion Desktop\ClinicaFrba\Cl
 D:\Downloads\TP CLINICA FRBA 1.0 - 2C 2016 (1)\Aplicacion Desktop\ClinicaFrba\ClinicaFrba\obj\Debug\ClinicaFrba.MenuPrincipal.Menu.resources
 D:\Downloads\TP CLINICA FRBA 1.0 - 2C 2016 (1)\Aplicacion Desktop\ClinicaFrba\ClinicaFrba\obj\Debug\ClinicaFrba.AbmRol.Alta.resources
 D:\Downloads\TP CLINICA FRBA 1.0 - 2C 2016 (1)\Aplicacion Desktop\ClinicaFrba\ClinicaFrba\obj\Debug\ClinicaFrba.AbmRol.Modificacion.resources
+D:\Downloads\TP CLINICA FRBA 1.0 - 2C 2016 (1)\Aplicacion Desktop\ClinicaFrba\ClinicaFrba\obj\Debug\ClinicaFrba.MenuPrincipal.ElegirRol.resources
+D:\Downloads\TP CLINICA FRBA 1.0 - 2C 2016 (1)\Aplicacion Desktop\ClinicaFrba\ClinicaFrba\obj\Debug\ClinicaFrba.Registrar_Agenda_Medico.Agenda.resources
+D:\Downloads\TP CLINICA FRBA 1.0 - 2C 2016 (1)\Aplicacion Desktop\ClinicaFrba\ClinicaFrba\obj\Debug\ClinicaFrba.csprojResolveAssemblyReference.cache

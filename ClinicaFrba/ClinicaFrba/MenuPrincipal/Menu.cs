@@ -13,10 +13,12 @@ namespace ClinicaFrba.MenuPrincipal
     public partial class Menu : Form
     {
         private bool abmRolVisible;
+        private bool agendaVisible;
 
         public Menu()
         {
             abmRolVisible=false;
+            agendaVisible = false;
             InitializeComponent();
         }
 
@@ -30,17 +32,27 @@ namespace ClinicaFrba.MenuPrincipal
                 if ((string)fila["DESCRIPCION"] == "ABM ROL")  //asi para cada funcionalidad
                     abmRolVisible = true;
 
+                if ((string)fila["DESCRIPCION"] == "REGISTRAR AGENDA")
+                    agendaVisible = true;
+
 
 
             }
 
             btnABMRol.Visible = abmRolVisible;
+            btnAgenda.Visible = agendaVisible;
         }
 
         private void btnABMRol_Click(object sender, EventArgs e)
         {
             AbmRol.ABMrol abm = new AbmRol.ABMrol();
             abm.ShowDialog();
+        }
+
+        private void btnAgenda_Click(object sender, EventArgs e)
+        {
+            Registrar_Agenda_Medico.Agenda frm = new Registrar_Agenda_Medico.Agenda();
+            frm.ShowDialog();
         }
     }
 }

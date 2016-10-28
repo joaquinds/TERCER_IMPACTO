@@ -29,7 +29,7 @@ namespace ClinicaFrba.AbmRol
         {
             comboRoles.DataSource = new Query("SELECT DISTINCT NOMBRE FROM TERCER_IMPACTO.ROL").ObtenerDataTable();
             comboRoles.ValueMember = "NOMBRE";
-         
+            comboRoles.DropDownStyle = ComboBoxStyle.DropDownList;
 
 
         }
@@ -54,6 +54,7 @@ namespace ClinicaFrba.AbmRol
             "JOIN TERCER_IMPACTO.ROL_FUNCIONALIDAD ON FUNC_ID=ID_FUNC WHERE HABILITADO=1 AND ROL_ID='" + id_rol + "'").ObtenerDataTable();
             comboFuncRol.ValueMember = "DESCRIPCION";
             comboFuncRol.SelectedItem = null;
+            comboFuncRol.DropDownStyle = ComboBoxStyle.DropDownList;
 
             comboFuncNoRol.DataSource = new Query("SELECT DISTINCT DESCRIPCION FROM TERCER_IMPACTO.FUNCIONALIDAD " +
                 "JOIN TERCER_IMPACTO.ROL_FUNCIONALIDAD ON FUNC_ID=ID_FUNC " +
@@ -61,6 +62,7 @@ namespace ClinicaFrba.AbmRol
                 "TERCER_IMPACTO.ROL_FUNCIONALIDAD ON FUNC_ID=ID_FUNC WHERE HABILITADO=1 AND ROL_ID='" + id_rol + "')").ObtenerDataTable();
             comboFuncNoRol.ValueMember = "DESCRIPCION";
             comboFuncNoRol.SelectedItem = null;
+            comboFuncNoRol.DropDownStyle = ComboBoxStyle.DropDownList;
 
         }
 

@@ -26,6 +26,7 @@ namespace ClinicaFrba.AbmRol
             comboRol.DataSource = new Query("select NOMBRE from TERCER_IMPACTO.ROL where HABILITADO = 1").ObtenerDataTable();
             comboRol.ValueMember = "NOMBRE";
             comboRol.SelectedItem = null;
+            comboRol.DropDownStyle = ComboBoxStyle.DropDownList;
         
         }
 

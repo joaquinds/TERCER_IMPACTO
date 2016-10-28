@@ -160,5 +160,10 @@ namespace ClinicaFrba
                 }
             }
         }
+
+        internal void addParameter(string p, DateTime dia)
+        {
+            this.pParametros.Add(new SqlParameter(p, dia));
+        }
     }
 }

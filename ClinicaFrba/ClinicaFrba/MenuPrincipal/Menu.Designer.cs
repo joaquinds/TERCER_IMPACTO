@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.btnABMRol = new System.Windows.Forms.Button();
+            this.btnAgenda = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // btnABMRol
@@ -41,11 +42,22 @@
             this.btnABMRol.UseVisualStyleBackColor = true;
             this.btnABMRol.Click += new System.EventHandler(this.btnABMRol_Click);
             // 
+            // btnAgenda
+            // 
+            this.btnAgenda.Location = new System.Drawing.Point(22, 77);
+            this.btnAgenda.Name = "btnAgenda";
+            this.btnAgenda.Size = new System.Drawing.Size(75, 23);
+            this.btnAgenda.TabIndex = 1;
+            this.btnAgenda.Text = "Agenda";
+            this.btnAgenda.UseVisualStyleBackColor = true;
+            this.btnAgenda.Click += new System.EventHandler(this.btnAgenda_Click);
+            // 
             // Menu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(292, 273);
+            this.Controls.Add(this.btnAgenda);
             this.Controls.Add(this.btnABMRol);
             this.Name = "Menu";
             this.Text = "ClinicaFrba";
@@ -57,5 +69,6 @@
         #endregion
 
         private System.Windows.Forms.Button btnABMRol;
+        private System.Windows.Forms.Button btnAgenda;
     }
 }

@@ -49,7 +49,7 @@ namespace ClinicaFrba
                     string password_db = (string)user["PASS"];
                     decimal codigo = (decimal)user["ID_USUARIO"]; //el numeric se castea a decimal
                     
-                    bool bienPass = (bool)new Query("SELECT TERCER_IMPACTO.COMPARAR_HASH( '" + passwordText + "','" + password_db + "')").ObtenerUnicoCampo();
+                    bool bienPass = (bool)new Query("SELECT TERCER_IMPACTO.COMPARAR_HASH( '" + passwordText + "','" + codigo + "')").ObtenerUnicoCampo();
                     if (bienPass)
                     {
                      
@@ -62,9 +62,9 @@ namespace ClinicaFrba
                         this.Visible = false;
                         if (tableRoles.Rows.Count > 1)
                         {
-                            MessageBox.Show("entraste", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                            // Home.MultiRolHome frm = new Home.MultiRolHome();
-                            //frm.ShowDialog();
+                            Globals.id_usuario = codigo;
+                            MenuPrincipal.ElegirRol frm = new MenuPrincipal.ElegirRol(tableRoles);
+                            frm.ShowDialog();
                         }
                         else if (tableRoles.Rows.Count == 0)
                         {
@@ -78,19 +78,10 @@ namespace ClinicaFrba
                             Globals.id_rol = (decimal)rolRow["ID_ROL"];
                             Globals.id_usuario = codigo;
                             Globals.nombre_rol = rol;
-                            //Rol unico Admin
-                            if (rol == "ADMINISTRATIVO")
-                            {
-                                
-                                MenuPrincipal.Menu menu = new MenuPrincipal.Menu();
-                                menu.ShowDialog();
-                            }
-                            //Rol unico Cliente
-                            else
-                            {
-                                //Home.ClientHome frm = new Home.ClientHome();
-                                // frm.ShowDialog();
-                            }
+
+                            MenuPrincipal.Menu menu = new MenuPrincipal.Menu();
+                            menu.ShowDialog();
+                        
                         }
                     }
                     else
