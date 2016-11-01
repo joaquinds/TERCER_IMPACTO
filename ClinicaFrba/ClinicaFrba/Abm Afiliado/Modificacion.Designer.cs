@@ -44,10 +44,11 @@
             this.cmbestcivil = new System.Windows.Forms.ComboBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.label2 = new System.Windows.Forms.Label();
             this.txtmotivo = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
             this.btnguardar = new System.Windows.Forms.Button();
             this.btnvolver = new System.Windows.Forms.Button();
+            this.textBox1 = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.numfamiliares)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -69,6 +70,7 @@
             this.cmbafiliado.Name = "cmbafiliado";
             this.cmbafiliado.Size = new System.Drawing.Size(459, 21);
             this.cmbafiliado.TabIndex = 1;
+            this.cmbafiliado.SelectedIndexChanged += new System.EventHandler(this.cmbafiliado_SelectedIndexChanged);
             // 
             // btnseleccionar
             // 
@@ -205,6 +207,7 @@
             // groupBox2
             // 
             this.groupBox2.BackColor = System.Drawing.Color.White;
+            this.groupBox2.Controls.Add(this.textBox1);
             this.groupBox2.Controls.Add(this.txtmotivo);
             this.groupBox2.Controls.Add(this.label2);
             this.groupBox2.Controls.Add(this.label12);
@@ -216,6 +219,14 @@
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Plan";
             // 
+            // txtmotivo
+            // 
+            this.txtmotivo.Location = new System.Drawing.Point(414, 19);
+            this.txtmotivo.Multiline = true;
+            this.txtmotivo.Name = "txtmotivo";
+            this.txtmotivo.Size = new System.Drawing.Size(233, 40);
+            this.txtmotivo.TabIndex = 39;
+            // 
             // label2
             // 
             this.label2.AutoSize = true;
@@ -225,14 +236,6 @@
             this.label2.Size = new System.Drawing.Size(42, 13);
             this.label2.TabIndex = 38;
             this.label2.Text = "Motivo:";
-            // 
-            // txtmotivo
-            // 
-            this.txtmotivo.Location = new System.Drawing.Point(414, 27);
-            this.txtmotivo.Multiline = true;
-            this.txtmotivo.Name = "txtmotivo";
-            this.txtmotivo.Size = new System.Drawing.Size(233, 40);
-            this.txtmotivo.TabIndex = 39;
             // 
             // btnguardar
             // 
@@ -251,6 +254,13 @@
             this.btnvolver.TabIndex = 42;
             this.btnvolver.Text = "Volver";
             this.btnvolver.UseVisualStyleBackColor = true;
+            // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(83, 20);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(233, 20);
+            this.textBox1.TabIndex = 40;
             // 
             // Modificacion
             // 
@@ -299,5 +309,6 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button btnguardar;
         private System.Windows.Forms.Button btnvolver;
+        private System.Windows.Forms.TextBox textBox1;
     }
 }

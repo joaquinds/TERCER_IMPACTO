@@ -52,7 +52,7 @@ namespace ClinicaFrba.MenuPrincipal
 
             if (anduvo)
             {
-                MenuPrincipal.Menu menu = new MenuPrincipal.Menu();
+                MenuPrincipal.Menus menu = new MenuPrincipal.Menus();
                 menu.ShowDialog();
             }
             else

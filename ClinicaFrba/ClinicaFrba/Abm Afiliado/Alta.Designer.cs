@@ -41,22 +41,24 @@
             this.txtnombre = new System.Windows.Forms.TextBox();
             this.txtapellido = new System.Windows.Forms.TextBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.txtdoc = new System.Windows.Forms.TextBox();
-            this.txttelefono = new System.Windows.Forms.TextBox();
-            this.txtmail = new System.Windows.Forms.TextBox();
-            this.txtdireccion = new System.Windows.Forms.TextBox();
-            this.rdbmasculino = new System.Windows.Forms.RadioButton();
-            this.rdbfemenino = new System.Windows.Forms.RadioButton();
-            this.cmbtipodoc = new System.Windows.Forms.ComboBox();
-            this.dtpfechanac = new System.Windows.Forms.DateTimePicker();
-            this.cmbestcivil = new System.Windows.Forms.ComboBox();
-            this.label11 = new System.Windows.Forms.Label();
-            this.label12 = new System.Windows.Forms.Label();
+            this.numfamiliares = new System.Windows.Forms.NumericUpDown();
+            this.txtafiliado = new System.Windows.Forms.TextBox();
             this.label13 = new System.Windows.Forms.Label();
+            this.label12 = new System.Windows.Forms.Label();
+            this.label11 = new System.Windows.Forms.Label();
+            this.cmbestcivil = new System.Windows.Forms.ComboBox();
+            this.dtpfechanac = new System.Windows.Forms.DateTimePicker();
+            this.cmbtipodoc = new System.Windows.Forms.ComboBox();
+            this.rdbfemenino = new System.Windows.Forms.RadioButton();
+            this.rdbmasculino = new System.Windows.Forms.RadioButton();
+            this.txtdireccion = new System.Windows.Forms.TextBox();
+            this.txtmail = new System.Windows.Forms.TextBox();
+            this.txttelefono = new System.Windows.Forms.TextBox();
+            this.txtdoc = new System.Windows.Forms.TextBox();
             this.btnalta = new System.Windows.Forms.Button();
             this.btnvolver = new System.Windows.Forms.Button();
-            this.txtafiliado = new System.Windows.Forms.TextBox();
-            this.numfamiliares = new System.Windows.Forms.NumericUpDown();
+            this.btnlimpiar = new System.Windows.Forms.Button();
+            this.txtplan = new System.Windows.Forms.TextBox();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numfamiliares)).BeginInit();
             this.SuspendLayout();
@@ -66,18 +68,18 @@
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(22, 55);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(57, 13);
+            this.label1.Size = new System.Drawing.Size(47, 13);
             this.label1.TabIndex = 0;
-            this.label1.Text = "Nombre/s:";
+            this.label1.Text = "Nombre:";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
             this.label2.Location = new System.Drawing.Point(354, 55);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(57, 13);
+            this.label2.Size = new System.Drawing.Size(47, 13);
             this.label2.TabIndex = 1;
-            this.label2.Text = "Apellido/s:";
+            this.label2.Text = "Apellido:";
             // 
             // label3
             // 
@@ -167,6 +169,7 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.txtplan);
             this.groupBox1.Controls.Add(this.numfamiliares);
             this.groupBox1.Controls.Add(this.txtafiliado);
             this.groupBox1.Controls.Add(this.label13);
@@ -189,75 +192,50 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Información Personal";
             // 
-            // txtdoc
+            // numfamiliares
             // 
-            this.txtdoc.Location = new System.Drawing.Point(437, 53);
-            this.txtdoc.Name = "txtdoc";
-            this.txtdoc.Size = new System.Drawing.Size(201, 20);
-            this.txtdoc.TabIndex = 13;
+            this.numfamiliares.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.numfamiliares.Location = new System.Drawing.Point(125, 223);
+            this.numfamiliares.Name = "numfamiliares";
+            this.numfamiliares.Size = new System.Drawing.Size(182, 20);
+            this.numfamiliares.TabIndex = 27;
             // 
-            // txttelefono
+            // txtafiliado
             // 
-            this.txttelefono.Location = new System.Drawing.Point(405, 89);
-            this.txttelefono.Name = "txttelefono";
-            this.txttelefono.Size = new System.Drawing.Size(233, 20);
-            this.txttelefono.TabIndex = 14;
+            this.txtafiliado.Location = new System.Drawing.Point(93, 252);
+            this.txtafiliado.Name = "txtafiliado";
+            this.txtafiliado.Size = new System.Drawing.Size(214, 20);
+            this.txtafiliado.TabIndex = 26;
             // 
-            // txtmail
+            // label13
             // 
-            this.txtmail.Location = new System.Drawing.Point(405, 120);
-            this.txtmail.Name = "txtmail";
-            this.txtmail.Size = new System.Drawing.Size(233, 20);
-            this.txtmail.TabIndex = 15;
+            this.label13.AutoSize = true;
+            this.label13.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label13.Location = new System.Drawing.Point(10, 259);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(67, 13);
+            this.label13.TabIndex = 25;
+            this.label13.Text = "Nro. Afiliado:";
             // 
-            // txtdireccion
+            // label12
             // 
-            this.txtdireccion.Location = new System.Drawing.Point(74, 89);
-            this.txtdireccion.Name = "txtdireccion";
-            this.txtdireccion.Size = new System.Drawing.Size(233, 20);
-            this.txtdireccion.TabIndex = 16;
+            this.label12.AutoSize = true;
+            this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label12.Location = new System.Drawing.Point(342, 223);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(69, 13);
+            this.label12.TabIndex = 24;
+            this.label12.Text = "Plan Médico:";
             // 
-            // rdbmasculino
+            // label11
             // 
-            this.rdbmasculino.AutoSize = true;
-            this.rdbmasculino.Location = new System.Drawing.Point(74, 159);
-            this.rdbmasculino.Name = "rdbmasculino";
-            this.rdbmasculino.Size = new System.Drawing.Size(82, 17);
-            this.rdbmasculino.TabIndex = 18;
-            this.rdbmasculino.TabStop = true;
-            this.rdbmasculino.Text = "Masculino";
-            this.rdbmasculino.UseVisualStyleBackColor = true;
-            // 
-            // rdbfemenino
-            // 
-            this.rdbfemenino.AutoSize = true;
-            this.rdbfemenino.Location = new System.Drawing.Point(74, 182);
-            this.rdbfemenino.Name = "rdbfemenino";
-            this.rdbfemenino.Size = new System.Drawing.Size(79, 17);
-            this.rdbfemenino.TabIndex = 19;
-            this.rdbfemenino.TabStop = true;
-            this.rdbfemenino.Text = "Femenino";
-            this.rdbfemenino.UseVisualStyleBackColor = true;
-            // 
-            // cmbtipodoc
-            // 
-            this.cmbtipodoc.FormattingEnabled = true;
-            this.cmbtipodoc.Items.AddRange(new object[] {
-            "LC",
-            "LE",
-            "DNI",
-            "CI"});
-            this.cmbtipodoc.Location = new System.Drawing.Point(74, 53);
-            this.cmbtipodoc.Name = "cmbtipodoc";
-            this.cmbtipodoc.Size = new System.Drawing.Size(233, 21);
-            this.cmbtipodoc.TabIndex = 20;
-            // 
-            // dtpfechanac
-            // 
-            this.dtpfechanac.Location = new System.Drawing.Point(125, 121);
-            this.dtpfechanac.Name = "dtpfechanac";
-            this.dtpfechanac.Size = new System.Drawing.Size(182, 20);
-            this.dtpfechanac.TabIndex = 21;
+            this.label11.AutoSize = true;
+            this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label11.Location = new System.Drawing.Point(10, 223);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(95, 13);
+            this.label11.TabIndex = 23;
+            this.label11.Text = "Familiares a cargo:";
             // 
             // cmbestcivil
             // 
@@ -273,35 +251,75 @@
             this.cmbestcivil.Size = new System.Drawing.Size(217, 21);
             this.cmbestcivil.TabIndex = 22;
             // 
-            // label11
+            // dtpfechanac
             // 
-            this.label11.AutoSize = true;
-            this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label11.Location = new System.Drawing.Point(10, 223);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(95, 13);
-            this.label11.TabIndex = 23;
-            this.label11.Text = "Familiares a cargo:";
+            this.dtpfechanac.Location = new System.Drawing.Point(125, 121);
+            this.dtpfechanac.Name = "dtpfechanac";
+            this.dtpfechanac.Size = new System.Drawing.Size(182, 20);
+            this.dtpfechanac.TabIndex = 21;
             // 
-            // label12
+            // cmbtipodoc
             // 
-            this.label12.AutoSize = true;
-            this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label12.Location = new System.Drawing.Point(342, 223);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(69, 13);
-            this.label12.TabIndex = 24;
-            this.label12.Text = "Plan Médico:";
+            this.cmbtipodoc.FormattingEnabled = true;
+            this.cmbtipodoc.Items.AddRange(new object[] {
+            "LC",
+            "LE",
+            "DNI",
+            "CI"});
+            this.cmbtipodoc.Location = new System.Drawing.Point(74, 53);
+            this.cmbtipodoc.Name = "cmbtipodoc";
+            this.cmbtipodoc.Size = new System.Drawing.Size(233, 21);
+            this.cmbtipodoc.TabIndex = 20;
             // 
-            // label13
+            // rdbfemenino
             // 
-            this.label13.AutoSize = true;
-            this.label13.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label13.Location = new System.Drawing.Point(10, 259);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(67, 13);
-            this.label13.TabIndex = 25;
-            this.label13.Text = "Nro. Afiliado:";
+            this.rdbfemenino.AutoSize = true;
+            this.rdbfemenino.Location = new System.Drawing.Point(74, 182);
+            this.rdbfemenino.Name = "rdbfemenino";
+            this.rdbfemenino.Size = new System.Drawing.Size(79, 17);
+            this.rdbfemenino.TabIndex = 19;
+            this.rdbfemenino.TabStop = true;
+            this.rdbfemenino.Text = "Femenino";
+            this.rdbfemenino.UseVisualStyleBackColor = true;
+            // 
+            // rdbmasculino
+            // 
+            this.rdbmasculino.AutoSize = true;
+            this.rdbmasculino.Location = new System.Drawing.Point(74, 159);
+            this.rdbmasculino.Name = "rdbmasculino";
+            this.rdbmasculino.Size = new System.Drawing.Size(82, 17);
+            this.rdbmasculino.TabIndex = 18;
+            this.rdbmasculino.TabStop = true;
+            this.rdbmasculino.Text = "Masculino";
+            this.rdbmasculino.UseVisualStyleBackColor = true;
+            // 
+            // txtdireccion
+            // 
+            this.txtdireccion.Location = new System.Drawing.Point(74, 89);
+            this.txtdireccion.Name = "txtdireccion";
+            this.txtdireccion.Size = new System.Drawing.Size(233, 20);
+            this.txtdireccion.TabIndex = 16;
+            // 
+            // txtmail
+            // 
+            this.txtmail.Location = new System.Drawing.Point(405, 120);
+            this.txtmail.Name = "txtmail";
+            this.txtmail.Size = new System.Drawing.Size(233, 20);
+            this.txtmail.TabIndex = 15;
+            // 
+            // txttelefono
+            // 
+            this.txttelefono.Location = new System.Drawing.Point(405, 89);
+            this.txttelefono.Name = "txttelefono";
+            this.txttelefono.Size = new System.Drawing.Size(233, 20);
+            this.txttelefono.TabIndex = 14;
+            // 
+            // txtdoc
+            // 
+            this.txtdoc.Location = new System.Drawing.Point(437, 53);
+            this.txtdoc.Name = "txtdoc";
+            this.txtdoc.Size = new System.Drawing.Size(201, 20);
+            this.txtdoc.TabIndex = 13;
             // 
             // btnalta
             // 
@@ -321,20 +339,21 @@
             this.btnvolver.Text = "Volver";
             this.btnvolver.UseVisualStyleBackColor = true;
             // 
-            // txtafiliado
+            // btnlimpiar
             // 
-            this.txtafiliado.Location = new System.Drawing.Point(93, 252);
-            this.txtafiliado.Name = "txtafiliado";
-            this.txtafiliado.Size = new System.Drawing.Size(214, 20);
-            this.txtafiliado.TabIndex = 26;
+            this.btnlimpiar.Location = new System.Drawing.Point(266, 353);
+            this.btnlimpiar.Name = "btnlimpiar";
+            this.btnlimpiar.Size = new System.Drawing.Size(75, 23);
+            this.btnlimpiar.TabIndex = 15;
+            this.btnlimpiar.Text = "Limpiar";
+            this.btnlimpiar.UseVisualStyleBackColor = true;
             // 
-            // numfamiliares
+            // txtplan
             // 
-            this.numfamiliares.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.numfamiliares.Location = new System.Drawing.Point(125, 223);
-            this.numfamiliares.Name = "numfamiliares";
-            this.numfamiliares.Size = new System.Drawing.Size(182, 20);
-            this.numfamiliares.TabIndex = 27;
+            this.txtplan.Location = new System.Drawing.Point(421, 222);
+            this.txtplan.Name = "txtplan";
+            this.txtplan.Size = new System.Drawing.Size(217, 20);
+            this.txtplan.TabIndex = 28;
             // 
             // Alta
             // 
@@ -342,6 +361,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(679, 404);
+            this.Controls.Add(this.btnlimpiar);
             this.Controls.Add(this.btnvolver);
             this.Controls.Add(this.btnalta);
             this.Controls.Add(this.txtapellido);
@@ -398,5 +418,7 @@
         private System.Windows.Forms.Button btnalta;
         private System.Windows.Forms.Button btnvolver;
         private System.Windows.Forms.NumericUpDown numfamiliares;
+        private System.Windows.Forms.Button btnlimpiar;
+        private System.Windows.Forms.TextBox txtplan;
     }
 }

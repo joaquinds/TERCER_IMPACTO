@@ -79,7 +79,7 @@ namespace ClinicaFrba
                             Globals.id_usuario = codigo;
                             Globals.nombre_rol = rol;
 
-                            MenuPrincipal.Menu menu = new MenuPrincipal.Menu();
+                            MenuPrincipal.Menus menu = new MenuPrincipal.Menus();
                             menu.ShowDialog();
                         
                         }

@@ -16,5 +16,21 @@ namespace ClinicaFrba.Abm_Afiliado
         {
             InitializeComponent();
         }
+        private void btnVolver_Click(object sender, EventArgs e)
+        {
+
+            ABMafiliado volver = new ABMafiliado();
+            this.Hide();
+            volver.ShowDialog();
+            volver = (ABMafiliado)this.ActiveMdiChild;
+
+        }
+        private void btnLimpiar_Click(object sender, EventArgs e)
+        {
+
+            cmbafiliados.Text = "";
+            
+        }
+
     }
 }

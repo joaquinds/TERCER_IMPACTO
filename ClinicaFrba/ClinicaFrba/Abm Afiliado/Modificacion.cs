@@ -16,5 +16,10 @@ namespace ClinicaFrba.Abm_Afiliado
         {
             InitializeComponent();
         }
+
+        private void cmbafiliado_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }
