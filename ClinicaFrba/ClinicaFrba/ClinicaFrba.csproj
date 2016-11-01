@@ -48,11 +48,29 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Abm Afiliado\Form1.cs">
+    <Compile Include="Abm Afiliado\Baja.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Abm Afiliado\Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="Abm Afiliado\Baja.Designer.cs">
+      <DependentUpon>Baja.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Abm Afiliado\Alta.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Abm Afiliado\Alta.Designer.cs">
+      <DependentUpon>Alta.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Abm Afiliado\Modificacion.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Abm Afiliado\Modificacion.Designer.cs">
+      <DependentUpon>Modificacion.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Abm Afiliado\ABMafiliado.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Abm Afiliado\ABMafiliado.Designer.cs">
+      <DependentUpon>ABMafiliado.cs</DependentUpon>
     </Compile>
     <Compile Include="Abm Especialidades Medicas\Form1.cs">
       <SubType>Form</SubType>
@@ -161,6 +179,18 @@
     <Compile Include="Registro Resultado\Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Abm Afiliado\Alta.resx">
+      <DependentUpon>Alta.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Abm Afiliado\ABMafiliado.resx">
+      <DependentUpon>ABMafiliado.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Abm Afiliado\Baja.resx">
+      <DependentUpon>Baja.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Abm Afiliado\Modificacion.resx">
+      <DependentUpon>Modificacion.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="AbmRol\ABMrol.resx">
       <DependentUpon>ABMrol.cs</DependentUpon>
     </EmbeddedResource>

@@ -59,7 +59,7 @@
             this.btnModificacion.Name = "btnModificacion";
             this.btnModificacion.Size = new System.Drawing.Size(75, 23);
             this.btnModificacion.TabIndex = 2;
-            this.btnModificacion.Text = "Modificacion";
+            this.btnModificacion.Text = "Modificación";
             this.btnModificacion.UseVisualStyleBackColor = true;
             this.btnModificacion.Click += new System.EventHandler(this.btnModificacion_Click);
             // 

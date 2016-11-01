@@ -21,7 +21,7 @@ namespace ClinicaFrba.AbmRol
 
         private void Modificacion_Load(object sender, EventArgs e)
         {
-            llenarRoles();
+            .llenarRoles();
             btnHabilitar.Visible = false;
         }
 
