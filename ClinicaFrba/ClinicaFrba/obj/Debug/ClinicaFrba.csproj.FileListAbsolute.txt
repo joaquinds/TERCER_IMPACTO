@@ -38,3 +38,4 @@ C:\Users\GMT256\Documents\GitHub\TERCER_IMPACTO\ClinicaFrba\ClinicaFrba\obj\Debu
 C:\Users\GMT256\Documents\GitHub\TERCER_IMPACTO\ClinicaFrba\ClinicaFrba\obj\Debug\ClinicaFrba.Properties.Resources.resources
 C:\Users\GMT256\Documents\GitHub\TERCER_IMPACTO\ClinicaFrba\ClinicaFrba\obj\Debug\ClinicaFrba.Registrar_Agenda_Medico.Agenda.resources
 C:\Users\GMT256\Documents\GitHub\TERCER_IMPACTO\ClinicaFrba\ClinicaFrba\obj\Debug\ClinicaFrba.csproj.GenerateResource.Cache
+C:\Users\GMT256\Documents\GitHub\TERCER_IMPACTO\ClinicaFrba\ClinicaFrba\obj\Debug\ClinicaFrba.MenuPrincipal.Menus.resources
