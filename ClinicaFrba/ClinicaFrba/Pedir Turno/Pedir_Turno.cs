@@ -16,8 +16,6 @@ namespace ClinicaFrba.Pedir_Turno
         private decimal id_Medico;
         private decimal id_Prof_Especialidad;
         private decimal id_Dia;
-        private DateTime horaInicio;
-        private DateTime horaFin;
         private decimal id_afiliado;
 
         public Pedir_Turno()
@@ -60,14 +58,14 @@ namespace ClinicaFrba.Pedir_Turno
             cmbElegirFecha.SelectedItem = null;
             cmbElegirFecha.DropDownStyle = ComboBoxStyle.DropDownList;
         }
-        private void llenarCmbHorario()
+        private void llenarCmbHorario(TimeSpan ini,TimeSpan fin)
 
         {
             DateTime tiempo= new DateTime();
 
             //hay que completar con los horarios disponibles cada media hora, desde horaInicio, hasta horaFin
             
-            for (DateTime tm = tiempo.AddHours(7); tm <= tiempo.AddHours(20); tm = tm.AddMinutes(30))
+            for (DateTime tm = tiempo.AddHours(ini.Hours); tm < tiempo.AddHours(fin.Hours); tm = tm.AddMinutes(30))
             {
                 cmbElegirHorario.Items.Add(tm.ToShortTimeString());        
             }
@@ -114,24 +112,41 @@ namespace ClinicaFrba.Pedir_Turno
 
         private void btnConfirmarT_Click(object sender, EventArgs e)
         {
-           // arreglar la forma en la que compara la fecha (error de comparacion string con Datetime)
-            decimal estaLibre = 0;
-            id_afiliado = (decimal)new Query("SELECT TOP 1 ID_AFILIADO FROM TERCER_IMPACTO.AFILIADO WHERE ID_USUARIO='" + Globals.id_usuario + "'").ObtenerUnicoCampo();
-            estaLibre = (decimal)new Query("SELECT ID_TURNO FROM TERCER_IMPACTO.TURNO WHERE ID_MEDICO'" +
-               id_Medico + "' AND ID_AFILIADO ='" + id_afiliado  + "' AND FECHA = '" + cmbElegirFecha.Text + "'  ").ObtenerUnicoCampo();
-            
-            //FECHA debe recibir fechaCompleta con la FECHA de cmb y el horario JUNTOS (hay q juntar la info de los cmbElegirFecha y cmbElegirHorario)
-            //arreglar fechaCompleta
-           
-            if (estaLibre == 0)
-            {
-                new Query("INSERT INTO TERCER_IMPACTO.TURNO (ID_MEDICO,ID_AFILIADO,FECHA) VALUES ('" + id_Medico + "','" + id_afiliado + "','" + cmbElegirFecha.Text + "')").Ejecutar();
-                MessageBox.Show("El turno se ha registrado exitosamente",
+          
+            id_afiliado = (decimal)new Query("SELECT TOP 1 ID_AFILIADO FROM TERCER_IMPACTO.AFILIADO WHERE USUARIO_ID='" + Globals.id_usuario + "'").ObtenerUnicoCampo();
+
+            bool ya_existe_turno=false;
+
+            string f = cmbElegirFecha.Text;
+            DateTime hora = Convert.ToDateTime(cmbElegirHorario.Text);
+            DateTime fecha = Convert.ToDateTime(f);
+            TimeSpan tiempo = new TimeSpan(0, hora.Hour, hora.Minute, 0);
+            fecha=fecha.Add(tiempo);
+
+
+            //esto no funciona hay que ver como hacer para comparar si existe el turno, el puto string es imposible de transformar
+            Query qr1 = new Query("TERCER_IMPACTO.EXISTE_TURNO");
+            qr1.addParameter("@ID_MED", id_Medico.ToString());
+            qr1.addParameter("@FECHA", fecha);
+            qr1.addParameter("@BIT", ya_existe_turno);
+            qr1.Ejecutar();
+
+
+            //si sacas este bol el insertar turno anda bien 
+            if (!ya_existe_turno)
+            { 
+               
+                Query qr = new Query("TERCER_IMPACTO.SACAR_TURNO");
+                qr.addParameter("@ID_MED", id_Medico.ToString());
+                qr.addParameter("@ID_AFIL", id_afiliado.ToString());
+                qr.addParameter("@FECHA", fecha);
+                qr.Ejecutar();
+                MessageBox.Show("El turno se ha registrado exitosamente , la fecha es: " +fecha.ToString(),
                     "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             else {
-                MessageBox.Show("El turno no esta disponible, por favor seleccione otro horario", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                return;
+              MessageBox.Show("El turno no esta disponible, por favor seleccione otro horario", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+              return;
             }
 
         }
@@ -157,12 +172,17 @@ namespace ClinicaFrba.Pedir_Turno
                 return;
             }
             //arreglar la forma en la que compara la fecha (error de comparacion string con Datetime)
-            DateTime FechaTxt = DateTime.ParseExact(cmbElegirFecha.Text, "yyyy-MM-dd", null);
-            id_Dia = (decimal)new Query("SELECT TOP 1 ID_DIA FROM TERCER_IMPACTO.DIA WHERE FECHA='" + FechaTxt + "'").ObtenerUnicoCampo();
-            horaInicio = (DateTime)new Query("SELECT TOP 1 COMIENZO FROM TERCER_IMPACTO.PROFESIONAL_DIA WHERE ID_PROF_ESP ='" + id_Prof_Especialidad + "' AND ID_DIA = '" + id_Dia + "'").ObtenerUnicoCampo();
-            horaFin = (DateTime)new Query("SELECT TOP 1 FIN FROM TERCER_IMPACTO.PROFESIONAL_DIA WHERE ID_PROF_ESP ='" + id_Prof_Especialidad + "' AND ID_DIA = '" + id_Dia + "'").ObtenerUnicoCampo();
-            llenarCmbHorario();
-            btnConfirmarT.Visible = false;
+            DateTime fecha = Convert.ToDateTime(cmbElegirFecha.Text);
+            //string FechaTxt = fecha.ToShortDateString();
+            id_Dia = (decimal)new Query("SELECT TOP 1 ID_DIA FROM TERCER_IMPACTO.DIA WHERE "+
+                "YEAR(FECHA)='" + fecha.Year + "' AND MONTH(FECHA)='"+ fecha.Month + "' AND "+
+                "DAY(FECHA)='"+fecha.Day+"'").ObtenerUnicoCampo();
+            TimeSpan horaIni;
+            TimeSpan horaFin;
+            horaIni = (TimeSpan)new Query("SELECT TOP 1 COMIENZO FROM TERCER_IMPACTO.PROFESIONAL_DIA WHERE ID_PROF_ESP ='" + id_Prof_Especialidad + "' AND ID_DIA = '" + id_Dia + "'").ObtenerUnicoCampo();
+            horaFin = (TimeSpan)new Query("SELECT TOP 1 FIN FROM TERCER_IMPACTO.PROFESIONAL_DIA WHERE ID_PROF_ESP ='" + id_Prof_Especialidad + "' AND ID_DIA = '" + id_Dia + "'").ObtenerUnicoCampo();
+            llenarCmbHorario(horaIni,horaFin);
+            btnConfirmarT.Visible = true;
         }
      
     }

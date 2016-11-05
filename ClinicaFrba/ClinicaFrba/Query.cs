@@ -36,6 +36,13 @@ namespace ClinicaFrba
 
         }
 
+        public void addParameter(string nombre, bool valor)
+        {
+
+            this.pParametros.Add(new SqlParameter(nombre, valor));
+
+        }
+
 
         public DataTable ObtenerDataTable()
         {

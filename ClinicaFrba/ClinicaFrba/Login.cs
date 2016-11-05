@@ -102,7 +102,7 @@ namespace ClinicaFrba
                 MessageBox.Show("El usuario ingresado no existe", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
 
-            
+
 
         }
 
