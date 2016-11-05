@@ -15,12 +15,17 @@ namespace ClinicaFrba.MenuPrincipal
         private bool abmRolVisible;
         private bool agendaVisible;
         private bool abmafiliadoVisible;
+        private bool abmPedirTurnoVisible;
+        private bool abmRegistrarVisible;
+
 
         public Menus()
         {
             abmRolVisible=false;
             agendaVisible = false;
             abmafiliadoVisible = false;
+            abmPedirTurnoVisible = false;
+            abmRegistrarVisible = false;
             InitializeComponent();
         }
 
@@ -41,6 +46,11 @@ namespace ClinicaFrba.MenuPrincipal
                 if ((string)fila["DESCRIPCION"] == "ABM AFILIADO")
                     abmafiliadoVisible = true;
 
+                if ((string)fila["DESCRIPCION"] == "PEDIR TURNO")
+                    abmPedirTurnoVisible = true;
+
+                if ((string)fila["DESCRIPCION"] == "REGISTRAR LLEGADA")
+                    abmRegistrarVisible = true;
 
 
             }
@@ -48,6 +58,8 @@ namespace ClinicaFrba.MenuPrincipal
             btnABMRol.Visible = abmRolVisible;
             btnAgenda.Visible = agendaVisible;
             btnafiliado.Visible = abmafiliadoVisible;
+            btnPTurno.Visible = abmPedirTurnoVisible;
+            btnRegistrar.Visible = abmRegistrarVisible;
         }
 
         private void btnABMRol_Click(object sender, EventArgs e)
@@ -61,10 +73,27 @@ namespace ClinicaFrba.MenuPrincipal
             Registrar_Agenda_Medico.Agenda frm = new Registrar_Agenda_Medico.Agenda();
             frm.ShowDialog();
         }
-        private void btnAfiliado_Click(object sender, EventArgs e)
+  
+      
+
+        private void btnPTurno_Click_1(object sender, EventArgs e)
+        {
+            Pedir_Turno.Pedir_Turno abmPTurno = new Pedir_Turno.Pedir_Turno();
+            abmPTurno.ShowDialog();
+        }
+
+        private void btnRegistrar_Click_1(object sender, EventArgs e)
+        {
+            Registro_Llegada.Registro_Llegada abmRegistro = new Registro_Llegada.Registro_Llegada();
+            abmRegistro.ShowDialog();
+        }
+
+        private void btnafiliado_Click_1(object sender, EventArgs e)
         {
             Abm_Afiliado.ABMafiliado frm = new Abm_Afiliado.ABMafiliado();
             frm.ShowDialog();
         }
+
+
     }
 }

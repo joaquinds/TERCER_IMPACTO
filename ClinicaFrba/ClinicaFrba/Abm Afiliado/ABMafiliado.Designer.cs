@@ -70,7 +70,7 @@
             this.btnvolver.Text = "Volver";
             this.btnvolver.UseVisualStyleBackColor = true;
             // 
-            // Baja
+            // ABMafiliado
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -80,8 +80,9 @@
             this.Controls.Add(this.btnbaja);
             this.Controls.Add(this.btnmodif);
             this.Controls.Add(this.btnalta);
-            this.Name = "Baja";
+            this.Name = "ABMafiliado";
             this.Text = "ABM Afiliado";
+            this.Load += new System.EventHandler(this.ABMafiliado_Load);
             this.ResumeLayout(false);
 
         }

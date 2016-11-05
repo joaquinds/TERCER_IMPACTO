@@ -31,6 +31,8 @@
             this.btnABMRol = new System.Windows.Forms.Button();
             this.btnAgenda = new System.Windows.Forms.Button();
             this.btnafiliado = new System.Windows.Forms.Button();
+            this.btnRegistrar = new System.Windows.Forms.Button();
+            this.btnPTurno = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // btnABMRol
@@ -61,12 +63,35 @@
             this.btnafiliado.TabIndex = 2;
             this.btnafiliado.Text = "ABM Afiliado";
             this.btnafiliado.UseVisualStyleBackColor = true;
+            this.btnafiliado.Click += new System.EventHandler(this.btnafiliado_Click_1);
+            // 
+            // btnRegistrar
+            // 
+            this.btnRegistrar.Location = new System.Drawing.Point(22, 201);
+            this.btnRegistrar.Name = "btnRegistrar";
+            this.btnRegistrar.Size = new System.Drawing.Size(103, 23);
+            this.btnRegistrar.TabIndex = 3;
+            this.btnRegistrar.Text = "Registrar Llegada";
+            this.btnRegistrar.UseVisualStyleBackColor = true;
+            this.btnRegistrar.Click += new System.EventHandler(this.btnRegistrar_Click_1);
+            // 
+            // btnPTurno
+            // 
+            this.btnPTurno.Location = new System.Drawing.Point(22, 160);
+            this.btnPTurno.Name = "btnPTurno";
+            this.btnPTurno.Size = new System.Drawing.Size(103, 23);
+            this.btnPTurno.TabIndex = 4;
+            this.btnPTurno.Text = "Pedir Turno";
+            this.btnPTurno.UseVisualStyleBackColor = true;
+            this.btnPTurno.Click += new System.EventHandler(this.btnPTurno_Click_1);
             // 
             // Menus
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(292, 273);
+            this.Controls.Add(this.btnPTurno);
+            this.Controls.Add(this.btnRegistrar);
             this.Controls.Add(this.btnafiliado);
             this.Controls.Add(this.btnAgenda);
             this.Controls.Add(this.btnABMRol);
@@ -82,5 +107,7 @@
         private System.Windows.Forms.Button btnABMRol;
         private System.Windows.Forms.Button btnAgenda;
         private System.Windows.Forms.Button btnafiliado;
+        private System.Windows.Forms.Button btnRegistrar;
+        private System.Windows.Forms.Button btnPTurno;
     }
 }
