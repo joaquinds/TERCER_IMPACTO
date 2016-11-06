@@ -17,7 +17,8 @@ namespace ClinicaFrba.Registro_Llegada
         private decimal id_Turno;
         private decimal id_Afiliado;
         private DateTime fechaTurno;
-        private decimal cant_bonos;
+        private int cant_bonos;
+        private decimal id_Consulta;
 
         public Registro_Llegada()
         {
@@ -25,6 +26,7 @@ namespace ClinicaFrba.Registro_Llegada
             id_Especialidad = -1;
             id_Medico = -1;
             id_Turno = -1;
+            id_Consulta = -1;
             InitializeComponent();
         }
 
@@ -59,9 +61,9 @@ namespace ClinicaFrba.Registro_Llegada
         }
         private void obtenerCantBonos()
         {
-            //agregar a la tabla Afiliado un atributo CantBonos, que sea un count de todos los bonos con mismo id_afiliado
-            cant_bonos = (decimal) new Query("SELECT CANT_BONOS FROM TERCER_IMPACTO.AFILIADO " +
-                 " WHERE ID_AFILIADO='" + id_Afiliado + "'").ObtenerUnicoCampo();
+            //agregar a la tabla Afiliado id_consulta
+            cant_bonos = (int) new Query("SELECT COUNT(ID_BONO) FROM TERCER_IMPACTO.BONO " +
+                 " WHERE ID_AFILIADO='" + id_Afiliado + "' and  ID_CONSULTA is null").ObtenerUnicoCampo();
             lblBonos.Text = Convert.ToString(cant_bonos);
             if (cant_bonos == 0)
              {
@@ -104,6 +106,7 @@ namespace ClinicaFrba.Registro_Llegada
                 MessageBox.Show("Seleccione un Turno", "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return;
             }
+            //
             fechaTurno = Convert.ToDateTime(cmbTurno.Text);
             id_Afiliado = (decimal)new Query("SELECT TOP 1 ID_AFILIADO FROM TERCER_IMPACTO.TURNO WHERE FECHA='" + fechaTurno + "' AND ID_MEDICO ='" + id_Medico + "' ").ObtenerUnicoCampo();
             id_Turno = (decimal)new Query("SELECT TOP 1 ID_TURNO FROM TERCER_IMPACTO.TURNO WHERE FECHA='" + Convert.ToDateTime(cmbTurno.Text) + "' AND ID_MEDICO ='" + id_Medico + "'AND ID_AFILIADO ='" + id_Afiliado + "' ").ObtenerUnicoCampo();
@@ -114,6 +117,13 @@ namespace ClinicaFrba.Registro_Llegada
         private void btnEfectivizar_Click(object sender, EventArgs e)
         {
             new Query("INSERT INTO TERCER_IMPACTO.CONSULTA (ID_TURNO,FECHA) VALUES ('" + id_Turno + "','" + fechaTurno +"')").Ejecutar();
+         
+
+            Query qr = new Query("TERCER_IMPACTO.AGREGAR_ID_CONSULTA"); 
+            qr.addParameter("@TURNO", id_Turno.ToString());
+            qr.addParameter("@FECHA", fechaTurno.ToString());
+            qr.addParameter("@AFILIADO", id_Afiliado.ToString());
+            qr.Ejecutar();
             MessageBox.Show("La consulta se ha registrado exitosamente",
                 "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }

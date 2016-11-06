@@ -18,6 +18,7 @@ namespace ClinicaFrba.MenuPrincipal
         private bool abmPedirTurnoVisible;
         private bool abmRegistrarVisible;
         private bool btnComprarVisible;
+        private bool abmRegistrarResul;
 
 
         public Menus()
@@ -28,6 +29,8 @@ namespace ClinicaFrba.MenuPrincipal
             abmPedirTurnoVisible = false;
             abmRegistrarVisible = false;
             btnComprarVisible = false;
+            abmRegistrarResul = false;
+            
             InitializeComponent();
         }
 
@@ -57,7 +60,8 @@ namespace ClinicaFrba.MenuPrincipal
                 if ((string)fila["DESCRIPCION"] == "COMPRAR BONOS")
                     btnComprarVisible = true;
 
-
+                if ((string)fila["DESCRIPCION"] == "REGISTRAR DIAGNOSTICO")
+                    abmRegistrarResul= true;
             }
 
             btnABMRol.Visible = abmRolVisible;
@@ -66,6 +70,8 @@ namespace ClinicaFrba.MenuPrincipal
             btnPTurno.Visible = abmPedirTurnoVisible;
             btnRegistrar.Visible = abmRegistrarVisible;
             button1.Visible = btnComprarVisible;
+            btnRegistrarResul.Visible = abmRegistrarResul;
+
         }
 
         private void btnABMRol_Click(object sender, EventArgs e)
@@ -105,6 +111,12 @@ namespace ClinicaFrba.MenuPrincipal
             Compra_Bono.Compra frm = new Compra_Bono.Compra();
             frm.ShowDialog();
 
+        }
+
+        private void btnRegistrarResul_Click(object sender, EventArgs e)
+        {
+            Registro_Resultado.Registrar_Resultado resultado = new Registro_Resultado.Registrar_Resultado();
+            resultado.ShowDialog();
         }
 
 
