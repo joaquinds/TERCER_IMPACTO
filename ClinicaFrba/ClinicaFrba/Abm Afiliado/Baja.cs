@@ -22,7 +22,7 @@ namespace ClinicaFrba.Abm_Afiliado
         private void LlenarComboBox()
         {
 
-            cmbafiliados.DataSource = new Query("select ID_AFILIADO,NOMBRE,APELLIDO from TERCER_IMPACTO.AFILIADO").ObtenerDataTable();
+            cmbafiliados.DataSource = new Query("select ID_AFILIADO,NOMBRE,APELLIDO from TERCER_IMPACTO.AFILIADO WHERE HABILITADO = 1").ObtenerDataTable();
             cmbafiliados.ValueMember = "APELLIDO" + ',' + "NOMBRE";
             cmbafiliados.SelectedItem = null;
             cmbafiliados.DropDownStyle = ComboBoxStyle.DropDownList;

@@ -73,6 +73,7 @@
             this.Controls.Add(this.btnAlta);
             this.Name = "ABMrol";
             this.Text = "ABM Rol";
+            this.Load += new System.EventHandler(this.ABMrol_Load);
             this.ResumeLayout(false);
 
         }

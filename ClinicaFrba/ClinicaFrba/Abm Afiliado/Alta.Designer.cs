@@ -58,7 +58,7 @@
             this.btnalta = new System.Windows.Forms.Button();
             this.btnvolver = new System.Windows.Forms.Button();
             this.btnlimpiar = new System.Windows.Forms.Button();
-            this.txtplan = new System.Windows.Forms.TextBox();
+            this.cmbplanes = new System.Windows.Forms.ComboBox();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numfamiliares)).BeginInit();
             this.SuspendLayout();
@@ -169,7 +169,7 @@
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.txtplan);
+            this.groupBox1.Controls.Add(this.cmbplanes);
             this.groupBox1.Controls.Add(this.numfamiliares);
             this.groupBox1.Controls.Add(this.txtafiliado);
             this.groupBox1.Controls.Add(this.label13);
@@ -348,12 +348,13 @@
             this.btnlimpiar.Text = "Limpiar";
             this.btnlimpiar.UseVisualStyleBackColor = true;
             // 
-            // txtplan
+            // cmbplanes
             // 
-            this.txtplan.Location = new System.Drawing.Point(421, 222);
-            this.txtplan.Name = "txtplan";
-            this.txtplan.Size = new System.Drawing.Size(217, 20);
-            this.txtplan.TabIndex = 28;
+            this.cmbplanes.FormattingEnabled = true;
+            this.cmbplanes.Location = new System.Drawing.Point(421, 223);
+            this.cmbplanes.Name = "cmbplanes";
+            this.cmbplanes.Size = new System.Drawing.Size(217, 21);
+            this.cmbplanes.TabIndex = 28;
             // 
             // Alta
             // 
@@ -419,6 +420,6 @@
         private System.Windows.Forms.Button btnvolver;
         private System.Windows.Forms.NumericUpDown numfamiliares;
         private System.Windows.Forms.Button btnlimpiar;
-        private System.Windows.Forms.TextBox txtplan;
+        private System.Windows.Forms.ComboBox cmbplanes;
     }
 }

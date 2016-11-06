@@ -12,6 +12,7 @@ namespace ClinicaFrba.Abm_Afiliado
 {
     public partial class Alta : Form
     {
+        private decimal planMedico;
         public Alta()
         {
             InitializeComponent();
@@ -45,6 +46,16 @@ namespace ClinicaFrba.Abm_Afiliado
             volver.ShowDialog();
             volver = (ABMafiliado)this.ActiveMdiChild;
 
+        }
+        //llenar plan medico
+        private void LlenarComboBox()
+        {
+
+            cmbplanes.DataSource = new Query("select DESCRIPCION from TERCER_IMPACTO.PLAN_MEDICO").ObtenerDataTable();
+            cmbplanes.ValueMember = "DESCRIPCION";
+            cmbplanes.SelectedItem = null;
+            cmbplanes.DropDownStyle = ComboBoxStyle.DropDownList;
+            
         }
 
         private void btnAlta_Click(object sender,EventArgs e)
@@ -89,13 +100,28 @@ namespace ClinicaFrba.Abm_Afiliado
             }
             int cant_hijos = Convert.ToInt32(numfamiliares);
             
+                      
+            Random r = new Random();
+            int raiz = r.Next(10000,100000);//genero el nro raiz del afiliado
 
-            new Query("INSERT INTO TERCER_IMPACTO.AFILIADO (NOMBRE,APELLIDO,TIPO_DOC,NRO_DOC,DIRECCION,TELEFONO,MAIL,FECHA_NAC,SEXO,ESTADO_CIVIL,CANT_HIJOS) VALUES ('" + nombre + "','" + apellido + "','" + tipo_doc + "','" + nro_doc + "','" + direccion + "','" + telefono + "','" + mail + "','" + fecha_nac + "','" + sexo + "','" + estado_civil + "','" + cant_hijos + "')").Ejecutar();
-            MessageBox.Show("Alta de afiliado procesada exitosamente.","Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            var codfamiliar = 01;//inicializo el codigo de familiar 
 
 
- 
-            
+            txtafiliado.Text = Convert.ToString(raiz + codfamiliar);//lleno el numero de afiliado
+            int nro_afiliado = Convert.ToInt32(txtafiliado.Text);
+
+            planMedico = (decimal)new Query("SELECT ID_PLAN_MEDICO FROM TERCER_IMPACTO.PLAN_MEDICO WHERE DESCRIPCION ='" + cmbplanes.Text + "'").ObtenerUnicoCampo();
+
+
+            new Query("INSERT INTO TERCER_IMPACTO.AFILIADO (NOMBRE,APELLIDO,TIPO_DOC,NRO_DOC,DIRECCION,TELEFONO,MAIL,FECHA_NAC,SEXO,ESTADO_CIVIL,CANT_HIJOS,ID_PLAN_MEDICO,NRO_AFILIADO) VALUES ('" + nombre + "','" + apellido + "','" + tipo_doc + "','" + nro_doc + "','" + direccion + "','" + telefono + "','" + mail + "','" + fecha_nac + "','" + sexo + "','" + estado_civil + "','" + cant_hijos + "','" + planMedico + "','" + nro_afiliado + "'").Ejecutar();
+            MessageBox.Show("Alta de afiliado procesada exitosamente.", "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+         
+           
+
+
+
+
 
 
 

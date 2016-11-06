@@ -47,12 +47,7 @@ namespace ClinicaFrba.Abm_Afiliado
 
         }
 
-        private void ABMafiliado_Load(object sender, EventArgs e)
-        {
-
-        }
-
-        
+               
        
     }
 }

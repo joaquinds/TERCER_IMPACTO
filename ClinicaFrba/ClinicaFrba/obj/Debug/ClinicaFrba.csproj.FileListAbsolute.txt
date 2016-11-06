@@ -60,3 +60,5 @@ C:\Users\ezequiel\Gitt\TERCER_IMPACTO\ClinicaFrba\ClinicaFrba\bin\Debug\ClinicaF
 C:\Users\ezequiel\Gitt\TERCER_IMPACTO\ClinicaFrba\ClinicaFrba\bin\Debug\ClinicaFrba.pdb
 C:\Users\ezequiel\Gitt\TERCER_IMPACTO\ClinicaFrba\ClinicaFrba\obj\Debug\ClinicaFrba.exe
 C:\Users\ezequiel\Gitt\TERCER_IMPACTO\ClinicaFrba\ClinicaFrba\obj\Debug\ClinicaFrba.pdb
+C:\Users\GMT256\Documents\GitHub\TERCER_IMPACTO\ClinicaFrba\ClinicaFrba\obj\Debug\ClinicaFrba.exe
+C:\Users\GMT256\Documents\GitHub\TERCER_IMPACTO\ClinicaFrba\ClinicaFrba\obj\Debug\ClinicaFrba.pdb

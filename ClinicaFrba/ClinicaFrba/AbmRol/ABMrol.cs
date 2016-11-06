@@ -40,5 +40,7 @@ namespace ClinicaFrba.AbmRol
             frm.ShowDialog();
             
         }
+
+        
     }
 }
