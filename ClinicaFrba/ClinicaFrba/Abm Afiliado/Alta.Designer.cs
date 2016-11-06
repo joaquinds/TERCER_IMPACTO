@@ -41,6 +41,7 @@
             this.txtnombre = new System.Windows.Forms.TextBox();
             this.txtapellido = new System.Windows.Forms.TextBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.cmbplanes = new System.Windows.Forms.ComboBox();
             this.numfamiliares = new System.Windows.Forms.NumericUpDown();
             this.txtafiliado = new System.Windows.Forms.TextBox();
             this.label13 = new System.Windows.Forms.Label();
@@ -58,7 +59,7 @@
             this.btnalta = new System.Windows.Forms.Button();
             this.btnvolver = new System.Windows.Forms.Button();
             this.btnlimpiar = new System.Windows.Forms.Button();
-            this.cmbplanes = new System.Windows.Forms.ComboBox();
+            this.btnconyuge = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numfamiliares)).BeginInit();
             this.SuspendLayout();
@@ -169,6 +170,7 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.btnconyuge);
             this.groupBox1.Controls.Add(this.cmbplanes);
             this.groupBox1.Controls.Add(this.numfamiliares);
             this.groupBox1.Controls.Add(this.txtafiliado);
@@ -191,6 +193,14 @@
             this.groupBox1.TabIndex = 12;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Información Personal";
+            // 
+            // cmbplanes
+            // 
+            this.cmbplanes.FormattingEnabled = true;
+            this.cmbplanes.Location = new System.Drawing.Point(421, 223);
+            this.cmbplanes.Name = "cmbplanes";
+            this.cmbplanes.Size = new System.Drawing.Size(217, 21);
+            this.cmbplanes.TabIndex = 28;
             // 
             // numfamiliares
             // 
@@ -348,13 +358,15 @@
             this.btnlimpiar.Text = "Limpiar";
             this.btnlimpiar.UseVisualStyleBackColor = true;
             // 
-            // cmbplanes
+            // btnconyuge
             // 
-            this.cmbplanes.FormattingEnabled = true;
-            this.cmbplanes.Location = new System.Drawing.Point(421, 223);
-            this.cmbplanes.Name = "cmbplanes";
-            this.cmbplanes.Size = new System.Drawing.Size(217, 21);
-            this.cmbplanes.TabIndex = 28;
+            this.btnconyuge.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnconyuge.Location = new System.Drawing.Point(462, 182);
+            this.btnconyuge.Name = "btnconyuge";
+            this.btnconyuge.Size = new System.Drawing.Size(118, 23);
+            this.btnconyuge.TabIndex = 29;
+            this.btnconyuge.Text = "Alta de conyuge";
+            this.btnconyuge.UseVisualStyleBackColor = true;
             // 
             // Alta
             // 
@@ -421,5 +433,6 @@
         private System.Windows.Forms.NumericUpDown numfamiliares;
         private System.Windows.Forms.Button btnlimpiar;
         private System.Windows.Forms.ComboBox cmbplanes;
+        private System.Windows.Forms.Button btnconyuge;
     }
 }

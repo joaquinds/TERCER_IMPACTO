@@ -33,7 +33,8 @@ namespace ClinicaFrba.Abm_Afiliado
             rdbfemenino.Text = "";
             rdbmasculino.Text = "";
             txtafiliado.Text = "";
-            txtplan.Text = "";
+            cmbplanes.Text = "";
+
 
 
         }
