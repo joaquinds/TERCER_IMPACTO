@@ -40,6 +40,8 @@
             this.btnConfirmarP = new System.Windows.Forms.Button();
             this.btnEEsp = new System.Windows.Forms.Button();
             this.btnElegirFecha = new System.Windows.Forms.Button();
+            this.comboAfiliado = new System.Windows.Forms.ComboBox();
+            this.labelAdmin = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // cmbElegirEsp
@@ -153,11 +155,30 @@
             this.btnElegirFecha.UseVisualStyleBackColor = true;
             this.btnElegirFecha.Click += new System.EventHandler(this.btnElegirFecha_Click);
             // 
+            // comboAfiliado
+            // 
+            this.comboAfiliado.FormattingEnabled = true;
+            this.comboAfiliado.Location = new System.Drawing.Point(214, 12);
+            this.comboAfiliado.Name = "comboAfiliado";
+            this.comboAfiliado.Size = new System.Drawing.Size(121, 21);
+            this.comboAfiliado.TabIndex = 12;
+            // 
+            // labelAdmin
+            // 
+            this.labelAdmin.AutoSize = true;
+            this.labelAdmin.Location = new System.Drawing.Point(26, 15);
+            this.labelAdmin.Name = "labelAdmin";
+            this.labelAdmin.Size = new System.Drawing.Size(79, 13);
+            this.labelAdmin.TabIndex = 13;
+            this.labelAdmin.Text = "Nro de Afiliado:";
+            // 
             // Pedir_Turno
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(420, 412);
+            this.Controls.Add(this.labelAdmin);
+            this.Controls.Add(this.comboAfiliado);
             this.Controls.Add(this.btnElegirFecha);
             this.Controls.Add(this.btnEEsp);
             this.Controls.Add(this.btnConfirmarP);
@@ -192,5 +213,7 @@
         private System.Windows.Forms.Button btnConfirmarP;
         private System.Windows.Forms.Button btnEEsp;
         private System.Windows.Forms.Button btnElegirFecha;
+        private System.Windows.Forms.ComboBox comboAfiliado;
+        private System.Windows.Forms.Label labelAdmin;
     }
 }

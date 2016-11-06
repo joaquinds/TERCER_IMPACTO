@@ -106,6 +106,11 @@ namespace ClinicaFrba
 
         }
 
+        private void Login_Closing(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            Application.Exit();
+        }
+
 
 
 

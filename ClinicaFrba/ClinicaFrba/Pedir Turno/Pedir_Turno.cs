@@ -91,10 +91,26 @@ namespace ClinicaFrba.Pedir_Turno
 
         }
 
+        private void llenarComboAfiliado()
+        {
+            comboAfiliado.DataSource = new Query("SELECT ID_AFILIADO FROM TERCER_IMPACTO.AFILIADO").ObtenerDataTable();
+            comboAfiliado.ValueMember = "ID_AFILIADO";
+            comboAfiliado.DropDownStyle = ComboBoxStyle.DropDownList;
+        }
+
         private void Pedir_Turno_Load(object sender, EventArgs e)
         {
             llenarEspecialidades();
             btnConfirmarT.Visible = false;
+            labelAdmin.Visible = false;
+            comboAfiliado.Visible = false;
+            if (Globals.nombre_rol == "ADMINISTRATIVO")
+            {
+                labelAdmin.Visible = true;
+                comboAfiliado.Visible = true;
+                llenarComboAfiliado();
+            }
+
         }
 
         private void btnEEsp_Click(object sender, EventArgs e)
@@ -112,8 +128,17 @@ namespace ClinicaFrba.Pedir_Turno
 
         private void btnConfirmarT_Click(object sender, EventArgs e)
         {
-          
-            id_afiliado = (decimal)new Query("SELECT TOP 1 ID_AFILIADO FROM TERCER_IMPACTO.AFILIADO WHERE USUARIO_ID='" + Globals.id_usuario + "'").ObtenerUnicoCampo();
+
+            if (Globals.nombre_rol == "AFILIADO")
+
+                id_afiliado = (decimal)new Query("SELECT TOP 1 ID_AFILIADO FROM TERCER_IMPACTO.AFILIADO WHERE USUARIO_ID='" + Globals.id_usuario + "'").ObtenerUnicoCampo();
+
+            else
+            {
+                if (string.IsNullOrEmpty(comboAfiliado.Text))
+                    return;
+                id_afiliado = decimal.Parse(comboAfiliado.Text);
+            }
 
             bool ya_existe_turno=false;
 
@@ -123,16 +148,10 @@ namespace ClinicaFrba.Pedir_Turno
             TimeSpan tiempo = new TimeSpan(0, hora.Hour, hora.Minute, 0);
             fecha=fecha.Add(tiempo);
 
-
-            //esto no funciona hay que ver como hacer para comparar si existe el turno, el puto string es imposible de transformar
-            Query qr1 = new Query("TERCER_IMPACTO.EXISTE_TURNO");
-            qr1.addParameter("@ID_MED", id_Medico.ToString());
-            qr1.addParameter("@FECHA", fecha);
-            qr1.addParameter("@BIT", ya_existe_turno);
-            qr1.Ejecutar();
-
-
-            //si sacas este bol el insertar turno anda bien 
+            Query qr1 = new Query("SELECT TERCER_IMPACTO.EXISTE_TURNO('"+id_Medico+"','"+fecha.Year+"','"+fecha.Month+"','"+
+                fecha.Day+"','"+fecha.Hour+"','"+fecha.Minute+"')");
+            ya_existe_turno = (bool)qr1.ObtenerUnicoCampo();
+        
             if (!ya_existe_turno)
             { 
                
