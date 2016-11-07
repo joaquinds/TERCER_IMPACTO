@@ -88,12 +88,22 @@ namespace ClinicaFrba.Registro_Resultado
            
             id_turno = (decimal)new Query("SELECT ID_TURNO FROM TERCER_IMPACTO.TURNO WHERE FECHA ='" + hora + "' AND ID_MEDICO = '" + id_Medico + "'").ObtenerUnicoCampo();
             //SI ES NULL QUE TIRE EL ERROR (FALTA HACER LA FUNCION, LA HAGO EN UN RATO)
-            id_consulta = (decimal)new Query("SELECT ID_CONSULTA FROM TERCER_IMPACTO.CONSULTA WHERE ID_TURNO='" + id_turno + "' AND FECHA = '" + hora + "'").ObtenerUnicoCampo();
+           // id_consulta = (decimal)new Query("SELECT ID_CONSULTA FROM TERCER_IMPACTO.CONSULTA WHERE ID_TURNO='" + id_turno + "' AND FECHA = '" + hora + "'").ObtenerUnicoCampo();
             //
-            if (id_consulta == 0)
+
+            bool ya_existe_consulta= false;
+            Query qrc = new Query("SELECT TERCER_IMPACTO.EXISTE_CONSULTA('" + id_turno + "','" + hora + "')");
+            ya_existe_consulta = (bool)qrc.ObtenerUnicoCampo();
+
+            if (!ya_existe_consulta)
             {
                 MessageBox.Show("No hay consulta confirmada para la fecha ", "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return;
+                
+            }
+            else {
+               
+                id_consulta = (decimal)new Query("SELECT TOP 1 ID_CONSULTA FROM TERCER_IMPACTO.CONSULTA WHERE ID_TURNO='" + id_turno + "' AND FECHA = '" + hora + "'").ObtenerUnicoCampo();
             }
 
             lblDiagnostico.Visible= true;
