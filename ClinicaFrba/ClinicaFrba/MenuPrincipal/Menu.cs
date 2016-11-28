@@ -19,6 +19,7 @@ namespace ClinicaFrba.MenuPrincipal
         private bool abmRegistrarVisible;
         private bool btnComprarVisible;
         private bool abmRegistrarResul;
+        private bool abmCancelarA;
 
 
         public Menus()
@@ -30,7 +31,7 @@ namespace ClinicaFrba.MenuPrincipal
             abmRegistrarVisible = false;
             btnComprarVisible = false;
             abmRegistrarResul = false;
-            
+            abmCancelarA = false;
             InitializeComponent();
         }
 
@@ -62,6 +63,9 @@ namespace ClinicaFrba.MenuPrincipal
 
                 if ((string)fila["DESCRIPCION"] == "REGISTRAR DIAGNOSTICO")
                     abmRegistrarResul= true;
+
+                if ((string)fila["DESCRIPCION"] == "CANCELAR AFILIADO")
+                    abmCancelarA = true;
             }
 
             btnABMRol.Visible = abmRolVisible;
@@ -71,6 +75,7 @@ namespace ClinicaFrba.MenuPrincipal
             btnRegistrar.Visible = abmRegistrarVisible;
             button1.Visible = btnComprarVisible;
             btnRegistrarResul.Visible = abmRegistrarResul;
+            btnCancelarA.Visible = abmCancelarA;
 
         }
 
@@ -117,6 +122,12 @@ namespace ClinicaFrba.MenuPrincipal
         {
             Registro_Resultado.Registrar_Resultado resultado = new Registro_Resultado.Registrar_Resultado();
             resultado.ShowDialog();
+        }
+
+        private void cmbTurnoA_Click(object sender, EventArgs e)
+        {
+            Cancelar_Atencion.CancelarAtencion cancelar = new Cancelar_Atencion.CancelarAtencion();
+            cancelar.ShowDialog();
         }
 
 

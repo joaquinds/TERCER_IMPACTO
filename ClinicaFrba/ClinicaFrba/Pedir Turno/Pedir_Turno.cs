@@ -50,7 +50,7 @@ namespace ClinicaFrba.Pedir_Turno
 
         private void llenarCmbFecha()
         {
-
+            
             cmbElegirFecha.DataSource = new Query("SELECT DISTINCT FECHA FROM TERCER_IMPACTO.DIA D1, TERCER_IMPACTO.PROFESIONAL_DIA P1" +
               
                 " WHERE P1.ID_PROF_ESP='" + id_Prof_Especialidad + "' AND D1.ID_DIA = P1.ID_DIA").ObtenerDataTable();
@@ -162,6 +162,19 @@ namespace ClinicaFrba.Pedir_Turno
                 qr.Ejecutar();
                 MessageBox.Show("El turno se ha registrado exitosamente , la fecha es: " +fecha.ToString(),
                     "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                /*
+                cmbElegirEsp.DataSource = null;
+                cmbElegirProf.DataSource = null;
+                cmbElegirFecha.DataSource = null;
+                cmbElegirHorario.DataSource = null;
+                cmbElegirHorario.Items.Clear();
+                cmbElegirProf.Items.Clear();
+                cmbElegirFecha.Items.Clear();
+                cmbElegirEsp.items.Clear ();
+                 */
+
+
             }
             else {
               MessageBox.Show("El turno no esta disponible, por favor seleccione otro horario", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
@@ -202,6 +215,45 @@ namespace ClinicaFrba.Pedir_Turno
             horaFin = (TimeSpan)new Query("SELECT TOP 1 FIN FROM TERCER_IMPACTO.PROFESIONAL_DIA WHERE ID_PROF_ESP ='" + id_Prof_Especialidad + "' AND ID_DIA = '" + id_Dia + "'").ObtenerUnicoCampo();
             llenarCmbHorario(horaIni,horaFin);
             btnConfirmarT.Visible = true;
+        }
+
+        private void comboAfiliado_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void cmbElegirProf_SelectedIndexChanged(object sender, EventArgs e)
+        {
+           
+         
+          //Cuando reinicia los combobox no t lo vuelve a llenar bien
+            cmbElegirFecha.DataSource = null;
+            cmbElegirHorario.DataSource = null;
+            cmbElegirHorario.Items.Clear();
+            cmbElegirFecha.Items.Clear();
+           // 
+        }
+
+        private void cmbElegirEsp_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+            //Cuando reinicia los combobox no t lo vuelve a llenar bien
+            cmbElegirProf.DataSource = null;
+            cmbElegirFecha.DataSource = null;
+            cmbElegirHorario.DataSource = null;
+            cmbElegirHorario.Items.Clear();
+            cmbElegirProf.Items.Clear();
+            cmbElegirFecha.Items.Clear();
+
+            
+        }
+
+        private void cmbElegirFecha_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            //Cuando reinicia los combobox no t lo vuelve a llenar bien
+            cmbElegirHorario.DataSource = null;
+            cmbElegirHorario.Items.Clear();
+            
         }
      
     }
