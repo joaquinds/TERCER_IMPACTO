@@ -61,7 +61,7 @@
             this.cmbTurno.FormattingEnabled = true;
             this.cmbTurno.Location = new System.Drawing.Point(66, 106);
             this.cmbTurno.Name = "cmbTurno";
-            this.cmbTurno.Size = new System.Drawing.Size(121, 21);
+            this.cmbTurno.Size = new System.Drawing.Size(295, 21);
             this.cmbTurno.TabIndex = 3;
             // 
             // btnConfirmar

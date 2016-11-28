@@ -64,7 +64,7 @@ namespace ClinicaFrba.MenuPrincipal
                 if ((string)fila["DESCRIPCION"] == "REGISTRAR DIAGNOSTICO")
                     abmRegistrarResul= true;
 
-                if ((string)fila["DESCRIPCION"] == "CANCELAR AFILIADO")
+                if ((string)fila["DESCRIPCION"] == "CANCELAR TURNO")
                     abmCancelarA = true;
             }
 

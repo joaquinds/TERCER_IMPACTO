@@ -52,8 +52,17 @@ namespace ClinicaFrba.Cancelar_Atencion
         }
         private void llenarCmbTurno()
         {
+            DateTime fechaSistema = Convert.ToDateTime(Globals.fecha_sistema);
             cmbTurno.DataSource = new Query("SELECT FECHA FROM TERCER_IMPACTO.TURNO " +           
-                " WHERE ID_AFILIADO='" +  id_Afiliado + "'").ObtenerDataTable();
+                " WHERE ID_AFILIADO='" +  id_Afiliado + "' ").ObtenerDataTable();
+
+            /* no borrar, para que traiga turnos despues de la fecha sistema
+                 cmbTurno.DataSource = new Query("SELECT FECHA FROM TERCER_IMPACTO.TURNO " +           
+                " WHERE ID_AFILIADO='" +  id_Afiliado + "' AND ((YEAR(FECHA)>'" + fechaSistema.Year.ToString() + "') OR (YEAR(FECHA)='"+
+                fechaSistema.Year.ToString()+"' AND MONTH(FECHA)>'" + fechaSistema.Month.ToString() +
+                "') OR (YEAR(FECHA)='"+ fechaSistema.Year.ToString()+"' AND MONTH(FECHA)='"+fechaSistema.Month.ToString()+
+                "' AND DAY(FECHA)>'" + fechaSistema.Day.ToString()+"'))").ObtenerDataTable(); */
+
             cmbTurno.ValueMember = "FECHA";
             cmbTurno.SelectedItem = null;
             cmbTurno.DropDownStyle = ComboBoxStyle.DropDownList;
@@ -93,12 +102,15 @@ namespace ClinicaFrba.Cancelar_Atencion
             fechaTurno = Convert.ToDateTime(cmbTurno.Text);
 
             //error aca...
-            id_Turno = (decimal)new Query("SELECT TOP 1 ID_TURNO FROM TERCER_IMPACTO.TURNO WHERE FECHA='" + fechaTurno + "'AND ID_AFILIADO ='" + id_Afiliado + "' ").ObtenerUnicoCampo();
+            id_Turno = (decimal)new Query("SELECT TOP 1 ID_TURNO FROM TERCER_IMPACTO.TURNO WHERE YEAR(FECHA)='" + fechaTurno.Year + 
+                "' AND MONTH(FECHA)='"+fechaTurno.Month+"' AND DAY(FECHA)='"+fechaTurno.Day+"'"+
+                " AND DATEPART(HOUR,FECHA)='"+fechaTurno.Hour+"' AND DATEPART(MINUTE,FECHA)='"+
+                fechaTurno.Minute+"' AND ID_AFILIADO ='" + id_Afiliado + "' ").ObtenerUnicoCampo();
             //
             Query qr = new Query("TERCER_IMPACTO.AGREGAR_CANCELACION");
             qr.addParameter("@ID_TUR", id_Turno.ToString());
             qr.addParameter("@TIPO", "AFILIADO");
-            qr.addParameter("@EXPLICACION", txtExplicacion.Text);
+            qr.addParameter("@EXPLICACION", txtExplicacion.Text.ToString());
             qr.Ejecutar();
             MessageBox.Show("Se ha cancelado el turno exitosamente",
                 "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
