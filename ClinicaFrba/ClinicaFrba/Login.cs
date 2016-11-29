@@ -102,8 +102,13 @@ namespace ClinicaFrba
                 MessageBox.Show("El usuario ingresado no existe", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
 
-            
 
+
+        }
+
+        private void Login_Closing(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            Application.Exit();
         }
 
 

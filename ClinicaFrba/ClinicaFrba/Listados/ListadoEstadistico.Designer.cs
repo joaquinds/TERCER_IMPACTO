@@ -40,7 +40,9 @@
             this.btnbonos = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.btnbonoconsulta = new System.Windows.Forms.Button();
+            this.dgvestadisticas = new System.Windows.Forms.DataGridView();
             this.groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvestadisticas)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -157,12 +159,21 @@
             this.btnbonoconsulta.Text = "Top 5 especialidades de Médicos con mas bonos de consulta utilizados";
             this.btnbonoconsulta.UseVisualStyleBackColor = true;
             // 
+            // dgvestadisticas
+            // 
+            this.dgvestadisticas.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvestadisticas.Location = new System.Drawing.Point(12, 190);
+            this.dgvestadisticas.Name = "dgvestadisticas";
+            this.dgvestadisticas.Size = new System.Drawing.Size(520, 193);
+            this.dgvestadisticas.TabIndex = 11;
+            // 
             // ListadoEstadistico
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(544, 395);
+            this.Controls.Add(this.dgvestadisticas);
             this.Controls.Add(this.cmbmes);
             this.Controls.Add(this.cmbsemestre);
             this.Controls.Add(this.txtanio);
@@ -173,6 +184,7 @@
             this.Name = "ListadoEstadistico";
             this.Text = "Listado Estadístico";
             this.groupBox1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dgvestadisticas)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -192,5 +204,6 @@
         private System.Windows.Forms.Button btnbonos;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Button btnbonoconsulta;
+        private System.Windows.Forms.DataGridView dgvestadisticas;
     }
 }
