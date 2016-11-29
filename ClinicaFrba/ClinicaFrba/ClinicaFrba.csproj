@@ -114,11 +114,17 @@
     <Compile Include="AbmRol\Modificacion.Designer.cs">
       <DependentUpon>Modificacion.cs</DependentUpon>
     </Compile>
-    <Compile Include="Cancelar Atencion\Form1.cs">
+    <Compile Include="Cancelar Atencion\CancelarAtencion.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Cancelar Atencion\Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="Cancelar Atencion\CancelarAtencion.Designer.cs">
+      <DependentUpon>CancelarAtencion.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Cancelar Atencion\CancelarAtencionM.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Cancelar Atencion\CancelarAtencionM.Designer.cs">
+      <DependentUpon>CancelarAtencionM.cs</DependentUpon>
     </Compile>
     <Compile Include="Compra Bono\Compra.cs">
       <SubType>Form</SubType>
@@ -173,11 +179,11 @@
     <Compile Include="Registro Llegada\Registro_Llegada.Designer.cs">
       <DependentUpon>Registro_Llegada.cs</DependentUpon>
     </Compile>
-    <Compile Include="Registro Resultado\Form1.cs">
+    <Compile Include="Registro Resultado\Registro_Resultado.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Registro Resultado\Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="Registro Resultado\Registro_Resultado.Designer.cs">
+      <DependentUpon>Registro_Resultado.cs</DependentUpon>
     </Compile>
     <EmbeddedResource Include="Abm Afiliado\Alta.resx">
       <DependentUpon>Alta.cs</DependentUpon>
@@ -202,6 +208,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="AbmRol\Modificacion.resx">
       <DependentUpon>Modificacion.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Cancelar Atencion\CancelarAtencion.resx">
+      <DependentUpon>CancelarAtencion.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Cancelar Atencion\CancelarAtencionM.resx">
+      <DependentUpon>CancelarAtencionM.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Compra Bono\Compra.resx">
       <DependentUpon>Compra.cs</DependentUpon>
@@ -232,6 +244,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Registro Llegada\Registro_Llegada.resx">
       <DependentUpon>Registro_Llegada.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Registro Resultado\Registro_Resultado.resx">
+      <DependentUpon>Registro_Resultado.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

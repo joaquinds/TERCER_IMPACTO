@@ -51,6 +51,7 @@
             this.cmbElegirEsp.Name = "cmbElegirEsp";
             this.cmbElegirEsp.Size = new System.Drawing.Size(121, 21);
             this.cmbElegirEsp.TabIndex = 0;
+            this.cmbElegirEsp.SelectedIndexChanged += new System.EventHandler(this.cmbElegirEsp_SelectedIndexChanged);
             // 
             // label1
             // 
@@ -79,6 +80,7 @@
             this.cmbElegirProf.Name = "cmbElegirProf";
             this.cmbElegirProf.Size = new System.Drawing.Size(121, 21);
             this.cmbElegirProf.TabIndex = 3;
+            this.cmbElegirProf.SelectedIndexChanged += new System.EventHandler(this.cmbElegirProf_SelectedIndexChanged);
             // 
             // label3
             // 
@@ -96,6 +98,7 @@
             this.cmbElegirFecha.Name = "cmbElegirFecha";
             this.cmbElegirFecha.Size = new System.Drawing.Size(121, 21);
             this.cmbElegirFecha.TabIndex = 5;
+            this.cmbElegirFecha.SelectedIndexChanged += new System.EventHandler(this.cmbElegirFecha_SelectedIndexChanged);
             // 
             // label4
             // 
@@ -162,6 +165,7 @@
             this.comboAfiliado.Name = "comboAfiliado";
             this.comboAfiliado.Size = new System.Drawing.Size(121, 21);
             this.comboAfiliado.TabIndex = 12;
+            this.comboAfiliado.SelectedIndexChanged += new System.EventHandler(this.comboAfiliado_SelectedIndexChanged);
             // 
             // labelAdmin
             // 

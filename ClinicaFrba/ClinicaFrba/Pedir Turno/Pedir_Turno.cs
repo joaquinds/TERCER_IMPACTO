@@ -40,21 +40,30 @@ namespace ClinicaFrba.Pedir_Turno
         }
         private void llenarCmbProf()
         {
-            cmbElegirProf.DataSource = new Query("SELECT NOMBRE, APELLIDO FROM TERCER_IMPACTO.PROFESIONAL " +
-                "JOIN TERCER_IMPACTO.PROFESIONAL_ESPECIALIDAD ON ID_PROFESIONAL=MATRICULA " +
-                " WHERE ID_ESPECIALIDAD='" + id_Especialidad + "'").ObtenerDataTable();
-            cmbElegirProf.ValueMember = "APELLIDO";
+            //cmbElegirProf = new System.Windows.Forms.ComboBox();
             cmbElegirProf.SelectedItem = null;
             cmbElegirProf.DropDownStyle = ComboBoxStyle.DropDownList;
+            cmbElegirProf.DisplayMember = "APELLIDO";
+            cmbElegirProf.ValueMember = "APELLIDO";
+            cmbElegirProf.DataSource = new Query("SELECT APELLIDO FROM TERCER_IMPACTO.PROFESIONAL " +
+             "JOIN TERCER_IMPACTO.PROFESIONAL_ESPECIALIDAD ON ID_PROFESIONAL=MATRICULA " +
+             " WHERE ID_ESPECIALIDAD='" + id_Especialidad + "'").ObtenerDataTable();
+            
         }
 
         private void llenarCmbFecha()
         {
-
+            DateTime fechaSistema=Convert.ToDateTime(Globals.fecha_sistema);
+            cmbElegirFecha.DisplayMember = "FECHA";
+            cmbElegirFecha.ValueMember = "FECHA";
             cmbElegirFecha.DataSource = new Query("SELECT DISTINCT FECHA FROM TERCER_IMPACTO.DIA D1, TERCER_IMPACTO.PROFESIONAL_DIA P1" +
               
-                " WHERE P1.ID_PROF_ESP='" + id_Prof_Especialidad + "' AND D1.ID_DIA = P1.ID_DIA").ObtenerDataTable();
-            cmbElegirFecha.ValueMember = "FECHA";
+                " WHERE P1.ID_PROF_ESP='" + id_Prof_Especialidad + "' AND D1.ID_DIA = P1.ID_DIA "+
+                "AND ((YEAR(FECHA)>'" + fechaSistema.Year.ToString() + "') OR (YEAR(FECHA)='"+
+                fechaSistema.Year.ToString()+"' AND MONTH(FECHA)>'" + fechaSistema.Month.ToString() +
+                "') OR (YEAR(FECHA)='"+ fechaSistema.Year.ToString()+"' AND MONTH(FECHA)='"+fechaSistema.Month.ToString()+
+                "' AND DAY(FECHA)>'" + fechaSistema.Day.ToString()+"'))").ObtenerDataTable();
+            
             cmbElegirFecha.SelectedItem = null;
             cmbElegirFecha.DropDownStyle = ComboBoxStyle.DropDownList;
         }
@@ -128,6 +137,12 @@ namespace ClinicaFrba.Pedir_Turno
 
         private void btnConfirmarT_Click(object sender, EventArgs e)
         {
+            if (string.IsNullOrEmpty(cmbElegirHorario.Text))
+            {
+                MessageBox.Show("Seleccione un horario", "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
+                
 
             if (Globals.nombre_rol == "AFILIADO")
 
@@ -148,7 +163,7 @@ namespace ClinicaFrba.Pedir_Turno
             TimeSpan tiempo = new TimeSpan(0, hora.Hour, hora.Minute, 0);
             fecha=fecha.Add(tiempo);
 
-            Query qr1 = new Query("SELECT TERCER_IMPACTO.EXISTE_TURNO('"+id_Medico+"','"+fecha.Year+"','"+fecha.Month+"','"+
+            Query qr1 = new Query("SELECT TERCER_IMPACTO.EXISTE_TURNO('"+id_Prof_Especialidad+"','"+fecha.Year+"','"+fecha.Month+"','"+
                 fecha.Day+"','"+fecha.Hour+"','"+fecha.Minute+"')");
             ya_existe_turno = (bool)qr1.ObtenerUnicoCampo();
         
@@ -156,12 +171,15 @@ namespace ClinicaFrba.Pedir_Turno
             { 
                
                 Query qr = new Query("TERCER_IMPACTO.SACAR_TURNO");
-                qr.addParameter("@ID_MED", id_Medico.ToString());
+                qr.addParameter("@ID_MED", id_Prof_Especialidad.ToString());
                 qr.addParameter("@ID_AFIL", id_afiliado.ToString());
                 qr.addParameter("@FECHA", fecha);
                 qr.Ejecutar();
                 MessageBox.Show("El turno se ha registrado exitosamente , la fecha es: " +fecha.ToString(),
                     "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+             
+
             }
             else {
               MessageBox.Show("El turno no esta disponible, por favor seleccione otro horario", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
@@ -190,9 +208,9 @@ namespace ClinicaFrba.Pedir_Turno
                 MessageBox.Show("Seleccione una Fecha", "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return;
             }
-            //arreglar la forma en la que compara la fecha (error de comparacion string con Datetime)
+           
             DateTime fecha = Convert.ToDateTime(cmbElegirFecha.Text);
-            //string FechaTxt = fecha.ToShortDateString();
+            
             id_Dia = (decimal)new Query("SELECT TOP 1 ID_DIA FROM TERCER_IMPACTO.DIA WHERE "+
                 "YEAR(FECHA)='" + fecha.Year + "' AND MONTH(FECHA)='"+ fecha.Month + "' AND "+
                 "DAY(FECHA)='"+fecha.Day+"'").ObtenerUnicoCampo();
@@ -202,6 +220,54 @@ namespace ClinicaFrba.Pedir_Turno
             horaFin = (TimeSpan)new Query("SELECT TOP 1 FIN FROM TERCER_IMPACTO.PROFESIONAL_DIA WHERE ID_PROF_ESP ='" + id_Prof_Especialidad + "' AND ID_DIA = '" + id_Dia + "'").ObtenerUnicoCampo();
             llenarCmbHorario(horaIni,horaFin);
             btnConfirmarT.Visible = true;
+        }
+
+        private void comboAfiliado_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void cmbElegirProf_SelectedIndexChanged(object sender, EventArgs e)
+        {
+           
+         
+          //Cuando reinicia los combobox no t lo vuelve a llenar bien
+            cmbElegirFecha.DataSource = null;
+            cmbElegirHorario.DataSource = null;
+            cmbElegirHorario.Items.Clear();
+            cmbElegirFecha.Items.Clear();
+            btnConfirmarT.Visible = false;
+           // 
+        }
+
+        private void cmbElegirEsp_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+            //Cuando reinicia los combobox no t lo vuelve a llenar bien
+
+          /*  cmbElegirFecha = new System.Windows.Forms.ComboBox();
+            cmbElegirHorario = new System.Windows.Forms.ComboBox(); */
+
+
+            
+            cmbElegirProf.DataSource = null;
+            cmbElegirFecha.DataSource = null;
+            cmbElegirHorario.DataSource = null;
+            cmbElegirHorario.Items.Clear();
+            cmbElegirProf.Items.Clear();
+            cmbElegirFecha.Items.Clear();
+            btnConfirmarT.Visible = false;
+
+            
+        }
+
+        private void cmbElegirFecha_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            //Cuando reinicia los combobox no t lo vuelve a llenar bien
+            cmbElegirHorario.DataSource = null;
+            cmbElegirHorario.Items.Clear();
+            btnConfirmarT.Visible = false;
+            
         }
      
     }
