@@ -62,3 +62,9 @@ C:\Users\ezequiel\Gitt\TERCER_IMPACTO\ClinicaFrba\ClinicaFrba\obj\Debug\ClinicaF
 C:\Users\ezequiel\Gitt\TERCER_IMPACTO\ClinicaFrba\ClinicaFrba\obj\Debug\ClinicaFrba.pdb
 C:\Users\GMT256\Documents\GitHub\TERCER_IMPACTO\ClinicaFrba\ClinicaFrba\obj\Debug\ClinicaFrba.exe
 C:\Users\GMT256\Documents\GitHub\TERCER_IMPACTO\ClinicaFrba\ClinicaFrba\obj\Debug\ClinicaFrba.pdb
+C:\Users\GMT256\Documents\GitHub\TERCER_IMPACTO\ClinicaFrba\ClinicaFrba\obj\Debug\ClinicaFrba.Cancelar_Atencion.CancelarAtencion.resources
+C:\Users\GMT256\Documents\GitHub\TERCER_IMPACTO\ClinicaFrba\ClinicaFrba\obj\Debug\ClinicaFrba.Cancelar_Atencion.CancelarAtencionM.resources
+C:\Users\GMT256\Documents\GitHub\TERCER_IMPACTO\ClinicaFrba\ClinicaFrba\obj\Debug\ClinicaFrba.Compra_Bono.Compra.resources
+C:\Users\GMT256\Documents\GitHub\TERCER_IMPACTO\ClinicaFrba\ClinicaFrba\obj\Debug\ClinicaFrba.Pedir_Turno.Pedir_Turno.resources
+C:\Users\GMT256\Documents\GitHub\TERCER_IMPACTO\ClinicaFrba\ClinicaFrba\obj\Debug\ClinicaFrba.Registro_Llegada.Registro_Llegada.resources
+C:\Users\GMT256\Documents\GitHub\TERCER_IMPACTO\ClinicaFrba\ClinicaFrba\obj\Debug\ClinicaFrba.Registro_Resultado.Registrar_Resultado.resources

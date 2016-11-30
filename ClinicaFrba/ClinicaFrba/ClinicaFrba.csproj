@@ -133,17 +133,15 @@
       <DependentUpon>Compra.cs</DependentUpon>
     </Compile>
     <Compile Include="Globals.cs" />
+    <Compile Include="Listados\ListadoEstadistico.cs" />
+    <Compile Include="Listados\ListadoEstadistico.Designer.cs">
+      <DependentUpon>ListadoEstadistico.cs</DependentUpon>
+    </Compile>
     <Compile Include="Login.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Login.Designer.cs">
       <DependentUpon>Login.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Listados\Form1.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Listados\Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
     <Compile Include="MenuPrincipal\ElegirRol.cs">
       <SubType>Form</SubType>
@@ -217,6 +215,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Compra Bono\Compra.resx">
       <DependentUpon>Compra.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Listados\ListadoEstadistico.resx">
+      <DependentUpon>ListadoEstadistico.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Login.resx">
       <DependentUpon>Login.cs</DependentUpon>
