@@ -40,6 +40,9 @@ namespace ClinicaFrba.AbmRol
             frm.ShowDialog();
             
         }
+        private void ABMrol_Load(object sender, EventArgs e)
+        {
+        }
 
         
     }
