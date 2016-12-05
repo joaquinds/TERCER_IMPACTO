@@ -20,6 +20,8 @@ namespace ClinicaFrba.MenuPrincipal
         private bool btnComprarVisible;
         private bool abmRegistrarResul;
         private bool abmCancelarA;
+        private bool abmListado;
+        private bool abmCancelarP;
 
 
         public Menus()
@@ -32,6 +34,8 @@ namespace ClinicaFrba.MenuPrincipal
             btnComprarVisible = false;
             abmRegistrarResul = false;
             abmCancelarA = false;
+            abmListado = false;
+            abmCancelarP = false;
             InitializeComponent();
         }
 
@@ -66,6 +70,12 @@ namespace ClinicaFrba.MenuPrincipal
 
                 if ((string)fila["DESCRIPCION"] == "CANCELAR TURNO")
                     abmCancelarA = true;
+
+                if ((string)fila["DESCRIPCION"] == "LISTADO ESTADISTICO")
+                    abmListado = true;
+
+                if ((string)fila["DESCRIPCION"] == "CANCELAR PROFESIONAL")
+                    abmCancelarP = true;
             }
 
             btnABMRol.Visible = abmRolVisible;
@@ -76,6 +86,8 @@ namespace ClinicaFrba.MenuPrincipal
             button1.Visible = btnComprarVisible;
             btnRegistrarResul.Visible = abmRegistrarResul;
             btnCancelarA.Visible = abmCancelarA;
+            btnCancelarTP.Visible = abmCancelarP;
+            btnListado.Visible = abmListado;
 
         }
 
@@ -129,6 +141,20 @@ namespace ClinicaFrba.MenuPrincipal
             Cancelar_Atencion.CancelarAtencion cancelar = new Cancelar_Atencion.CancelarAtencion();
             cancelar.ShowDialog();
         }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            Cancelar_Atencion.CancelarAtencionM cancelarA = new Cancelar_Atencion.CancelarAtencionM();
+            cancelarA.ShowDialog();
+        }
+
+        private void btnListado_Click(object sender, EventArgs e)
+        {
+            Listados.ListadoEstadistico listado = new Listados.ListadoEstadistico();
+            listado.ShowDialog();
+        }
+
+
 
 
     }

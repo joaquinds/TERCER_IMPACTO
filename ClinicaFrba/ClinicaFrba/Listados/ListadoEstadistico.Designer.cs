@@ -104,6 +104,7 @@
             this.btncancelaciones.TabIndex = 6;
             this.btncancelaciones.Text = "Top 5 especialidades con mas cancelaciones";
             this.btncancelaciones.UseVisualStyleBackColor = true;
+            this.btncancelaciones.Click += new System.EventHandler(this.btncancelaciones_Click_1);
             // 
             // btnconsultados
             // 

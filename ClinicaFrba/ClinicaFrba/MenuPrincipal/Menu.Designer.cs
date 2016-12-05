@@ -36,6 +36,8 @@
             this.button1 = new System.Windows.Forms.Button();
             this.btnRegistrarResul = new System.Windows.Forms.Button();
             this.btnCancelarA = new System.Windows.Forms.Button();
+            this.btnCancelarTP = new System.Windows.Forms.Button();
+            this.btnListado = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // btnABMRol
@@ -118,11 +120,33 @@
             this.btnCancelarA.UseVisualStyleBackColor = true;
             this.btnCancelarA.Click += new System.EventHandler(this.cmbTurnoA_Click);
             // 
+            // btnCancelarTP
+            // 
+            this.btnCancelarTP.Location = new System.Drawing.Point(171, 160);
+            this.btnCancelarTP.Name = "btnCancelarTP";
+            this.btnCancelarTP.Size = new System.Drawing.Size(177, 23);
+            this.btnCancelarTP.TabIndex = 8;
+            this.btnCancelarTP.Text = "Cancelar Turno Profesional";
+            this.btnCancelarTP.UseVisualStyleBackColor = true;
+            this.btnCancelarTP.Click += new System.EventHandler(this.button2_Click);
+            // 
+            // btnListado
+            // 
+            this.btnListado.Location = new System.Drawing.Point(171, 200);
+            this.btnListado.Name = "btnListado";
+            this.btnListado.Size = new System.Drawing.Size(177, 23);
+            this.btnListado.TabIndex = 9;
+            this.btnListado.Text = "Listado";
+            this.btnListado.UseVisualStyleBackColor = true;
+            this.btnListado.Click += new System.EventHandler(this.btnListado_Click);
+            // 
             // Menus
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(394, 286);
+            this.ClientSize = new System.Drawing.Size(420, 310);
+            this.Controls.Add(this.btnListado);
+            this.Controls.Add(this.btnCancelarTP);
             this.Controls.Add(this.btnCancelarA);
             this.Controls.Add(this.btnRegistrarResul);
             this.Controls.Add(this.button1);
@@ -148,5 +172,7 @@
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button btnRegistrarResul;
         private System.Windows.Forms.Button btnCancelarA;
+        private System.Windows.Forms.Button btnCancelarTP;
+        private System.Windows.Forms.Button btnListado;
     }
 }

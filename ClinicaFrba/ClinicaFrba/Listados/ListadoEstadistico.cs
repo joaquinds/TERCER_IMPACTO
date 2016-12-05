@@ -169,6 +169,11 @@ namespace ClinicaFrba.Listados
             dgvestadisticas.Rows.Clear();
 
         }
+
+        private void btncancelaciones_Click_1(object sender, EventArgs e)
+        {
+
+        }
     }
 }
 

@@ -114,6 +114,18 @@
     <Compile Include="AbmRol\Modificacion.Designer.cs">
       <DependentUpon>Modificacion.cs</DependentUpon>
     </Compile>
+    <Compile Include="Cancelar Atencion\CancelacionDia.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Cancelar Atencion\CancelacionDia.Designer.cs">
+      <DependentUpon>CancelacionDia.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Cancelar Atencion\CancelacionPeriodo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Cancelar Atencion\CancelacionPeriodo.Designer.cs">
+      <DependentUpon>CancelacionPeriodo.cs</DependentUpon>
+    </Compile>
     <Compile Include="Cancelar Atencion\CancelarAtencion.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -208,6 +220,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="AbmRol\Modificacion.resx">
       <DependentUpon>Modificacion.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Cancelar Atencion\CancelacionDia.resx">
+      <DependentUpon>CancelacionDia.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Cancelar Atencion\CancelacionPeriodo.resx">
+      <DependentUpon>CancelacionPeriodo.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Cancelar Atencion\CancelarAtencion.resx">
       <DependentUpon>CancelarAtencion.cs</DependentUpon>

@@ -220,6 +220,7 @@
             this.dateTimePickerDesde.Name = "dateTimePickerDesde";
             this.dateTimePickerDesde.Size = new System.Drawing.Size(200, 20);
             this.dateTimePickerDesde.TabIndex = 18;
+            this.dateTimePickerDesde.ValueChanged += new System.EventHandler(this.dateTimePickerDesde_ValueChanged);
             // 
             // dateTimePickerHasta
             // 
