@@ -76,6 +76,7 @@ namespace ClinicaFrba.MenuPrincipal
             button1.Visible = btnComprarVisible;
             btnRegistrarResul.Visible = abmRegistrarResul;
             btnCancelarA.Visible = abmCancelarA;
+            afil_btn.Visible = abmafiliadoVisible;
 
         }
 
@@ -129,6 +130,13 @@ namespace ClinicaFrba.MenuPrincipal
             Cancelar_Atencion.CancelarAtencion cancelar = new Cancelar_Atencion.CancelarAtencion();
             cancelar.ShowDialog();
         }
+
+        private void afil_btn_Click(object sender, EventArgs e)
+        {
+            ABM_Afiliado2.ABMAfiliado frm = new ABM_Afiliado2.ABMAfiliado();
+            frm.ShowDialog();
+        }
+
 
 
     }

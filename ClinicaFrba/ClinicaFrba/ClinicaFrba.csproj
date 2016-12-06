@@ -48,6 +48,36 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ABM Afiliado2\ABMAfiliado.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ABM Afiliado2\ABMAfiliado.Designer.cs">
+      <DependentUpon>ABMAfiliado.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ABM Afiliado2\Alta.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ABM Afiliado2\Alta.Designer.cs">
+      <DependentUpon>Alta.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ABM Afiliado2\AltaFamiliar.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ABM Afiliado2\AltaFamiliar.Designer.cs">
+      <DependentUpon>AltaFamiliar.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ABM Afiliado2\Baja.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ABM Afiliado2\Baja.Designer.cs">
+      <DependentUpon>Baja.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ABM Afiliado2\Modificacion.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ABM Afiliado2\Modificacion.Designer.cs">
+      <DependentUpon>Modificacion.cs</DependentUpon>
+    </Compile>
     <Compile Include="Abm Afiliado\Baja.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -185,6 +215,21 @@
     <Compile Include="Registro Resultado\Registro_Resultado.Designer.cs">
       <DependentUpon>Registro_Resultado.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="ABM Afiliado2\ABMAfiliado.resx">
+      <DependentUpon>ABMAfiliado.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ABM Afiliado2\Alta.resx">
+      <DependentUpon>Alta.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ABM Afiliado2\AltaFamiliar.resx">
+      <DependentUpon>AltaFamiliar.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ABM Afiliado2\Baja.resx">
+      <DependentUpon>Baja.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ABM Afiliado2\Modificacion.resx">
+      <DependentUpon>Modificacion.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Abm Afiliado\Alta.resx">
       <DependentUpon>Alta.cs</DependentUpon>
     </EmbeddedResource>

@@ -136,3 +136,8 @@ C:\Users\ezequiel\GitH\TERCER_IMPACTO\ClinicaFrba\ClinicaFrba\obj\Debug\ClinicaF
 D:\tp_gestion\ClinicaFrba\ClinicaFrba\obj\Debug\ClinicaFrba.Cancelar_Atencion.CancelarAtencion.resources
 D:\tp_gestion\ClinicaFrba\ClinicaFrba\obj\Debug\ClinicaFrba.Cancelar_Atencion.CancelarAtencionM.resources
 D:\tp_gestion\ClinicaFrba\ClinicaFrba\obj\Debug\ClinicaFrba.Registro_Resultado.Registrar_Resultado.resources
+D:\tp_gestion\ClinicaFrba\ClinicaFrba\obj\Debug\ClinicaFrba.ABM_Afiliado2.ABMAfiliado.resources
+D:\tp_gestion\ClinicaFrba\ClinicaFrba\obj\Debug\ClinicaFrba.ABM_Afiliado2.Alta.resources
+D:\tp_gestion\ClinicaFrba\ClinicaFrba\obj\Debug\ClinicaFrba.ABM_Afiliado2.AltaFamiliar.resources
+D:\tp_gestion\ClinicaFrba\ClinicaFrba\obj\Debug\ClinicaFrba.ABM_Afiliado2.Baja.resources
+D:\tp_gestion\ClinicaFrba\ClinicaFrba\obj\Debug\ClinicaFrba.ABM_Afiliado2.Modificacion.resources

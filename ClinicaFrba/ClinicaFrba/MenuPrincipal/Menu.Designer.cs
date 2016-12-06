@@ -36,6 +36,7 @@
             this.button1 = new System.Windows.Forms.Button();
             this.btnRegistrarResul = new System.Windows.Forms.Button();
             this.btnCancelarA = new System.Windows.Forms.Button();
+            this.afil_btn = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // btnABMRol
@@ -118,11 +119,22 @@
             this.btnCancelarA.UseVisualStyleBackColor = true;
             this.btnCancelarA.Click += new System.EventHandler(this.cmbTurnoA_Click);
             // 
+            // afil_btn
+            // 
+            this.afil_btn.Location = new System.Drawing.Point(171, 160);
+            this.afil_btn.Name = "afil_btn";
+            this.afil_btn.Size = new System.Drawing.Size(177, 23);
+            this.afil_btn.TabIndex = 8;
+            this.afil_btn.Text = "ABM Afiliado";
+            this.afil_btn.UseVisualStyleBackColor = true;
+            this.afil_btn.Click += new System.EventHandler(this.afil_btn_Click);
+            // 
             // Menus
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(394, 286);
+            this.Controls.Add(this.afil_btn);
             this.Controls.Add(this.btnCancelarA);
             this.Controls.Add(this.btnRegistrarResul);
             this.Controls.Add(this.button1);
@@ -148,5 +160,6 @@
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button btnRegistrarResul;
         private System.Windows.Forms.Button btnCancelarA;
+        private System.Windows.Forms.Button afil_btn;
     }
 }
