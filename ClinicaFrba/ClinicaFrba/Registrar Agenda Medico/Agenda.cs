@@ -173,11 +173,16 @@ namespace ClinicaFrba.Registrar_Agenda_Medico
                     qr.addParameter("@FECHA", dia);
                     qr.addParameter("@COMIENZO", dia_hora[dia.DayOfWeek.ToString()].desde);
                     qr.addParameter("@FIN", dia_hora[dia.DayOfWeek.ToString()].hasta);
-                    qr.Ejecutar();
+                    qr.Ejecutar(); 
                 }
             }
 
             MessageBox.Show("Se agrego correctamente a la agenda.", "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        }
+
+        private void dateTimePickerDesde_ValueChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

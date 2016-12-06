@@ -16,5 +16,17 @@ namespace ClinicaFrba.Cancelar_Atencion
         {
             InitializeComponent();
         }
+
+        private void btnDia_Click(object sender, EventArgs e)
+        {
+            Cancelar_Atencion.CancelacionDia cancelarD = new Cancelar_Atencion.CancelacionDia();
+            cancelarD.ShowDialog();
+        }
+
+        private void btnPeriodo_Click(object sender, EventArgs e)
+        {
+            Cancelar_Atencion.CancelacionPeriodo cancelarP = new Cancelar_Atencion.CancelacionPeriodo();
+            cancelarP.ShowDialog();
+        }
     }
 }

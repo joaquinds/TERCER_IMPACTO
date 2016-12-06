@@ -144,6 +144,18 @@
     <Compile Include="AbmRol\Modificacion.Designer.cs">
       <DependentUpon>Modificacion.cs</DependentUpon>
     </Compile>
+    <Compile Include="Cancelar Atencion\CancelacionDia.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Cancelar Atencion\CancelacionDia.Designer.cs">
+      <DependentUpon>CancelacionDia.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Cancelar Atencion\CancelacionPeriodo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Cancelar Atencion\CancelacionPeriodo.Designer.cs">
+      <DependentUpon>CancelacionPeriodo.cs</DependentUpon>
+    </Compile>
     <Compile Include="Cancelar Atencion\CancelarAtencion.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -163,17 +175,17 @@
       <DependentUpon>Compra.cs</DependentUpon>
     </Compile>
     <Compile Include="Globals.cs" />
+    <Compile Include="Listados\ListadoEstadistico.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Listados\ListadoEstadistico.Designer.cs">
+      <DependentUpon>ListadoEstadistico.cs</DependentUpon>
+    </Compile>
     <Compile Include="Login.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Login.Designer.cs">
       <DependentUpon>Login.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Listados\Form1.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Listados\Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
     <Compile Include="MenuPrincipal\ElegirRol.cs">
       <SubType>Form</SubType>
@@ -254,6 +266,12 @@
     <EmbeddedResource Include="AbmRol\Modificacion.resx">
       <DependentUpon>Modificacion.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Cancelar Atencion\CancelacionDia.resx">
+      <DependentUpon>CancelacionDia.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Cancelar Atencion\CancelacionPeriodo.resx">
+      <DependentUpon>CancelacionPeriodo.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Cancelar Atencion\CancelarAtencion.resx">
       <DependentUpon>CancelarAtencion.cs</DependentUpon>
     </EmbeddedResource>
@@ -262,6 +280,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Compra Bono\Compra.resx">
       <DependentUpon>Compra.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Listados\ListadoEstadistico.resx">
+      <DependentUpon>ListadoEstadistico.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Login.resx">
       <DependentUpon>Login.cs</DependentUpon>

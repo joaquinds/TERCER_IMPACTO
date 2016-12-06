@@ -53,8 +53,9 @@ namespace ClinicaFrba.Registro_Llegada
         }
         private void llenarTurnos()
         {
+            //AND HABILITADO = 1"
             cmbTurno.DataSource = new Query("SELECT FECHA FROM TERCER_IMPACTO.TURNO " +
-                " WHERE ID_MEDICO='" + id_Medico + "'").ObtenerDataTable();
+                " WHERE ID_MEDICO='" + id_Medico + "' ").ObtenerDataTable();
             cmbTurno.ValueMember = "FECHA";
             cmbTurno.SelectedItem = null;
             cmbTurno.DropDownStyle = ComboBoxStyle.DropDownList;
