@@ -102,10 +102,11 @@ namespace ClinicaFrba.ABM_Afiliado2
             new Query("UPDATE TERCER_IMPACTO.AFILIADO SET DIRECCION='" + direccion + "' ,TELEFONO='" +
                 telefono + "' ,ESTADO_CIVIL='" + estado + "' ,CANT_HIJOS='" + cant_hijos + "' ,MAIL='" + mail
                 + "' ,ID_PLAN_MEDICO='" + nuevo_plan_id.ToString() + "' WHERE ID_AFILIADO='" + id_afil + "'").Ejecutar();
-
-            new Query("INSERT INTO TERCER_IMPACTO.HISTORIAL_CAMBIO (ID_AFILIADO,ID_PLAN_ANTERIOR,FECHA_CAMBIO,MOTIVO) " +
-                "VALUES ('" + id_afil + "','" + plan_id.ToString() + "','" + fecha_sis + "','" + motivo + "')").Ejecutar();
-
+            if (plan_id != nuevo_plan_id & !string.IsNullOrEmpty(motivoTxt.Text))
+            {
+                new Query("INSERT INTO TERCER_IMPACTO.HISTORIAL_CAMBIO (ID_AFILIADO,ID_PLAN_ANTERIOR,FECHA_CAMBIO,MOTIVO) " +
+                    "VALUES ('" + id_afil + "','" + plan_id.ToString() + "','" + fecha_sis + "','" + motivo + "')").Ejecutar();
+            }
 
             plan_id = nuevo_plan_id;
             MessageBox.Show("Se actualizó correctamente el afiliado.", "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);

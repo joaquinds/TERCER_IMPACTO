@@ -8,3 +8,9 @@ ClinicaFrba/ClinicaFrba/obj/Debug/ClinicaFrba.csproj.FileListAbsolute.txt
 ClinicaFrba/ClinicaFrba/obj/Debug/ClinicaFrba.exe
 *.exe
 *.pdb
+*.suo
+*.exe
+ClinicaFrba/ClinicaFrba/bin/Debug/ClinicaFrba.pdb
+*.Cache
+ClinicaFrba/ClinicaFrba/obj/Debug/ClinicaFrba.exe
+*.pdb
