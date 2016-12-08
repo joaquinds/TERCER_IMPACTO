@@ -32,13 +32,15 @@ namespace ClinicaFrba.Cancelar_Atencion
 
         private void llenarCmbAgenda()
         {
-          
+            DateTime fecha=Convert.ToDateTime(Globals.fecha_sistema);
+            string format = "yyyy-MM-dd hh:mm:ss";
             cmbAgenda.SelectedItem = null;
             cmbAgenda.DropDownStyle = ComboBoxStyle.DropDownList;
             cmbAgenda.DisplayMember = "FECHA";
             cmbAgenda.ValueMember = "FECHA";
-            cmbAgenda.DataSource = new Query("SELECT FECHA FROM TERCER_IMPACTO.PROFESIONAL_DIA P, TERCER_IMPACTO.DIA D WHERE" +
-             " P.ID_PROF_ESP='" + cmbMedico.Text + "'AND P.ID_DIA = D.ID_DIA  ").ObtenerDataTable();
+            cmbAgenda.DataSource = new Query("SELECT D.FECHA FROM TERCER_IMPACTO.PROFESIONAL_DIA P JOIN TERCER_IMPACTO.DIA D ON" +
+             " P.ID_DIA = D.ID_DIA JOIN TERCER_IMPACTO.PROFESIONAL_ESPECIALIDAD PE ON PE.ID_PROF_ESP=P.ID_PROF_ESP "+
+             "WHERE PE.ID_PROFESIONAL='"+cmbMedico.Text+"' AND P.HABILITADO=1 AND D.FECHA>CONVERT(DATE,'"+fecha.ToString(format)+"')").ObtenerDataTable();
 
         }
 
@@ -72,9 +74,12 @@ namespace ClinicaFrba.Cancelar_Atencion
             Query qr = new Query("TERCER_IMPACTO.CANCELAR_TURNO_PROF");
             qr.addParameter("@FECHA", Convert.ToDateTime(cmbAgenda.Text));
             qr.addParameter("@EXPLICACION", txtCancelacion.Text.ToString());
+            qr.addParameter("@ID_MEDICO", cmbMedico.Text.ToString());
             qr.Ejecutar();
             MessageBox.Show("Se ha dado de baja el dia y junto a este todos los turnos asociados a ese dia",
                "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            llenarCmbAgenda();
+
 
 
         }

@@ -30,7 +30,6 @@
         {
             this.txtCancelacion = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.btnCM = new System.Windows.Forms.Button();
             this.btnConfirmar = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.cmbMedico = new System.Windows.Forms.ComboBox();
@@ -56,16 +55,6 @@
             this.label3.Size = new System.Drawing.Size(180, 13);
             this.label3.TabIndex = 14;
             this.label3.Text = "Explique por que da de baja el turno:";
-            // 
-            // btnCM
-            // 
-            this.btnCM.Location = new System.Drawing.Point(395, 52);
-            this.btnCM.Name = "btnCM";
-            this.btnCM.Size = new System.Drawing.Size(75, 23);
-            this.btnCM.TabIndex = 13;
-            this.btnCM.Text = "Confirmar";
-            this.btnCM.UseVisualStyleBackColor = true;
-            this.btnCM.Click += new System.EventHandler(this.btnCM_Click);
             // 
             // btnConfirmar
             // 
@@ -146,7 +135,6 @@
             this.Controls.Add(this.dateTimePickerDesde);
             this.Controls.Add(this.txtCancelacion);
             this.Controls.Add(this.label3);
-            this.Controls.Add(this.btnCM);
             this.Controls.Add(this.btnConfirmar);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.cmbMedico);
@@ -163,7 +151,6 @@
 
         private System.Windows.Forms.TextBox txtCancelacion;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Button btnCM;
         private System.Windows.Forms.Button btnConfirmar;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.ComboBox cmbMedico;

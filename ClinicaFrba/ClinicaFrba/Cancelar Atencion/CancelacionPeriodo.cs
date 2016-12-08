@@ -59,17 +59,17 @@ namespace ClinicaFrba.Cancelar_Atencion
 
             for (DateTime dia = desde; dia <= hasta; dia = dia.AddDays(1))
             {              
-                    Query qr = new Query("TERCER_IMPACTO.CANCELAR_TURNO_PROF_PERIODO");
+                    Query qr = new Query("TERCER_IMPACTO.CANCELAR_TURNO_PROF");
                     qr.addParameter("@FECHA", dia );
                     qr.addParameter("@EXPLICACION", txtCancelacion.Text.ToString());
-                    qr.addParameter("@ID_MED", cmbMedico.Text.ToString());
+                    qr.addParameter("@ID_MEDICO", cmbMedico.Text.ToString());
                     qr.Ejecutar();
                 
             }
                     
                     
 
-            MessageBox.Show("Se ha dado de baja el periodo seleccionado y junto a este todos los turnos asociados a ese dia",
+            MessageBox.Show("Se ha dado de baja el periodo seleccionado y junto a este todos los turnos asociados a esos días",
                "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
             

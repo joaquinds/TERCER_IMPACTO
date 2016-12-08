@@ -1,6 +1,6 @@
-﻿namespace ClinicaFrba.Abm_Afiliado
+﻿namespace ClinicaFrba.ABM_Afiliado2
 {
-    partial class ABMafiliado
+    partial class ABMAfiliado
     {
         /// <summary>
         /// Required designer variable.
@@ -28,70 +28,59 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.btnalta = new System.Windows.Forms.Button();
-            this.btnmodif = new System.Windows.Forms.Button();
-            this.btnbaja = new System.Windows.Forms.Button();
-            this.btnvolver = new System.Windows.Forms.Button();
+            this.btn_alta = new System.Windows.Forms.Button();
+            this.btn_baja = new System.Windows.Forms.Button();
+            this.btn_mod = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
-            // btnalta
+            // btn_alta
             // 
-            this.btnalta.Location = new System.Drawing.Point(109, 34);
-            this.btnalta.Name = "btnalta";
-            this.btnalta.Size = new System.Drawing.Size(75, 23);
-            this.btnalta.TabIndex = 0;
-            this.btnalta.Text = "Alta";
-            this.btnalta.UseVisualStyleBackColor = true;
+            this.btn_alta.Location = new System.Drawing.Point(96, 43);
+            this.btn_alta.Name = "btn_alta";
+            this.btn_alta.Size = new System.Drawing.Size(75, 23);
+            this.btn_alta.TabIndex = 0;
+            this.btn_alta.Text = "Alta";
+            this.btn_alta.UseVisualStyleBackColor = true;
+            this.btn_alta.Click += new System.EventHandler(this.btn_alta_Click);
             // 
-            // btnmodif
+            // btn_baja
             // 
-            this.btnmodif.Location = new System.Drawing.Point(109, 92);
-            this.btnmodif.Name = "btnmodif";
-            this.btnmodif.Size = new System.Drawing.Size(75, 23);
-            this.btnmodif.TabIndex = 1;
-            this.btnmodif.Text = "Modificación";
-            this.btnmodif.UseVisualStyleBackColor = true;
+            this.btn_baja.Location = new System.Drawing.Point(96, 107);
+            this.btn_baja.Name = "btn_baja";
+            this.btn_baja.Size = new System.Drawing.Size(75, 23);
+            this.btn_baja.TabIndex = 1;
+            this.btn_baja.Text = "Baja";
+            this.btn_baja.UseVisualStyleBackColor = true;
+            this.btn_baja.Click += new System.EventHandler(this.btn_baja_Click);
             // 
-            // btnbaja
+            // btn_mod
             // 
-            this.btnbaja.Location = new System.Drawing.Point(109, 150);
-            this.btnbaja.Name = "btnbaja";
-            this.btnbaja.Size = new System.Drawing.Size(75, 23);
-            this.btnbaja.TabIndex = 2;
-            this.btnbaja.Text = "Baja";
-            this.btnbaja.UseVisualStyleBackColor = true;
+            this.btn_mod.Location = new System.Drawing.Point(96, 179);
+            this.btn_mod.Name = "btn_mod";
+            this.btn_mod.Size = new System.Drawing.Size(75, 23);
+            this.btn_mod.TabIndex = 2;
+            this.btn_mod.Text = "Modificación";
+            this.btn_mod.UseVisualStyleBackColor = true;
+            this.btn_mod.Click += new System.EventHandler(this.btn_mod_Click);
             // 
-            // btnvolver
-            // 
-            this.btnvolver.Location = new System.Drawing.Point(109, 209);
-            this.btnvolver.Name = "btnvolver";
-            this.btnvolver.Size = new System.Drawing.Size(75, 23);
-            this.btnvolver.TabIndex = 3;
-            this.btnvolver.Text = "Volver";
-            this.btnvolver.UseVisualStyleBackColor = true;
-            // 
-            // ABMafiliado
+            // ABMAfiliado
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(284, 261);
-            this.Controls.Add(this.btnvolver);
-            this.Controls.Add(this.btnbaja);
-            this.Controls.Add(this.btnmodif);
-            this.Controls.Add(this.btnalta);
-            this.Name = "ABMafiliado";
-            this.Text = "ABM Afiliado";
-            this.Load += new System.EventHandler(this.ABMafiliado_Load);
+            this.ClientSize = new System.Drawing.Size(292, 273);
+            this.Controls.Add(this.btn_mod);
+            this.Controls.Add(this.btn_baja);
+            this.Controls.Add(this.btn_alta);
+            this.Name = "ABMAfiliado";
+            this.Text = "ABMAfiliado";
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private System.Windows.Forms.Button btnalta;
-        private System.Windows.Forms.Button btnmodif;
-        private System.Windows.Forms.Button btnbaja;
-        private System.Windows.Forms.Button btnvolver;
+        private System.Windows.Forms.Button btn_alta;
+        private System.Windows.Forms.Button btn_baja;
+        private System.Windows.Forms.Button btn_mod;
     }
 }

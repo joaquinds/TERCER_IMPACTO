@@ -1,4 +1,4 @@
-﻿namespace ClinicaFrba.Abm_Afiliado
+﻿namespace ClinicaFrba.ABM_Afiliado2
 {
     partial class Baja
     {
@@ -28,70 +28,49 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.cmbId = new System.Windows.Forms.ComboBox();
+            this.btn_baja = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
-            this.cmbafiliados = new System.Windows.Forms.ComboBox();
-            this.btnbaja = new System.Windows.Forms.Button();
-            this.btnvolver = new System.Windows.Forms.Button();
-            this.btnlimpiar = new System.Windows.Forms.Button();
             this.SuspendLayout();
+            // 
+            // cmbId
+            // 
+            this.cmbId.FormattingEnabled = true;
+            this.cmbId.Location = new System.Drawing.Point(100, 34);
+            this.cmbId.Name = "cmbId";
+            this.cmbId.Size = new System.Drawing.Size(252, 21);
+            this.cmbId.TabIndex = 0;
+            // 
+            // btn_baja
+            // 
+            this.btn_baja.Location = new System.Drawing.Point(100, 116);
+            this.btn_baja.Name = "btn_baja";
+            this.btn_baja.Size = new System.Drawing.Size(75, 23);
+            this.btn_baja.TabIndex = 1;
+            this.btn_baja.Text = "Baja";
+            this.btn_baja.UseVisualStyleBackColor = true;
+            this.btn_baja.Click += new System.EventHandler(this.btn_baja_Click);
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(16, 22);
+            this.label1.Location = new System.Drawing.Point(30, 37);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(44, 13);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Afiliado:";
-            // 
-            // cmbafiliados
-            // 
-            this.cmbafiliados.FormattingEnabled = true;
-            this.cmbafiliados.Location = new System.Drawing.Point(80, 14);
-            this.cmbafiliados.Name = "cmbafiliados";
-            this.cmbafiliados.Size = new System.Drawing.Size(405, 21);
-            this.cmbafiliados.TabIndex = 1;
-            // 
-            // btnbaja
-            // 
-            this.btnbaja.Location = new System.Drawing.Point(367, 68);
-            this.btnbaja.Name = "btnbaja";
-            this.btnbaja.Size = new System.Drawing.Size(133, 23);
-            this.btnbaja.TabIndex = 4;
-            this.btnbaja.Text = "Baja";
-            this.btnbaja.UseVisualStyleBackColor = true;
-            // 
-            // btnvolver
-            // 
-            this.btnvolver.Location = new System.Drawing.Point(19, 68);
-            this.btnvolver.Name = "btnvolver";
-            this.btnvolver.Size = new System.Drawing.Size(133, 23);
-            this.btnvolver.TabIndex = 5;
-            this.btnvolver.Text = "Volver";
-            this.btnvolver.UseVisualStyleBackColor = true;
-            // 
-            // btnlimpiar
-            // 
-            this.btnlimpiar.Location = new System.Drawing.Point(200, 68);
-            this.btnlimpiar.Name = "btnlimpiar";
-            this.btnlimpiar.Size = new System.Drawing.Size(133, 23);
-            this.btnlimpiar.TabIndex = 7;
-            this.btnlimpiar.Text = "Limpiar";
-            this.btnlimpiar.UseVisualStyleBackColor = true;
+            this.label1.Size = new System.Drawing.Size(56, 13);
+            this.label1.TabIndex = 2;
+            this.label1.Text = "Id Afiliado:";
             // 
             // Baja
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(534, 102);
-            this.Controls.Add(this.btnlimpiar);
-            this.Controls.Add(this.btnvolver);
-            this.Controls.Add(this.btnbaja);
-            this.Controls.Add(this.cmbafiliados);
+            this.ClientSize = new System.Drawing.Size(392, 240);
             this.Controls.Add(this.label1);
+            this.Controls.Add(this.btn_baja);
+            this.Controls.Add(this.cmbId);
             this.Name = "Baja";
-            this.Text = "ABM Baja";
+            this.Text = "Baja";
+            this.Load += new System.EventHandler(this.Baja_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -99,10 +78,8 @@
 
         #endregion
 
+        private System.Windows.Forms.ComboBox cmbId;
+        private System.Windows.Forms.Button btn_baja;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.ComboBox cmbafiliados;
-        private System.Windows.Forms.Button btnbaja;
-        private System.Windows.Forms.Button btnvolver;
-        private System.Windows.Forms.Button btnlimpiar;
     }
 }

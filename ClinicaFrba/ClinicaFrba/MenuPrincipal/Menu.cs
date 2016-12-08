@@ -20,6 +20,7 @@ namespace ClinicaFrba.MenuPrincipal
         private bool btnComprarVisible;
         private bool abmRegistrarResul;
         private bool abmCancelarA;
+        private bool cancerTurnoMedico;
 
 
         public Menus()
@@ -32,6 +33,7 @@ namespace ClinicaFrba.MenuPrincipal
             btnComprarVisible = false;
             abmRegistrarResul = false;
             abmCancelarA = false;
+            cancerTurnoMedico = false;
             InitializeComponent();
         }
 
@@ -65,12 +67,18 @@ namespace ClinicaFrba.MenuPrincipal
                     abmRegistrarResul= true;
 
                 if ((string)fila["DESCRIPCION"] == "CANCELAR TURNO")
-                    abmCancelarA = true;
+                
+                        abmCancelarA = true;
+
+                if ((string)fila["DESCRIPCION"] == "CANCELAR PROFESIONAL")
+                        cancerTurnoMedico = true;
+
+                
             }
 
             btnABMRol.Visible = abmRolVisible;
             btnAgenda.Visible = agendaVisible;
-            btnafiliado.Visible = abmafiliadoVisible;
+            
             btnPTurno.Visible = abmPedirTurnoVisible;
             btnRegistrar.Visible = abmRegistrarVisible;
             button1.Visible = btnComprarVisible;
@@ -106,11 +114,7 @@ namespace ClinicaFrba.MenuPrincipal
             abmRegistro.ShowDialog();
         }
 
-        private void btnafiliado_Click_1(object sender, EventArgs e)
-        {
-            Abm_Afiliado.ABMafiliado frm = new Abm_Afiliado.ABMafiliado();
-            frm.ShowDialog();
-        }
+
 
         private void button1_Click(object sender, EventArgs e)
         {
@@ -134,6 +138,12 @@ namespace ClinicaFrba.MenuPrincipal
         private void afil_btn_Click(object sender, EventArgs e)
         {
             ABM_Afiliado2.ABMAfiliado frm = new ABM_Afiliado2.ABMAfiliado();
+            frm.ShowDialog();
+        }
+
+        private void btn_cancelar_med_Click(object sender, EventArgs e)
+        {
+            Cancelar_Atencion.CancelarAtencionM frm = new Cancelar_Atencion.CancelarAtencionM();
             frm.ShowDialog();
         }
 

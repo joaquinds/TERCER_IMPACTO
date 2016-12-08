@@ -30,13 +30,13 @@
         {
             this.btnABMRol = new System.Windows.Forms.Button();
             this.btnAgenda = new System.Windows.Forms.Button();
-            this.btnafiliado = new System.Windows.Forms.Button();
             this.btnRegistrar = new System.Windows.Forms.Button();
             this.btnPTurno = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.btnRegistrarResul = new System.Windows.Forms.Button();
             this.btnCancelarA = new System.Windows.Forms.Button();
             this.afil_btn = new System.Windows.Forms.Button();
+            this.btn_cancelar_med = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // btnABMRol
@@ -58,16 +58,6 @@
             this.btnAgenda.Text = "Agenda";
             this.btnAgenda.UseVisualStyleBackColor = true;
             this.btnAgenda.Click += new System.EventHandler(this.btnAgenda_Click);
-            // 
-            // btnafiliado
-            // 
-            this.btnafiliado.Location = new System.Drawing.Point(171, 33);
-            this.btnafiliado.Name = "btnafiliado";
-            this.btnafiliado.Size = new System.Drawing.Size(75, 23);
-            this.btnafiliado.TabIndex = 2;
-            this.btnafiliado.Text = "ABM Afiliado";
-            this.btnafiliado.UseVisualStyleBackColor = true;
-            this.btnafiliado.Click += new System.EventHandler(this.btnafiliado_Click_1);
             // 
             // btnRegistrar
             // 
@@ -129,18 +119,28 @@
             this.afil_btn.UseVisualStyleBackColor = true;
             this.afil_btn.Click += new System.EventHandler(this.afil_btn_Click);
             // 
+            // btn_cancelar_med
+            // 
+            this.btn_cancelar_med.Location = new System.Drawing.Point(171, 201);
+            this.btn_cancelar_med.Name = "btn_cancelar_med";
+            this.btn_cancelar_med.Size = new System.Drawing.Size(177, 23);
+            this.btn_cancelar_med.TabIndex = 9;
+            this.btn_cancelar_med.Text = "Cancelar Turno Médico";
+            this.btn_cancelar_med.UseVisualStyleBackColor = true;
+            this.btn_cancelar_med.Click += new System.EventHandler(this.btn_cancelar_med_Click);
+            // 
             // Menus
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(394, 286);
+            this.Controls.Add(this.btn_cancelar_med);
             this.Controls.Add(this.afil_btn);
             this.Controls.Add(this.btnCancelarA);
             this.Controls.Add(this.btnRegistrarResul);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.btnPTurno);
             this.Controls.Add(this.btnRegistrar);
-            this.Controls.Add(this.btnafiliado);
             this.Controls.Add(this.btnAgenda);
             this.Controls.Add(this.btnABMRol);
             this.Name = "Menus";
@@ -154,12 +154,12 @@
 
         private System.Windows.Forms.Button btnABMRol;
         private System.Windows.Forms.Button btnAgenda;
-        private System.Windows.Forms.Button btnafiliado;
         private System.Windows.Forms.Button btnRegistrar;
         private System.Windows.Forms.Button btnPTurno;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button btnRegistrarResul;
         private System.Windows.Forms.Button btnCancelarA;
         private System.Windows.Forms.Button afil_btn;
+        private System.Windows.Forms.Button btn_cancelar_med;
     }
 }

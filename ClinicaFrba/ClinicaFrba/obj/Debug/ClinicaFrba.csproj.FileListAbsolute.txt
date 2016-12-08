@@ -66,10 +66,6 @@ D:\tp_gestion\ClinicaFrba\ClinicaFrba\obj\Debug\ClinicaFrba.pdb
 D:\tp_gestion\ClinicaFrba\ClinicaFrba\bin\Debug\ClinicaFrba.exe
 D:\tp_gestion\ClinicaFrba\ClinicaFrba\bin\Debug\ClinicaFrba.pdb
 D:\tp_gestion\ClinicaFrba\ClinicaFrba\obj\Debug\ClinicaFrba.csprojResolveAssemblyReference.cache
-D:\tp_gestion\ClinicaFrba\ClinicaFrba\obj\Debug\ClinicaFrba.Abm_Afiliado.Alta.resources
-D:\tp_gestion\ClinicaFrba\ClinicaFrba\obj\Debug\ClinicaFrba.Abm_Afiliado.ABMafiliado.resources
-D:\tp_gestion\ClinicaFrba\ClinicaFrba\obj\Debug\ClinicaFrba.Abm_Afiliado.Baja.resources
-D:\tp_gestion\ClinicaFrba\ClinicaFrba\obj\Debug\ClinicaFrba.Abm_Afiliado.Modificacion.resources
 D:\tp_gestion\ClinicaFrba\ClinicaFrba\obj\Debug\ClinicaFrba.AbmRol.ABMrol.resources
 D:\tp_gestion\ClinicaFrba\ClinicaFrba\obj\Debug\ClinicaFrba.AbmRol.Alta.resources
 D:\tp_gestion\ClinicaFrba\ClinicaFrba\obj\Debug\ClinicaFrba.AbmRol.Baja.resources
@@ -141,3 +137,6 @@ D:\tp_gestion\ClinicaFrba\ClinicaFrba\obj\Debug\ClinicaFrba.ABM_Afiliado2.Alta.r
 D:\tp_gestion\ClinicaFrba\ClinicaFrba\obj\Debug\ClinicaFrba.ABM_Afiliado2.AltaFamiliar.resources
 D:\tp_gestion\ClinicaFrba\ClinicaFrba\obj\Debug\ClinicaFrba.ABM_Afiliado2.Baja.resources
 D:\tp_gestion\ClinicaFrba\ClinicaFrba\obj\Debug\ClinicaFrba.ABM_Afiliado2.Modificacion.resources
+D:\tp_gestion\ClinicaFrba\ClinicaFrba\obj\Debug\ClinicaFrba.Cancelar_Atencion.CancelacionDia.resources
+D:\tp_gestion\ClinicaFrba\ClinicaFrba\obj\Debug\ClinicaFrba.Cancelar_Atencion.CancelacionPeriodo.resources
+D:\tp_gestion\ClinicaFrba\ClinicaFrba\obj\Debug\ClinicaFrba.Listados.ListadoEstadistico.resources
