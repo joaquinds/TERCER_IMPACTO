@@ -115,6 +115,7 @@
             this.btnconsultados.TabIndex = 7;
             this.btnconsultados.Text = "Top 5 profesionales mas consultados por plan";
             this.btnconsultados.UseVisualStyleBackColor = true;
+            this.btnconsultados.Click += new System.EventHandler(this.btnconsultados_Click_1);
             // 
             // btnhoras
             // 
@@ -159,6 +160,7 @@
             this.btnbonoconsulta.TabIndex = 10;
             this.btnbonoconsulta.Text = "Top 5 especialidades de Médicos con mas bonos de consulta utilizados";
             this.btnbonoconsulta.UseVisualStyleBackColor = true;
+            this.btnbonoconsulta.Click += new System.EventHandler(this.btnbonoconsulta_Click);
             // 
             // dgvestadisticas
             // 

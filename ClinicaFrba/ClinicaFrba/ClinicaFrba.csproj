@@ -151,11 +151,29 @@
       <DependentUpon>Compra.cs</DependentUpon>
     </Compile>
     <Compile Include="Globals.cs" />
+    <Compile Include="Listados\EspecialidadConMasBonos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Listados\EspecialidadConMasBonos.Designer.cs">
+      <DependentUpon>EspecialidadConMasBonos.cs</DependentUpon>
+    </Compile>
     <Compile Include="Listados\ListadoEstadistico.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Listados\ListadoEstadistico.Designer.cs">
       <DependentUpon>ListadoEstadistico.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Listados\ListadoMenu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Listados\ListadoMenu.Designer.cs">
+      <DependentUpon>ListadoMenu.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Listados\ListadoProfPlan.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Listados\ListadoProfPlan.Designer.cs">
+      <DependentUpon>ListadoProfPlan.cs</DependentUpon>
     </Compile>
     <Compile Include="Login.cs">
       <SubType>Form</SubType>
@@ -245,8 +263,17 @@
     <EmbeddedResource Include="Compra Bono\Compra.resx">
       <DependentUpon>Compra.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Listados\EspecialidadConMasBonos.resx">
+      <DependentUpon>EspecialidadConMasBonos.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Listados\ListadoEstadistico.resx">
       <DependentUpon>ListadoEstadistico.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Listados\ListadoMenu.resx">
+      <DependentUpon>ListadoMenu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Listados\ListadoProfPlan.resx">
+      <DependentUpon>ListadoProfPlan.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Login.resx">
       <DependentUpon>Login.cs</DependentUpon>

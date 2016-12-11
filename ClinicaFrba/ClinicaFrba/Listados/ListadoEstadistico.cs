@@ -174,6 +174,16 @@ namespace ClinicaFrba.Listados
         {
 
         }
+
+        private void btnconsultados_Click_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnbonoconsulta_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
 

@@ -140,3 +140,6 @@ D:\tp_gestion\ClinicaFrba\ClinicaFrba\obj\Debug\ClinicaFrba.ABM_Afiliado2.Modifi
 D:\tp_gestion\ClinicaFrba\ClinicaFrba\obj\Debug\ClinicaFrba.Cancelar_Atencion.CancelacionDia.resources
 D:\tp_gestion\ClinicaFrba\ClinicaFrba\obj\Debug\ClinicaFrba.Cancelar_Atencion.CancelacionPeriodo.resources
 D:\tp_gestion\ClinicaFrba\ClinicaFrba\obj\Debug\ClinicaFrba.Listados.ListadoEstadistico.resources
+C:\Users\ezequiel\GitHH\TERCER_IMPACTO\ClinicaFrba\ClinicaFrba\bin\Debug\ClinicaFrba.exe.config
+C:\Users\ezequiel\GitHH\TERCER_IMPACTO\ClinicaFrba\ClinicaFrba\obj\Debug\ClinicaFrba.exe
+C:\Users\ezequiel\GitHH\TERCER_IMPACTO\ClinicaFrba\ClinicaFrba\obj\Debug\ClinicaFrba.pdb
