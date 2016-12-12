@@ -11,47 +11,36 @@ using System.Data.SqlClient;
 
 namespace ClinicaFrba.Listados
 {
-    public partial class ListadoProfPlan : Form
+    public partial class EspecialidadesQueMasRegistraronCancelaciones : Form
     {
-        public ListadoProfPlan()
+        public EspecialidadesQueMasRegistraronCancelaciones()
         {
             InitializeComponent();
         }
 
-
-        //se cargan los combobox
         private void ListadoProfPlan_Load(object sender, EventArgs e)
         {
             cmbsemestre.SelectedItem = null;
             cmbsemestre.Items.Add(1);
             cmbsemestre.Items.Add(2);
-            llenarComboPlan();
         }
 
-        //se llena el combo plan
-        private void llenarComboPlan()
+        private void btnlimpiar_Click(object sender, EventArgs e)
         {
-            cmbplan.DataSource = new Query("SELECT ID_PLAN_MEDICO,DESCRIPCION FROM TERCER_IMPACTO.PLAN_MEDICO").ObtenerDataTable();
-            cmbplan.ValueMember = "DESCRIPCION";
-            cmbplan.DropDownStyle = ComboBoxStyle.DropDownList;
+            txtanio.Text = "";
+            cmbsemestre.SelectedItem = null;
+            dataGridView1.Rows.Clear();
         }
 
-        //se llena la grilla con los datos y se validan los datos de entrada
-        private void buscar_Click(object sender, EventArgs e)
+        private void btnbuscar_Click(object sender, EventArgs e)
         {
-
-            if (string.IsNullOrEmpty(cmbplan.Text))
-            {
-                MessageBox.Show("Seleccione un plan", "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                return;
-            }
             if (string.IsNullOrEmpty(cmbsemestre.Text))
             {
                 MessageBox.Show("Seleccione un semestre", "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return;
             }
             if (string.IsNullOrEmpty(txtanio.Text) || Convert.ToInt32(txtanio.Text) > 1950 && Convert.ToInt32(txtanio.Text) < 2016)
-            {             
+            {
                 MessageBox.Show("Ingrese un año entre 1950 y 2016", "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return;
             }
@@ -64,47 +53,39 @@ namespace ClinicaFrba.Listados
             mes_final = mesFinal(semestre);
 
             var tabla = new DataTable();
-            Query qr = new Query("TERCER_IMPACTO.TOP5_PROF_PLAN");
+            Query qr = new Query("TERCER_IMPACTO.ESPECIALIDADES_MAS_CANCELADAS");
             qr.addParameter("@ANIO", txtanio.Text);
             qr.addParameter("@MES_INICIAL", mes_inicial.ToString());
             qr.addParameter("@MES_FINAL", mes_final.ToString());
-            qr.addParameter("@PLAN_COD", cmbplan.SelectedItem.ToString());
-
+           
+            
           
-            ProfMasConsultadosGridView.DataSource = qr.ObtenerDataTable();
+            dataGridView1.DataSource = qr.ObtenerDataTable();
         }
 
-
-
-        public DataTable armarTablaProfMasConsultados(SqlCommand comando)
+        public DataTable armarTablaEstCancelacion(SqlCommand comando)
         {
             DataTable tabla = new DataTable();
             SqlDataReader reader;
             comando.CommandText = comando.CommandText + ")";
-            tabla.Columns.Add("Codigo de profesional", typeof(Int32));
-            tabla.Columns.Add("Nombre", typeof(string));
-            tabla.Columns.Add("Apellido", typeof(string));
+            tabla.Columns.Add("ID", typeof(Int32));
             tabla.Columns.Add("Especialidad", typeof(string));
-            tabla.Columns.Add("Numero de consultas", typeof(Int32));
+            tabla.Columns.Add("Cantidad", typeof(Int32));
             using (comando)
             {
                 reader = comando.ExecuteReader();
                 while (reader.Read())
                 {
                     DataRow fila = tabla.NewRow();
-                    fila["Codigo de profesional"] = (Int32)reader.GetValue(0);
-                    fila["Nombre"] = (String)reader.GetValue(1);
-                    fila["Apellido"] = (String)reader.GetValue(2);                   
-                    fila["Especialidad"] = (String)reader.GetValue(3);
-                    fila["Numero de consultas"] = (Int32)reader.GetValue(4);
+                    fila["ID"] = (Int32)reader.GetValue(0);
+                    fila["Especialidad"] = (String)reader.GetValue(1);
+                    fila["Cantidad"] = (Int32)reader.GetValue(2);
                     tabla.Rows.Add(fila);
                 }
             }
             return tabla;
         }
 
-
-        //funciones auxiliares
         public int mesInicial(int semestre)
         {
             int mes;
@@ -133,14 +114,14 @@ namespace ClinicaFrba.Listados
             return mes;
         }
 
-      
 
-        private void btnlimpiar_Click(object sender, EventArgs e)
-        {
-            txtanio.Text = "";
-            cmbplan.SelectedItem = null;
-            cmbsemestre.SelectedItem = null;
-            ProfMasConsultadosGridView.Rows.Clear();
-        }
+       
+
+
+
+
+
+
+
     }
 }

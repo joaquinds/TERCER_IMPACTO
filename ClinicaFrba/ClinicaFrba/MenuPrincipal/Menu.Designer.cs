@@ -37,6 +37,7 @@
             this.btnCancelarA = new System.Windows.Forms.Button();
             this.afil_btn = new System.Windows.Forms.Button();
             this.btn_cancelar_med = new System.Windows.Forms.Button();
+            this.btnlistado = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // btnABMRol
@@ -129,11 +130,22 @@
             this.btn_cancelar_med.UseVisualStyleBackColor = true;
             this.btn_cancelar_med.Click += new System.EventHandler(this.btn_cancelar_med_Click);
             // 
+            // btnlistado
+            // 
+            this.btnlistado.Location = new System.Drawing.Point(171, 32);
+            this.btnlistado.Name = "btnlistado";
+            this.btnlistado.Size = new System.Drawing.Size(177, 23);
+            this.btnlistado.TabIndex = 10;
+            this.btnlistado.Text = "Listado estadistico";
+            this.btnlistado.UseVisualStyleBackColor = true;
+            this.btnlistado.Click += new System.EventHandler(this.btnlistado_Click);
+            // 
             // Menus
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(394, 286);
+            this.Controls.Add(this.btnlistado);
             this.Controls.Add(this.btn_cancelar_med);
             this.Controls.Add(this.afil_btn);
             this.Controls.Add(this.btnCancelarA);
@@ -161,5 +173,6 @@
         private System.Windows.Forms.Button btnCancelarA;
         private System.Windows.Forms.Button afil_btn;
         private System.Windows.Forms.Button btn_cancelar_med;
+        private System.Windows.Forms.Button btnlistado;
     }
 }

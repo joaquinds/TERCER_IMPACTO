@@ -23,18 +23,12 @@ D:\Downloads\TP CLINICA FRBA 1.0 - 2C 2016 (1)\Aplicacion Desktop\ClinicaFrba\Cl
 D:\Downloads\TP CLINICA FRBA 1.0 - 2C 2016 (1)\Aplicacion Desktop\ClinicaFrba\ClinicaFrba\obj\Debug\ClinicaFrba.Registrar_Agenda_Medico.Agenda.resources
 D:\Downloads\TP CLINICA FRBA 1.0 - 2C 2016 (1)\Aplicacion Desktop\ClinicaFrba\ClinicaFrba\obj\Debug\ClinicaFrba.csprojResolveAssemblyReference.cache
 C:\Users\GMT256\Documents\GitHub\TERCER_IMPACTO\ClinicaFrba\ClinicaFrba\bin\Debug\ClinicaFrba.exe.config
-C:\Users\GMT256\Documents\GitHub\TERCER_IMPACTO\ClinicaFrba\ClinicaFrba\obj\Debug\ClinicaFrba.csprojResolveAssemblyReference.cache
-C:\Users\GMT256\Documents\GitHub\TERCER_IMPACTO\ClinicaFrba\ClinicaFrba\obj\Debug\ClinicaFrba.Abm_Afiliado.Alta.resources
-C:\Users\GMT256\Documents\GitHub\TERCER_IMPACTO\ClinicaFrba\ClinicaFrba\obj\Debug\ClinicaFrba.Abm_Afiliado.ABMafiliado.resources
-C:\Users\GMT256\Documents\GitHub\TERCER_IMPACTO\ClinicaFrba\ClinicaFrba\obj\Debug\ClinicaFrba.Abm_Afiliado.Baja.resources
-C:\Users\GMT256\Documents\GitHub\TERCER_IMPACTO\ClinicaFrba\ClinicaFrba\obj\Debug\ClinicaFrba.Abm_Afiliado.Modificacion.resources
 C:\Users\GMT256\Documents\GitHub\TERCER_IMPACTO\ClinicaFrba\ClinicaFrba\obj\Debug\ClinicaFrba.AbmRol.ABMrol.resources
 C:\Users\GMT256\Documents\GitHub\TERCER_IMPACTO\ClinicaFrba\ClinicaFrba\obj\Debug\ClinicaFrba.AbmRol.Alta.resources
 C:\Users\GMT256\Documents\GitHub\TERCER_IMPACTO\ClinicaFrba\ClinicaFrba\obj\Debug\ClinicaFrba.AbmRol.Baja.resources
 C:\Users\GMT256\Documents\GitHub\TERCER_IMPACTO\ClinicaFrba\ClinicaFrba\obj\Debug\ClinicaFrba.AbmRol.Modificacion.resources
 C:\Users\GMT256\Documents\GitHub\TERCER_IMPACTO\ClinicaFrba\ClinicaFrba\obj\Debug\ClinicaFrba.Login.resources
 C:\Users\GMT256\Documents\GitHub\TERCER_IMPACTO\ClinicaFrba\ClinicaFrba\obj\Debug\ClinicaFrba.MenuPrincipal.ElegirRol.resources
-C:\Users\GMT256\Documents\GitHub\TERCER_IMPACTO\ClinicaFrba\ClinicaFrba\obj\Debug\ClinicaFrba.MenuPrincipal.Menu.resources
 C:\Users\GMT256\Documents\GitHub\TERCER_IMPACTO\ClinicaFrba\ClinicaFrba\obj\Debug\ClinicaFrba.Properties.Resources.resources
 C:\Users\GMT256\Documents\GitHub\TERCER_IMPACTO\ClinicaFrba\ClinicaFrba\obj\Debug\ClinicaFrba.Registrar_Agenda_Medico.Agenda.resources
 C:\Users\GMT256\Documents\GitHub\TERCER_IMPACTO\ClinicaFrba\ClinicaFrba\obj\Debug\ClinicaFrba.csproj.GenerateResource.Cache
@@ -143,3 +137,27 @@ D:\tp_gestion\ClinicaFrba\ClinicaFrba\obj\Debug\ClinicaFrba.Listados.ListadoEsta
 C:\Users\ezequiel\GitHH\TERCER_IMPACTO\ClinicaFrba\ClinicaFrba\bin\Debug\ClinicaFrba.exe.config
 C:\Users\ezequiel\GitHH\TERCER_IMPACTO\ClinicaFrba\ClinicaFrba\obj\Debug\ClinicaFrba.exe
 C:\Users\ezequiel\GitHH\TERCER_IMPACTO\ClinicaFrba\ClinicaFrba\obj\Debug\ClinicaFrba.pdb
+C:\Users\GMT256\Documents\GitHub\TERCER_IMPACTO\ClinicaFrba\ClinicaFrba\obj\Debug\ClinicaFrba.exe
+C:\Users\GMT256\Documents\GitHub\TERCER_IMPACTO\ClinicaFrba\ClinicaFrba\obj\Debug\ClinicaFrba.pdb
+C:\Users\GMT256\Documents\GitHub\TERCER_IMPACTO\ClinicaFrba\ClinicaFrba\obj\Debug\ClinicaFrba.ABM_Afiliado2.ABMAfiliado.resources
+C:\Users\GMT256\Documents\GitHub\TERCER_IMPACTO\ClinicaFrba\ClinicaFrba\obj\Debug\ClinicaFrba.ABM_Afiliado2.Alta.resources
+C:\Users\GMT256\Documents\GitHub\TERCER_IMPACTO\ClinicaFrba\ClinicaFrba\obj\Debug\ClinicaFrba.ABM_Afiliado2.AltaFamiliar.resources
+C:\Users\GMT256\Documents\GitHub\TERCER_IMPACTO\ClinicaFrba\ClinicaFrba\obj\Debug\ClinicaFrba.ABM_Afiliado2.Baja.resources
+C:\Users\GMT256\Documents\GitHub\TERCER_IMPACTO\ClinicaFrba\ClinicaFrba\obj\Debug\ClinicaFrba.ABM_Afiliado2.Modificacion.resources
+C:\Users\GMT256\Documents\GitHub\TERCER_IMPACTO\ClinicaFrba\ClinicaFrba\obj\Debug\ClinicaFrba.Cancelar_Atencion.CancelacionDia.resources
+C:\Users\GMT256\Documents\GitHub\TERCER_IMPACTO\ClinicaFrba\ClinicaFrba\obj\Debug\ClinicaFrba.Cancelar_Atencion.CancelacionPeriodo.resources
+C:\Users\GMT256\Documents\GitHub\TERCER_IMPACTO\ClinicaFrba\ClinicaFrba\obj\Debug\ClinicaFrba.Cancelar_Atencion.CancelarAtencion.resources
+C:\Users\GMT256\Documents\GitHub\TERCER_IMPACTO\ClinicaFrba\ClinicaFrba\obj\Debug\ClinicaFrba.Cancelar_Atencion.CancelarAtencionM.resources
+C:\Users\GMT256\Documents\GitHub\TERCER_IMPACTO\ClinicaFrba\ClinicaFrba\obj\Debug\ClinicaFrba.Compra_Bono.Compra.resources
+C:\Users\GMT256\Documents\GitHub\TERCER_IMPACTO\ClinicaFrba\ClinicaFrba\obj\Debug\ClinicaFrba.Listados.AfiliadoConMasBonosComprados.resources
+C:\Users\GMT256\Documents\GitHub\TERCER_IMPACTO\ClinicaFrba\ClinicaFrba\obj\Debug\ClinicaFrba.Listados.EspecialidadConMasBonosUtilizados.resources
+C:\Users\GMT256\Documents\GitHub\TERCER_IMPACTO\ClinicaFrba\ClinicaFrba\obj\Debug\ClinicaFrba.Listados.EspecialidadesConMenosHorasTrabajadas.resources
+C:\Users\GMT256\Documents\GitHub\TERCER_IMPACTO\ClinicaFrba\ClinicaFrba\obj\Debug\ClinicaFrba.Listados.EspecialidadesQueMasRegistraronCancelaciones.resources
+C:\Users\GMT256\Documents\GitHub\TERCER_IMPACTO\ClinicaFrba\ClinicaFrba\obj\Debug\ClinicaFrba.Listados.ListadoEstadistico.resources
+C:\Users\GMT256\Documents\GitHub\TERCER_IMPACTO\ClinicaFrba\ClinicaFrba\obj\Debug\ClinicaFrba.Listados.ListadoMenu.resources
+C:\Users\GMT256\Documents\GitHub\TERCER_IMPACTO\ClinicaFrba\ClinicaFrba\obj\Debug\ClinicaFrba.Listados.ListadoProfPlan.resources
+C:\Users\GMT256\Documents\GitHub\TERCER_IMPACTO\ClinicaFrba\ClinicaFrba\obj\Debug\ClinicaFrba.Pedir_Turno.Pedir_Turno.resources
+C:\Users\GMT256\Documents\GitHub\TERCER_IMPACTO\ClinicaFrba\ClinicaFrba\obj\Debug\ClinicaFrba.Registro_Llegada.Registro_Llegada.resources
+C:\Users\GMT256\Documents\GitHub\TERCER_IMPACTO\ClinicaFrba\ClinicaFrba\obj\Debug\ClinicaFrba.Registro_Resultado.Registrar_Resultado.resources
+C:\Users\GMT256\Documents\GitHub\TERCER_IMPACTO\ClinicaFrba\ClinicaFrba\bin\Debug\ClinicaFrba.exe
+C:\Users\GMT256\Documents\GitHub\TERCER_IMPACTO\ClinicaFrba\ClinicaFrba\bin\Debug\ClinicaFrba.pdb

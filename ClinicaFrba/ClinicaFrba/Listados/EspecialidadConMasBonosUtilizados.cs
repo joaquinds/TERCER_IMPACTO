@@ -11,51 +11,48 @@ using System.Data.SqlClient;
 
 namespace ClinicaFrba.Listados
 {
-    public partial class EspecialidadConMasBonos : Form
+    public partial class EspecialidadConMasBonosUtilizados : Form
     {
-        public EspecialidadConMasBonos()
+        public EspecialidadConMasBonosUtilizados()
         {
             InitializeComponent();
         }
 
         private void EspecialidadConMasBonos_Load(object sender, EventArgs e)
         {
-            cmbSemestre.SelectedItem = null;
-            cmbSemestre.Items.Add(1);
-            cmbSemestre.Items.Add(2);
-            
+            cmbsemestre.SelectedItem = null;
+            cmbsemestre.Items.Add(1);
+            cmbsemestre.Items.Add(2);
         }
 
         private void buscar_Click(object sender, EventArgs e)
         {
-          
-            if (string.IsNullOrEmpty(cmbSemestre.Text))
+
+            if (string.IsNullOrEmpty(cmbsemestre.Text))
             {
                 MessageBox.Show("Seleccione un semestre", "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return;
             }
-            if (string.IsNullOrEmpty(txtAño.Text))
+            if (string.IsNullOrEmpty(txtanio.Text) || Convert.ToInt32(txtanio.Text) > 1950 && Convert.ToInt32(txtanio.Text) < 2016)
             {
-                MessageBox.Show("Ingrese un año", "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("Ingrese un año entre 1950 y 2016", "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return;
             }
 
             int mes_inicial;
             int mes_final;
 
-            int semestre = int.Parse(cmbSemestre.SelectedItem.ToString());
+            int semestre = int.Parse(cmbsemestre.SelectedItem.ToString());
             mes_inicial = mesInicial(semestre);
             mes_final = mesFinal(semestre);
 
             var tabla = new DataTable();
             Query qr = new Query("TERCER_IMPACTO.TOP5_ESP_BONO");
-            qr.addParameter("@ANIO", txtAño.Text);
+            qr.addParameter("@ANIO", txtanio.Text);
             qr.addParameter("@MES_INICIAL", mes_inicial.ToString());
             qr.addParameter("@MES_FINAL", mes_final.ToString());
 
-            //como llenar la tabla con un query?
-            tabla = armarTablaEspBonos(qr);
-            return tabla;
+            EspecMasBonosGridView.DataSource = qr.ObtenerDataTable();
         }
 
 
@@ -107,6 +104,19 @@ namespace ClinicaFrba.Listados
                 mes = 12;
             }
             return mes;
+        }
+
+        private void limpiar_Click(object sender, EventArgs e)
+        {
+            txtanio.Text = "";
+            cmbsemestre.SelectedItem = null;
+            EspecMasBonosGridView.Rows.Clear();
+
+        }
+
+        private void EspecMasBonosGridView_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
         }
         }
 

@@ -28,46 +28,73 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.button3 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
+            this.btnbonoscomprados = new System.Windows.Forms.Button();
+            this.btnbonosutilizados = new System.Windows.Forms.Button();
+            this.btnconsulta = new System.Windows.Forms.Button();
+            this.btnhoras = new System.Windows.Forms.Button();
+            this.btncancelaciones = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
-            // button3
+            // btnbonoscomprados
             // 
-            this.button3.Location = new System.Drawing.Point(41, 188);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(238, 42);
-            this.button3.TabIndex = 5;
-            this.button3.Text = "Afiliado con mas bonos comprados";
-            this.button3.UseVisualStyleBackColor = true;
+            this.btnbonoscomprados.Location = new System.Drawing.Point(41, 116);
+            this.btnbonoscomprados.Name = "btnbonoscomprados";
+            this.btnbonoscomprados.Size = new System.Drawing.Size(434, 38);
+            this.btnbonoscomprados.TabIndex = 5;
+            this.btnbonoscomprados.Text = "Afiliado con mas bonos comprados";
+            this.btnbonoscomprados.UseVisualStyleBackColor = true;
+            this.btnbonoscomprados.Click += new System.EventHandler(this.btnbonoscomprados_Click);
             // 
-            // button2
+            // btnbonosutilizados
             // 
-            this.button2.Location = new System.Drawing.Point(41, 129);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(238, 41);
-            this.button2.TabIndex = 4;
-            this.button2.Text = "Especialidades con mas bonos utilizados";
-            this.button2.UseVisualStyleBackColor = true;
+            this.btnbonosutilizados.Location = new System.Drawing.Point(41, 64);
+            this.btnbonosutilizados.Name = "btnbonosutilizados";
+            this.btnbonosutilizados.Size = new System.Drawing.Size(434, 38);
+            this.btnbonosutilizados.TabIndex = 4;
+            this.btnbonosutilizados.Text = "Especialidades con mas bonos utilizados";
+            this.btnbonosutilizados.UseVisualStyleBackColor = true;
+            this.btnbonosutilizados.Click += new System.EventHandler(this.btnbonosutilizados_Click);
             // 
-            // button1
+            // btnconsulta
             // 
-            this.button1.Location = new System.Drawing.Point(41, 74);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(238, 38);
-            this.button1.TabIndex = 3;
-            this.button1.Text = "Profesionales mas consultados por plan";
-            this.button1.UseVisualStyleBackColor = true;
+            this.btnconsulta.Location = new System.Drawing.Point(41, 12);
+            this.btnconsulta.Name = "btnconsulta";
+            this.btnconsulta.Size = new System.Drawing.Size(434, 38);
+            this.btnconsulta.TabIndex = 3;
+            this.btnconsulta.Text = "Profesionales mas consultados por plan";
+            this.btnconsulta.UseVisualStyleBackColor = true;
+            this.btnconsulta.Click += new System.EventHandler(this.btnconsulta_Click);
+            // 
+            // btnhoras
+            // 
+            this.btnhoras.Location = new System.Drawing.Point(41, 168);
+            this.btnhoras.Name = "btnhoras";
+            this.btnhoras.Size = new System.Drawing.Size(434, 38);
+            this.btnhoras.TabIndex = 6;
+            this.btnhoras.Text = "Profesionales con menos horas trabajadas";
+            this.btnhoras.UseVisualStyleBackColor = true;
+            this.btnhoras.Click += new System.EventHandler(this.btnhoras_Click);
+            // 
+            // btncancelaciones
+            // 
+            this.btncancelaciones.Location = new System.Drawing.Point(41, 220);
+            this.btncancelaciones.Name = "btncancelaciones";
+            this.btncancelaciones.Size = new System.Drawing.Size(434, 38);
+            this.btncancelaciones.TabIndex = 7;
+            this.btncancelaciones.Text = "Especialidades que mas registraron cancelaciones";
+            this.btncancelaciones.UseVisualStyleBackColor = true;
+            this.btncancelaciones.Click += new System.EventHandler(this.btncancelaciones_Click);
             // 
             // ListadoMenu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(359, 306);
-            this.Controls.Add(this.button3);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
+            this.ClientSize = new System.Drawing.Size(521, 289);
+            this.Controls.Add(this.btncancelaciones);
+            this.Controls.Add(this.btnhoras);
+            this.Controls.Add(this.btnbonoscomprados);
+            this.Controls.Add(this.btnbonosutilizados);
+            this.Controls.Add(this.btnconsulta);
             this.Name = "ListadoMenu";
             this.Text = "ListadoMenu";
             this.ResumeLayout(false);
@@ -76,8 +103,10 @@
 
         #endregion
 
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnbonoscomprados;
+        private System.Windows.Forms.Button btnbonosutilizados;
+        private System.Windows.Forms.Button btnconsulta;
+        private System.Windows.Forms.Button btnhoras;
+        private System.Windows.Forms.Button btncancelaciones;
     }
 }

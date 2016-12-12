@@ -21,6 +21,7 @@ namespace ClinicaFrba.MenuPrincipal
         private bool abmRegistrarResul;
         private bool abmCancelarA;
         private bool cancerTurnoMedico;
+        private bool listado;
 
 
         public Menus()
@@ -34,6 +35,7 @@ namespace ClinicaFrba.MenuPrincipal
             abmRegistrarResul = false;
             abmCancelarA = false;
             cancerTurnoMedico = false;
+            listado = false;
             InitializeComponent();
         }
 
@@ -72,6 +74,8 @@ namespace ClinicaFrba.MenuPrincipal
 
                 if ((string)fila["DESCRIPCION"] == "CANCELAR PROFESIONAL")
                         cancerTurnoMedico = true;
+                if ((string)fila["DESCRIPCION"] == "LISTADO ESTADISTICO")
+                    listado = true;
 
                 
             }
@@ -85,6 +89,7 @@ namespace ClinicaFrba.MenuPrincipal
             btnRegistrarResul.Visible = abmRegistrarResul;
             btnCancelarA.Visible = abmCancelarA;
             afil_btn.Visible = abmafiliadoVisible;
+            btnlistado.Visible = listado;
 
         }
 
@@ -144,6 +149,12 @@ namespace ClinicaFrba.MenuPrincipal
         private void btn_cancelar_med_Click(object sender, EventArgs e)
         {
             Cancelar_Atencion.CancelarAtencionM frm = new Cancelar_Atencion.CancelarAtencionM();
+            frm.ShowDialog();
+        }
+
+        private void btnlistado_Click(object sender, EventArgs e)
+        {
+            Listados.ListadoMenu frm = new Listados.ListadoMenu();
             frm.ShowDialog();
         }
 
