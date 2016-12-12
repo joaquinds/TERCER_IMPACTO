@@ -161,4 +161,3 @@ C:\Users\GMT256\Documents\GitHub\TERCER_IMPACTO\ClinicaFrba\ClinicaFrba\obj\Debu
 C:\Users\GMT256\Documents\GitHub\TERCER_IMPACTO\ClinicaFrba\ClinicaFrba\obj\Debug\ClinicaFrba.Registro_Resultado.Registrar_Resultado.resources
 C:\Users\GMT256\Documents\GitHub\TERCER_IMPACTO\ClinicaFrba\ClinicaFrba\bin\Debug\ClinicaFrba.exe
 C:\Users\GMT256\Documents\GitHub\TERCER_IMPACTO\ClinicaFrba\ClinicaFrba\bin\Debug\ClinicaFrba.pdb
-C:\Users\GMT256\Documents\GitHub\TERCER_IMPACTO\ClinicaFrba\ClinicaFrba\obj\Debug\ClinicaFrba.csprojResolveAssemblyReference.cache

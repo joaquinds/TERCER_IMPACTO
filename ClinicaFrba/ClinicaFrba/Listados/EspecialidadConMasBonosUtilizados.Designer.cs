@@ -129,7 +129,7 @@
             this.Controls.Add(this.groupBox1);
             this.Name = "EspecialidadConMasBonosUtilizados";
             this.Text = "Especialidad con mas bonos utilizados";
-            this.Load += new System.EventHandler(this.EspecialidadConMasBonos_Load);
+            this.Load += new System.EventHandler(this.EspecialidadConMasBonosUtilizados_Load);
             ((System.ComponentModel.ISupportInitialize)(this.EspecMasBonosGridView)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
