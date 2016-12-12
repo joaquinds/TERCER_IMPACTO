@@ -18,7 +18,7 @@ namespace ClinicaFrba.Listados
             InitializeComponent();
         }
 
-        private void EspecialidadConMasBonos_Load(object sender, EventArgs e)
+        private void EspecialidadConMasBonosUtilizados_Load(object sender, EventArgs e)
         {
             cmbsemestre.SelectedItem = null;
             cmbsemestre.Items.Add(1);

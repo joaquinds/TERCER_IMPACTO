@@ -18,7 +18,7 @@ namespace ClinicaFrba.Listados
             InitializeComponent();
         }
 
-        private void ListadoProfPlan_Load(object sender, EventArgs e)
+        private void EspecialidadesQueMasRegistraronCancelaciones_Load(object sender, EventArgs e)
         {
             cmbsemestre.SelectedItem = null;
             cmbsemestre.Items.Add(1);
