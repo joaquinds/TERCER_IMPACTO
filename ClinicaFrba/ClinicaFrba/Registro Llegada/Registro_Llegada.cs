@@ -44,21 +44,24 @@ namespace ClinicaFrba.Registro_Llegada
         }
         private void llenarProfesionales()
         {
+            cmbProfesional.SelectedItem = null;
+            cmbProfesional.DisplayMember = "APELLIDO";
+            cmbProfesional.ValueMember = "APELLIDO";
+           
+            cmbProfesional.DropDownStyle = ComboBoxStyle.DropDownList;
             cmbProfesional.DataSource = new Query("SELECT NOMBRE, APELLIDO FROM TERCER_IMPACTO.PROFESIONAL " +
                 "JOIN TERCER_IMPACTO.PROFESIONAL_ESPECIALIDAD ON ID_PROFESIONAL=MATRICULA " +
                 " WHERE ID_ESPECIALIDAD='" + id_Especialidad + "'").ObtenerDataTable();
-            cmbProfesional.ValueMember = "APELLIDO";
-            cmbProfesional.SelectedItem = null;
-            cmbProfesional.DropDownStyle = ComboBoxStyle.DropDownList;
         }
         private void llenarTurnos()
         {
             //AND HABILITADO = 1"
-            cmbTurno.DataSource = new Query("SELECT FECHA FROM TERCER_IMPACTO.TURNO " +
-                " WHERE ID_MEDICO='" + id_Medico + "' ").ObtenerDataTable();
-            cmbTurno.ValueMember = "FECHA";
             cmbTurno.SelectedItem = null;
+            cmbTurno.DisplayMember = "FECHA";
+            cmbTurno.ValueMember = "FECHA";      
             cmbTurno.DropDownStyle = ComboBoxStyle.DropDownList;
+            cmbTurno.DataSource = new Query("SELECT FECHA FROM TERCER_IMPACTO.TURNO " +
+               " WHERE ID_MEDICO='" + id_Medico + "' ").ObtenerDataTable();
         }
         private void obtenerCantBonos()
         {
@@ -127,6 +130,28 @@ namespace ClinicaFrba.Registro_Llegada
             qr.Ejecutar();
             MessageBox.Show("La consulta se ha registrado exitosamente",
                 "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        }
+
+        private void cmbEspecialidad_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            cmbProfesional.DataSource = null;
+            cmbProfesional.Items.Clear();
+            cmbTurno.DataSource = null;
+            cmbTurno.Items.Clear();      
+            btnEfectivizar.Visible = false;
+
+        }
+
+        private void cmbProfesional_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            cmbTurno.DataSource = null;
+            cmbTurno.Items.Clear();
+            btnEfectivizar.Visible = false;
+        }
+
+        private void cmbTurno_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

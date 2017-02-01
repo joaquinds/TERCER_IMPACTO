@@ -73,6 +73,7 @@ namespace ClinicaFrba.Registro_Resultado
                 MessageBox.Show("Seleccion un medico", "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return;
             }
+            // Aca tenemos que obtener de alguna forma el ID_PROF_ESP
             id_Medico = (decimal)new Query("SELECT TOP 1 MATRICULA FROM TERCER_IMPACTO.PROFESIONAL WHERE MATRICULA='" + cmbMedico.Text + "'").ObtenerUnicoCampo();
             llenarCmbFechas();
         }
@@ -85,6 +86,8 @@ namespace ClinicaFrba.Registro_Resultado
                 return;
             }
             DateTime hora = Convert.ToDateTime(cmbHora.Text);
+
+            //Busca Id_Medico, cuando deberia buscar Id_PROF_ESP para comparar con el ID_MEDICO del turno
            
             id_turno = (decimal)new Query("SELECT ID_TURNO FROM TERCER_IMPACTO.TURNO WHERE FECHA ='" + hora + "' AND ID_MEDICO = '" + id_Medico + "'").ObtenerUnicoCampo();
             //SI ES NULL QUE TIRE EL ERROR (FALTA HACER LA FUNCION, LA HAGO EN UN RATO)

@@ -17,6 +17,7 @@ namespace ClinicaFrba.Pedir_Turno
         private decimal id_Prof_Especialidad;
         private decimal id_Dia;
         private decimal id_afiliado;
+      
 
         public Pedir_Turno()
         {
@@ -157,16 +158,19 @@ namespace ClinicaFrba.Pedir_Turno
 
             bool ya_existe_turno=false;
 
+            
             string f = cmbElegirFecha.Text;
             DateTime hora = Convert.ToDateTime(cmbElegirHorario.Text);
             DateTime fecha = Convert.ToDateTime(f);
             TimeSpan tiempo = new TimeSpan(0, hora.Hour, hora.Minute, 0);
             fecha=fecha.Add(tiempo);
 
+
+
             Query qr1 = new Query("SELECT TERCER_IMPACTO.EXISTE_TURNO('"+id_Prof_Especialidad+"','"+fecha.Year+"','"+fecha.Month+"','"+
                 fecha.Day+"','"+fecha.Hour+"','"+fecha.Minute+"')");
             ya_existe_turno = (bool)qr1.ObtenerUnicoCampo();
-        
+         
             if (!ya_existe_turno)
             { 
                
@@ -196,7 +200,7 @@ namespace ClinicaFrba.Pedir_Turno
                 return;
             }
             id_Medico = (decimal)new Query("SELECT TOP 1 MATRICULA FROM TERCER_IMPACTO.PROFESIONAL WHERE APELLIDO='" + cmbElegirProf.Text + "'").ObtenerUnicoCampo();
-            id_Prof_Especialidad = (decimal)new Query("SELECT TOP 1 ID_PROF_ESP FROM TERCER_IMPACTO.PROFESIONAL_ESPECIALIDAD WHERE ID_PROFESIONAL='" + id_Medico + "'").ObtenerUnicoCampo();
+            id_Prof_Especialidad = (decimal)new Query("SELECT TOP 1 ID_PROF_ESP FROM TERCER_IMPACTO.PROFESIONAL_ESPECIALIDAD WHERE ID_PROFESIONAL='" + id_Medico + "'AND ID_ESPECIALIDAD='" + id_Especialidad + "'").ObtenerUnicoCampo();
             llenarCmbFecha();
 
         }

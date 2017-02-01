@@ -175,12 +175,6 @@
     <Compile Include="Listados\EspecialidadesQueMasRegistraronCancelaciones.Designer.cs">
       <DependentUpon>EspecialidadesQueMasRegistraronCancelaciones.cs</DependentUpon>
     </Compile>
-    <Compile Include="Listados\ListadoEstadistico.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Listados\ListadoEstadistico.Designer.cs">
-      <DependentUpon>ListadoEstadistico.cs</DependentUpon>
-    </Compile>
     <Compile Include="Listados\ListadoMenu.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -292,9 +286,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Listados\EspecialidadesQueMasRegistraronCancelaciones.resx">
       <DependentUpon>EspecialidadesQueMasRegistraronCancelaciones.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Listados\ListadoEstadistico.resx">
-      <DependentUpon>ListadoEstadistico.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Listados\ListadoMenu.resx">
       <DependentUpon>ListadoMenu.cs</DependentUpon>

@@ -58,6 +58,7 @@
             this.cmbEspecialidad.Name = "cmbEspecialidad";
             this.cmbEspecialidad.Size = new System.Drawing.Size(121, 21);
             this.cmbEspecialidad.TabIndex = 1;
+            this.cmbEspecialidad.SelectedIndexChanged += new System.EventHandler(this.cmbEspecialidad_SelectedIndexChanged);
             // 
             // label2
             // 
@@ -75,6 +76,7 @@
             this.cmbProfesional.Name = "cmbProfesional";
             this.cmbProfesional.Size = new System.Drawing.Size(121, 21);
             this.cmbProfesional.TabIndex = 3;
+            this.cmbProfesional.SelectedIndexChanged += new System.EventHandler(this.cmbProfesional_SelectedIndexChanged);
             // 
             // cmbTurno
             // 
@@ -83,6 +85,7 @@
             this.cmbTurno.Name = "cmbTurno";
             this.cmbTurno.Size = new System.Drawing.Size(121, 21);
             this.cmbTurno.TabIndex = 4;
+            this.cmbTurno.SelectedIndexChanged += new System.EventHandler(this.cmbTurno_SelectedIndexChanged);
             // 
             // label3
             // 
