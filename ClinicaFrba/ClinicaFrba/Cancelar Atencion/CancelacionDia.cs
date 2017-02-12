@@ -33,7 +33,7 @@ namespace ClinicaFrba.Cancelar_Atencion
         private void llenarCmbAgenda()
         {
             DateTime fecha=Convert.ToDateTime(Globals.fecha_sistema);
-            string format = "yyyy-MM-dd hh:mm:ss";
+            string format = "yyyy-MM-dd HH:mm:ss";
             cmbAgenda.SelectedItem = null;
             cmbAgenda.DropDownStyle = ComboBoxStyle.DropDownList;
             cmbAgenda.DisplayMember = "FECHA";

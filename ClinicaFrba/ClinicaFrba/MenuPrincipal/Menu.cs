@@ -82,7 +82,7 @@ namespace ClinicaFrba.MenuPrincipal
 
             btnABMRol.Visible = abmRolVisible;
             btnAgenda.Visible = agendaVisible;
-            
+            btn_cancelar_med.Visible = cancerTurnoMedico;
             btnPTurno.Visible = abmPedirTurnoVisible;
             btnRegistrar.Visible = abmRegistrarVisible;
             button1.Visible = btnComprarVisible;

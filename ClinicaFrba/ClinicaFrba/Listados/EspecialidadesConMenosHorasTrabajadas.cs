@@ -16,10 +16,6 @@ namespace ClinicaFrba.Listados
         public EspecialidadesConMenosHorasTrabajadas()
         {
             InitializeComponent();
-        }
-
-        private void EspecialidadesConMenosHorasTrabajadas_Load(object sender, EventArgs e)
-        {
             cmbsemestre.SelectedItem = null;
             cmbsemestre.Items.Add(1);
             cmbsemestre.Items.Add(2);
@@ -27,11 +23,17 @@ namespace ClinicaFrba.Listados
             llenarComboEspecialidad();
         }
 
+        private void EspecialidadesConMenosHorasTrabajadas_Load(object sender, EventArgs e)
+        {
+  
+        }
+
         //se llena el combo plan
         private void llenarComboPlan()
         {
-            cmbplan.DataSource = new Query("SELECT ID_PLAN FROM TERCER_IMPACTO.PLAN_MEDICO").ObtenerDataTable();
-            cmbplan.ValueMember = "ID_PLAN";
+            cmbplan.DataSource = new Query("SELECT ID_PLAN_MEDICO ,DESCRIPCION FROM TERCER_IMPACTO.PLAN_MEDICO").ObtenerDataTable();
+            cmbplan.ValueMember = "ID_PLAN_MEDICO";
+            cmbplan.DisplayMember = "DESCRIPCION";
             cmbplan.DropDownStyle = ComboBoxStyle.DropDownList;
         }
 
@@ -39,7 +41,8 @@ namespace ClinicaFrba.Listados
         private void llenarComboEspecialidad()
         {
             cmbespecialidad.DataSource = new Query("SELECT ID_ESPECIALIDAD, DESCRIPCION FROM TERCER_IMPACTO.ESPECIALIDAD").ObtenerDataTable();
-            cmbespecialidad.ValueMember = "DESCRIPCION";
+            cmbespecialidad.ValueMember = "ID_ESPECIALIDAD";
+            cmbespecialidad.DisplayMember = "DESCRIPCION";
             cmbespecialidad.DropDownStyle = ComboBoxStyle.DropDownList;
         }
 
@@ -70,7 +73,7 @@ namespace ClinicaFrba.Listados
                 MessageBox.Show("Seleccione un semestre", "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return;
             }
-            if (string.IsNullOrEmpty(txtanio.Text) || Convert.ToInt32(txtanio.Text) > 1950 && Convert.ToInt32(txtanio.Text) < 2016)
+            if (string.IsNullOrEmpty(txtanio.Text) || Convert.ToInt32(txtanio.Text) < 1950 || Convert.ToInt32(txtanio.Text) > 2016)
             {
                 MessageBox.Show("Ingrese un año entre 1950 y 2016", "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return;
@@ -86,46 +89,18 @@ namespace ClinicaFrba.Listados
 
 
             var tabla = new DataTable();
-            Query qr = new Query("TERCER_IMPACTO.PROFESIONALES_CON_MENOS_HORAS");
-            qr.addParameter("@ANIO", txtanio.Text);
-            qr.addParameter("@MES_INICIAL", mes_inicial.ToString());
-            qr.addParameter("@MES_FINAL", mes_final.ToString());
-            qr.addParameter("PLAN_COD",cmbplan.SelectedItem.ToString());
-            qr.addParameter("ESP_COD",cmbespecialidad.SelectedItem.ToString());
+
+            decimal id_plan = decimal.Parse(cmbplan.SelectedValue.ToString());
+
+            Query qr = new Query("SELECT * FROM TERCER_IMPACTO.PROFESIONALES_CON_MENOS_HORAS('" + id_plan.ToString() + "','" + cmbespecialidad.SelectedValue.ToString() + "','" + txtanio.Text + "','" + mes_inicial.ToString() + "','" + mes_final.ToString() + "')");
+           
 
 
             dataGridView1.DataSource = qr.ObtenerDataTable();
 
         }
 
-        public DataTable armarTablaProfMenosHoras(SqlCommand comando)
-        {
-            DataTable tabla = new DataTable();
-            SqlDataReader reader;
-            comando.CommandText = comando.CommandText + ")";
-            tabla.Columns.Add("Codigo de profesional", typeof(Int32));
-            tabla.Columns.Add("Nombre", typeof(string));
-            tabla.Columns.Add("Apellido", typeof(string));
-            tabla.Columns.Add("Numero de matricula", typeof(Int32));
-            tabla.Columns.Add("Especialidad", typeof(string));
-            tabla.Columns.Add("Horas trabajadas", typeof(Int32));
-            using (comando)
-            {
-                reader = comando.ExecuteReader();
-                while (reader.Read())
-                {
-                    DataRow fila = tabla.NewRow();
-                    fila["Codigo de profesional"] = (Int32)reader.GetValue(0);
-                    fila["Nombre"] = (String)reader.GetValue(1);
-                    fila["Apellido"] = (String)reader.GetValue(2);
-                    fila["Numero de matricula"] = (Int32)reader.GetValue(3);
-                    fila["Especialidad"] = (String)reader.GetValue(4);
-                    fila["Horas trabajadas"] = (Int32)reader.GetValue(5);
-                    tabla.Rows.Add(fila);
-                }
-            }
-            return tabla;
-        }
+   
 
         public int mesInicial(int semestre)
         {

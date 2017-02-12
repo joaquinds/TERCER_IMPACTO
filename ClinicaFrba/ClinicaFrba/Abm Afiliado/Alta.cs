@@ -100,7 +100,7 @@ namespace ClinicaFrba.ABM_Afiliado2
             string cant_hijos=numericUpDown1.Value.ToString();
             random=random*100+1;
             string id=random.ToString();
-            string format = "yyyy-MM-dd hh:mm:ss";
+            string format = "yyyy-MM-dd HH:mm:ss";
 
             decimal id_plan = (decimal)new Query("SELECT TOP 1 ID_PLAN_MEDICO FROM TERCER_IMPACTO.PLAN_MEDICO WHERE DESCRIPCION='" + cmbPlan.Text + "'").ObtenerUnicoCampo();
 

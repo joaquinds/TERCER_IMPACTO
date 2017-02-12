@@ -44,9 +44,9 @@ namespace ClinicaFrba.Pedir_Turno
             //cmbElegirProf = new System.Windows.Forms.ComboBox();
             cmbElegirProf.SelectedItem = null;
             cmbElegirProf.DropDownStyle = ComboBoxStyle.DropDownList;
-            cmbElegirProf.DisplayMember = "APELLIDO";
-            cmbElegirProf.ValueMember = "APELLIDO";
-            cmbElegirProf.DataSource = new Query("SELECT APELLIDO FROM TERCER_IMPACTO.PROFESIONAL " +
+            cmbElegirProf.DisplayMember = "N";
+            cmbElegirProf.ValueMember = "MATRICULA";
+            cmbElegirProf.DataSource = new Query("SELECT NOMBRE+' '+APELLIDO as N,MATRICULA FROM TERCER_IMPACTO.PROFESIONAL " +
              "JOIN TERCER_IMPACTO.PROFESIONAL_ESPECIALIDAD ON ID_PROFESIONAL=MATRICULA " +
              " WHERE ID_ESPECIALIDAD='" + id_Especialidad + "'").ObtenerDataTable();
             
@@ -199,7 +199,7 @@ namespace ClinicaFrba.Pedir_Turno
                 MessageBox.Show("Seleccione un Profesional", "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return;
             }
-            id_Medico = (decimal)new Query("SELECT TOP 1 MATRICULA FROM TERCER_IMPACTO.PROFESIONAL WHERE APELLIDO='" + cmbElegirProf.Text + "'").ObtenerUnicoCampo();
+            id_Medico = decimal.Parse(cmbElegirProf.SelectedValue.ToString());
             id_Prof_Especialidad = (decimal)new Query("SELECT TOP 1 ID_PROF_ESP FROM TERCER_IMPACTO.PROFESIONAL_ESPECIALIDAD WHERE ID_PROFESIONAL='" + id_Medico + "'AND ID_ESPECIALIDAD='" + id_Especialidad + "'").ObtenerUnicoCampo();
             llenarCmbFecha();
 

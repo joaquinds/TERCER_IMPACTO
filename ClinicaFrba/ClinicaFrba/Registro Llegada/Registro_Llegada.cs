@@ -16,6 +16,7 @@ namespace ClinicaFrba.Registro_Llegada
         private decimal id_Medico;
         private decimal id_Turno;
         private decimal id_Afiliado;
+        private decimal prof_esp;
         private DateTime fechaTurno;
         private int cant_bonos;
         private decimal id_Consulta;
@@ -27,6 +28,8 @@ namespace ClinicaFrba.Registro_Llegada
             id_Medico = -1;
             id_Turno = -1;
             id_Consulta = -1;
+            id_Afiliado = -1;
+            prof_esp = -1;
             InitializeComponent();
         }
 
@@ -60,8 +63,10 @@ namespace ClinicaFrba.Registro_Llegada
             cmbTurno.DisplayMember = "FECHA";
             cmbTurno.ValueMember = "FECHA";      
             cmbTurno.DropDownStyle = ComboBoxStyle.DropDownList;
+            prof_esp = (decimal)new Query("SELECT ID_PROF_ESP FROM TERCER_IMPACTO.PROFESIONAL_ESPECIALIDAD " +
+                "WHERE ID_PROFESIONAL='" + id_Medico.ToString() + "' AND ID_ESPECIALIDAD='" + id_Especialidad.ToString() + "'").ObtenerUnicoCampo();
             cmbTurno.DataSource = new Query("SELECT FECHA FROM TERCER_IMPACTO.TURNO " +
-               " WHERE ID_MEDICO='" + id_Medico + "' ").ObtenerDataTable();
+               " WHERE ID_MEDICO='" + prof_esp.ToString() + "' ").ObtenerDataTable();
         }
         private void obtenerCantBonos()
         {
@@ -112,24 +117,55 @@ namespace ClinicaFrba.Registro_Llegada
             }
             //
             fechaTurno = Convert.ToDateTime(cmbTurno.Text);
-            id_Afiliado = (decimal)new Query("SELECT TOP 1 ID_AFILIADO FROM TERCER_IMPACTO.TURNO WHERE FECHA='" + fechaTurno + "' AND ID_MEDICO ='" + id_Medico + "' ").ObtenerUnicoCampo();
-            id_Turno = (decimal)new Query("SELECT TOP 1 ID_TURNO FROM TERCER_IMPACTO.TURNO WHERE FECHA='" + Convert.ToDateTime(cmbTurno.Text) + "' AND ID_MEDICO ='" + id_Medico + "'AND ID_AFILIADO ='" + id_Afiliado + "' ").ObtenerUnicoCampo();
+            string format = "yyyy-MM-dd HH:mm:ss";
+            string id_prof_esp = prof_esp.ToString();
+            string hora = fechaTurno.ToString(format);
+
+        
+            id_Afiliado = (decimal)new Query("SELECT TOP 1 ID_AFILIADO FROM TERCER_IMPACTO.TURNO WHERE FECHA='" + hora + "' AND ID_MEDICO ='" + id_prof_esp + "' ").ObtenerUnicoCampo();
+            id_Turno = (decimal)new Query("SELECT TOP 1 ID_TURNO FROM TERCER_IMPACTO.TURNO WHERE FECHA='" + hora + "' AND ID_MEDICO ='" + prof_esp.ToString() + "'AND ID_AFILIADO ='" + id_Afiliado.ToString() + "' ").ObtenerUnicoCampo();
 
             obtenerCantBonos();
         }
 
         private void btnEfectivizar_Click(object sender, EventArgs e)
         {
-            new Query("INSERT INTO TERCER_IMPACTO.CONSULTA (ID_TURNO,FECHA) VALUES ('" + id_Turno + "','" + fechaTurno +"')").Ejecutar();
+            string format = "yyyy-MM-dd HH:mm:ss";
+            string hora = fechaTurno.ToString(format);
+            bool existe=false;
+            Query qr = new Query("SELECT TERCER_IMPACTO.EXISTE_CONSULTA('"+id_Turno.ToString()+"','"+hora+"')"); 
+        
+            existe = (bool)qr.ObtenerUnicoCampo();
+            if (existe)
+            {
+                MessageBox.Show("La consulta ya existe.",
+               "Información", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                cmbProfesional.DataSource = null;
+                cmbTurno.DataSource = null;
+                cmbTurno.Items.Clear();
+                cmbProfesional.Items.Clear();
+        
+                btnEfectivizar.Visible = false;
+                return;
+            }
+        
+            new Query("INSERT INTO TERCER_IMPACTO.CONSULTA (ID_TURNO,FECHA) VALUES ('" + id_Turno + "','" + hora + "')").Ejecutar();
          
 
-            Query qr = new Query("TERCER_IMPACTO.AGREGAR_ID_CONSULTA"); 
+            qr = new Query("TERCER_IMPACTO.AGREGAR_ID_CONSULTA"); 
             qr.addParameter("@TURNO", id_Turno.ToString());
-            qr.addParameter("@FECHA", fechaTurno.ToString());
-            qr.addParameter("@AFILIADO", id_Afiliado.ToString());
+            qr.addParameter("@FECHA", hora);
+            
             qr.Ejecutar();
             MessageBox.Show("La consulta se ha registrado exitosamente",
                 "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+            cmbProfesional.DataSource = null;
+            cmbTurno.DataSource = null;
+            cmbTurno.Items.Clear();
+            cmbProfesional.Items.Clear();
+            
+            btnEfectivizar.Visible = false;
         }
 
         private void cmbEspecialidad_SelectedIndexChanged(object sender, EventArgs e)

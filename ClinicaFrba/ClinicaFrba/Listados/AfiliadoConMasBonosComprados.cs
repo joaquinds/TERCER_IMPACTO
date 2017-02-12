@@ -16,15 +16,12 @@ namespace ClinicaFrba.Listados
         public AfiliadoConMasBonosComprados()
         {
             InitializeComponent();
-        }
-
-        private void AfiliadoConMasBonosComprados_Load(object sender, EventArgs e)
-        {
             cmbsemestre.SelectedItem = null;
             cmbsemestre.Items.Add(1);
             cmbsemestre.Items.Add(2);
         }
 
+      
         private void btnbuscar_Click(object sender, EventArgs e)
         {
             if (string.IsNullOrEmpty(cmbsemestre.Text))
@@ -32,7 +29,7 @@ namespace ClinicaFrba.Listados
                 MessageBox.Show("Seleccione un semestre", "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return;
             }
-            if (string.IsNullOrEmpty(txtanio.Text) || Convert.ToInt32(txtanio.Text) > 1950 && Convert.ToInt32(txtanio.Text) < 2016)
+            if (string.IsNullOrEmpty(txtanio.Text) || Convert.ToInt32(txtanio.Text) < 1950 || Convert.ToInt32(txtanio.Text) > 2016)
             {
                 MessageBox.Show("Ingrese un año entre 1950 y 2016", "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return;
@@ -45,10 +42,9 @@ namespace ClinicaFrba.Listados
             mes_final = mesFinal(semestre);
 
             var tabla = new DataTable();
-            Query qr = new Query("AFILIADOS_CON_MAS_BONOS");
-            qr.addParameter("@ANIO", txtanio.Text);
-            qr.addParameter("MES_INICIAL", mes_inicial.ToString());
-            qr.addParameter("MES_FINAL", mes_final.ToString());
+           
+            Query qr = new Query("SELECT * FROM TERCER_IMPACTO.AFILIADOS_CON_MAS_BONOS('" + txtanio.Text + "','" + mes_inicial.ToString() + "','" + mes_final.ToString() + "')");
+           
 
 
             dataGridView1.DataSource = qr.ObtenerDataTable();

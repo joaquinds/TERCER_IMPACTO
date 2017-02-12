@@ -48,8 +48,9 @@ namespace ClinicaFrba.Registro_Resultado
 
         private void llenarCmbMedico()
         {
-            cmbMedico.DataSource = new Query("SELECT MATRICULA FROM TERCER_IMPACTO.PROFESIONAL").ObtenerDataTable();
+            cmbMedico.DataSource = new Query("SELECT NOMBRE+' '+APELLIDO as N ,MATRICULA FROM TERCER_IMPACTO.PROFESIONAL").ObtenerDataTable();
             cmbMedico.ValueMember = "MATRICULA";
+            cmbMedico.DisplayMember = "N";
             cmbMedico.DropDownStyle = ComboBoxStyle.DropDownList;
         }
 
@@ -58,9 +59,10 @@ namespace ClinicaFrba.Registro_Resultado
          
 
 
-            cmbHora.DataSource = new Query("SELECT FECHA FROM TERCER_IMPACTO.TURNO" +
-
-                " WHERE ID_MEDICO='" + id_Medico + "' ").ObtenerDataTable();
+            cmbHora.DataSource = new Query("SELECT FECHA FROM TERCER_IMPACTO.TURNO"
+               +" JOIN TERCER_IMPACTO.PROFESIONAL_ESPECIALIDAD"
+                   +" ON ID_PROF_ESP=ID_MEDICO"
+                   +" WHERE ID_PROFESIONAL='" + id_Medico + "' ").ObtenerDataTable();
             cmbHora.ValueMember = "FECHA";
             cmbHora.DropDownStyle = ComboBoxStyle.DropDownList;
 
@@ -74,7 +76,7 @@ namespace ClinicaFrba.Registro_Resultado
                 return;
             }
             // Aca tenemos que obtener de alguna forma el ID_PROF_ESP
-            id_Medico = (decimal)new Query("SELECT TOP 1 MATRICULA FROM TERCER_IMPACTO.PROFESIONAL WHERE MATRICULA='" + cmbMedico.Text + "'").ObtenerUnicoCampo();
+            id_Medico = decimal.Parse(cmbMedico.SelectedValue.ToString());
             llenarCmbFechas();
         }
 
@@ -85,17 +87,17 @@ namespace ClinicaFrba.Registro_Resultado
                 MessageBox.Show("Seleccion una fecha ", "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return;
             }
-            DateTime hora = Convert.ToDateTime(cmbHora.Text);
 
             //Busca Id_Medico, cuando deberia buscar Id_PROF_ESP para comparar con el ID_MEDICO del turno
-           
-            id_turno = (decimal)new Query("SELECT ID_TURNO FROM TERCER_IMPACTO.TURNO WHERE FECHA ='" + hora + "' AND ID_MEDICO = '" + id_Medico + "'").ObtenerUnicoCampo();
-            //SI ES NULL QUE TIRE EL ERROR (FALTA HACER LA FUNCION, LA HAGO EN UN RATO)
-           // id_consulta = (decimal)new Query("SELECT ID_CONSULTA FROM TERCER_IMPACTO.CONSULTA WHERE ID_TURNO='" + id_turno + "' AND FECHA = '" + hora + "'").ObtenerUnicoCampo();
-            //
 
+            //Busca Id_Medico, cuando deberia buscar Id_PROF_ESP para comparar con el ID_MEDICO del turno
+            string format = "yyyy-MM-dd HH:mm:ss";
+            id_turno = (decimal)new Query("SELECT ID_TURNO FROM TERCER_IMPACTO.TURNO T, TERCER_IMPACTO.PROFESIONAL_ESPECIALIDAD P WHERE FECHA ='" + Convert.ToDateTime(cmbHora.Text).ToString(format) + "' AND T.ID_MEDICO = P.ID_PROF_ESP AND P.ID_PROFESIONAL = '" + id_Medico + "'").ObtenerUnicoCampo();
             bool ya_existe_consulta= false;
-            Query qrc = new Query("SELECT TERCER_IMPACTO.EXISTE_CONSULTA('" + id_turno + "','" + hora + "')");
+         
+
+       
+            Query qrc = new Query("SELECT TERCER_IMPACTO.EXISTE_CONSULTA('" + id_turno + "','" + Convert.ToDateTime(cmbHora.Text).ToString(format) + "')");
             ya_existe_consulta = (bool)qrc.ObtenerUnicoCampo();
 
             if (!ya_existe_consulta)
@@ -105,8 +107,8 @@ namespace ClinicaFrba.Registro_Resultado
                 
             }
             else {
-               
-                id_consulta = (decimal)new Query("SELECT TOP 1 ID_CONSULTA FROM TERCER_IMPACTO.CONSULTA WHERE ID_TURNO='" + id_turno + "' AND FECHA = '" + hora + "'").ObtenerUnicoCampo();
+
+                id_consulta = (decimal)new Query("SELECT TOP 1 ID_CONSULTA FROM TERCER_IMPACTO.CONSULTA WHERE ID_TURNO='" + id_turno + "' AND FECHA = '" + Convert.ToDateTime(cmbHora.Text).ToString(format) + "'").ObtenerUnicoCampo();
             }
 
             lblDiagnostico.Visible= true;

@@ -172,5 +172,45 @@ namespace ClinicaFrba
         {
             this.pParametros.Add(new SqlParameter(p, dia));
         }
+
+        /*
+        public SqlCommand setearComando(string nombre)
+        {
+            pComando = new SqlCommand();
+            pComando.Connection = conexionDB();
+            pComando.CommandTimeout = 0;
+            return pComando;
+        }
+
+        public SqlCommand armarFuncionTabla(String nombre)
+        {
+            return armarFuncion("select * from", nombre);
+        }
+
+        public SqlCommand armarFuncion(string texto, String nombre)
+        {
+            setearComando(nombre);
+            comando.CommandText = texto + "[GD2C2016].[HAKUNADATATA].[" + nombre + "] (";
+            comando.CommandType = CommandType.Text;
+            return comando;
+        }
+
+        public SqlCommand agregarStringParamFuncion(SqlCommand func, string nombre)
+        {
+            return agregarParamFuncion(func, "'" + nombre + "'");
+        }
+
+        public SqlCommand agregarParamFuncion(SqlCommand func, string nombre)
+        {
+            if (func.CommandText.EndsWith("("))
+            {
+                func.CommandText = func.CommandText + nombre;
+            }
+            else
+            {
+                func.CommandText = func.CommandText + "," + nombre;
+            }
+            return func;
+        }*/
     }
 }

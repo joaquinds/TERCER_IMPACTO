@@ -109,7 +109,7 @@ namespace ClinicaFrba.Registrar_Agenda_Medico
 
         }
 
-        private void chequearBoton(CheckBox boton, ComboBox desde, ComboBox hasta, string dia)
+        private bool chequearBoton(CheckBox boton, ComboBox desde, ComboBox hasta, string dia)
         {
             if (boton.Checked)
             {
@@ -119,28 +119,36 @@ namespace ClinicaFrba.Registrar_Agenda_Medico
                 if (string.IsNullOrEmpty(d) || string.IsNullOrEmpty(h))
                 {
                     MessageBox.Show("Ingrese franja horaria.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    return;
+                    return false;
                 }
 
                 if (Convert.ToDateTime(d) >= Convert.ToDateTime(h))
                 {
                     MessageBox.Show("La hora desde debe ser menor a la hora hasta", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    return;
+                    return false;
                 }
 
                 dia_hora.Add(dia, new FranjaHoraria(Convert.ToDateTime(d), Convert.ToDateTime(h)));
+                
 
             }
+            return true;
         }
 
         private void btnRegistrar_Click(object sender, EventArgs e)
         {
-            chequearBoton(LunesCHB, LunesDesde, LunesHasta, "Monday");
-            chequearBoton(MartesCHB, MartesDesde, MartesHasta, "Tuesday");
-            chequearBoton(MiercolesCHB, MiercolesDesde, MiercolesHasta, "Wednesday");
-            chequearBoton(JuevesCHB, JuevesDesde, JuevesHasta, "Thursday");
-            chequearBoton(ViernesCHB, ViernesDesde, ViernesHasta, "Friday");
-            chequearBoton(SabadoCHB, SabadoDesde, SabadoHasta, "Saturday");
+            if(!chequearBoton(LunesCHB, LunesDesde, LunesHasta, "Monday"))
+                return;
+            if (!chequearBoton(MartesCHB, MartesDesde, MartesHasta, "Tuesday"))
+                return;
+            if (!chequearBoton(MiercolesCHB, MiercolesDesde, MiercolesHasta, "Wednesday"))
+                return;
+            if(!chequearBoton(JuevesCHB, JuevesDesde, JuevesHasta, "Thursday"))
+                return;
+            if (!chequearBoton(ViernesCHB, ViernesDesde, ViernesHasta, "Friday"))
+                return;
+            if (!chequearBoton(SabadoCHB, SabadoDesde, SabadoHasta, "Saturday"))
+                return;
 
             DateTime desde=Convert.ToDateTime(dateTimePickerDesde.Text);
             DateTime hasta=Convert.ToDateTime(dateTimePickerHasta.Text);
