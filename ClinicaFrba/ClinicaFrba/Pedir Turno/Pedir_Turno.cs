@@ -59,7 +59,7 @@ namespace ClinicaFrba.Pedir_Turno
             cmbElegirFecha.ValueMember = "FECHA";
             cmbElegirFecha.DataSource = new Query("SELECT DISTINCT FECHA FROM TERCER_IMPACTO.DIA D1, TERCER_IMPACTO.PROFESIONAL_DIA P1" +
               
-                " WHERE P1.ID_PROF_ESP='" + id_Prof_Especialidad + "' AND D1.ID_DIA = P1.ID_DIA "+
+                " WHERE P1.HABILITADO='1' AND P1.ID_PROF_ESP='" + id_Prof_Especialidad + "' AND D1.ID_DIA = P1.ID_DIA "+
                 "AND ((YEAR(FECHA)>'" + fechaSistema.Year.ToString() + "') OR (YEAR(FECHA)='"+
                 fechaSistema.Year.ToString()+"' AND MONTH(FECHA)>'" + fechaSistema.Month.ToString() +
                 "') OR (YEAR(FECHA)='"+ fechaSistema.Year.ToString()+"' AND MONTH(FECHA)='"+fechaSistema.Month.ToString()+

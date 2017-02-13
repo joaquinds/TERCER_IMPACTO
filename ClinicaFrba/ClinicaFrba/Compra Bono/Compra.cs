@@ -59,11 +59,28 @@ namespace ClinicaFrba.Compra_Bono
             }
             decimal precio = (decimal)new Query("SELECT TERCER_IMPACTO.RETORNAR_PRECIO_BONOS ('" + id_afiliado + "','" + cant + "')").ObtenerUnicoCampo();
 
-            Query procedure = new Query("TERCER_IMPACTO.COMPRAR_BONOS");
-            procedure.addParameter("@ID_AFIL", id_afiliado.ToString());
-            procedure.addParameter("@CANT", cant.ToString());
-            procedure.addParameter("@FECHA", Globals.fecha_sistema);
-            procedure.Ejecutar();
+            Query qr1 = new Query("SELECT TERCER_IMPACTO.TIENE_FAMILIA('"+id_afiliado.ToString()+"')");
+            bool tiene_familia = (bool)qr1.ObtenerUnicoCampo();
+
+            if (!tiene_familia)
+            {
+                Query procedure = new Query("TERCER_IMPACTO.COMPRAR_BONOS");
+                procedure.addParameter("@ID_AFIL", id_afiliado.ToString());
+                procedure.addParameter("@CANT", cant.ToString());
+                procedure.addParameter("@FECHA", Globals.fecha_sistema);
+                procedure.Ejecutar();
+            }
+            else
+            {
+                decimal num_familia = (decimal)new Query("SELECT TOP 1 NUM_FAMILIA FROM TERCER_IMPACTO.AFILIADO WHERE ID_AFILIADO='" + id_afiliado.ToString() + "' ").ObtenerUnicoCampo();
+                Query procedure = new Query("TERCER_IMPACTO.COMPRAR_BONOS_FAMILIA");
+                procedure.addParameter("@ID_AFIL", id_afiliado.ToString());
+                procedure.addParameter("@CANT", cant.ToString());
+                procedure.addParameter("@FECHA", Globals.fecha_sistema);
+                procedure.addParameter("@NUM_FAM", num_familia.ToString());
+                procedure.Ejecutar();
+            }
+
 
             MessageBox.Show("Compra realizada con exito, el precio es "+
             precio +" pesos.", "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);

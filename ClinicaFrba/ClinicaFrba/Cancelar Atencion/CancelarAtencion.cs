@@ -43,6 +43,12 @@ namespace ClinicaFrba.Cancelar_Atencion
                 btnAfiliado.Visible = true;
                 llenarComboAfiliado();
             }
+            else if (Globals.nombre_rol == "AFILIADO")
+            {
+
+                llenarCmbTurno();
+                btnConfirmar.Visible = true;
+            }
 
         }
 
@@ -52,9 +58,15 @@ namespace ClinicaFrba.Cancelar_Atencion
         }
         private void llenarCmbTurno()
         {
+            if (Globals.nombre_rol == "AFILIADO")
+            {
+                id_Afiliado = (decimal)new Query("SELECT TOP 1 ID_AFILIADO FROM TERCER_IMPACTO.AFILIADO WHERE USUARIO_ID='" + Globals.id_usuario + "'").ObtenerUnicoCampo();
+
+            }
             DateTime fechaSistema = Convert.ToDateTime(Globals.fecha_sistema);
-            cmbTurno.DataSource = new Query("SELECT FECHA FROM TERCER_IMPACTO.TURNO " +           
-                " WHERE ID_AFILIADO='" +  id_Afiliado + "' ").ObtenerDataTable();
+            cmbTurno.DataSource = new Query("SELECT FECHA FROM TERCER_IMPACTO.TURNO T" +           
+                " WHERE ID_AFILIADO='" +  id_Afiliado + "' AND NOT EXISTS (SELECT 1 FROM TERCER_IMPACTO.CANCELACION C WHERE"+
+            " T.ID_TURNO=C.ID_TURNO)").ObtenerDataTable();
 
             /* no borrar, para que traiga turnos despues de la fecha sistema
                  cmbTurno.DataSource = new Query("SELECT FECHA FROM TERCER_IMPACTO.TURNO " +           
@@ -101,12 +113,23 @@ namespace ClinicaFrba.Cancelar_Atencion
             }
             fechaTurno = Convert.ToDateTime(cmbTurno.Text);
 
-            //error aca...
+          
             id_Turno = (decimal)new Query("SELECT TOP 1 ID_TURNO FROM TERCER_IMPACTO.TURNO WHERE YEAR(FECHA)='" + fechaTurno.Year + 
                 "' AND MONTH(FECHA)='"+fechaTurno.Month+"' AND DAY(FECHA)='"+fechaTurno.Day+"'"+
                 " AND DATEPART(HOUR,FECHA)='"+fechaTurno.Hour+"' AND DATEPART(MINUTE,FECHA)='"+
                 fechaTurno.Minute+"' AND ID_AFILIADO ='" + id_Afiliado + "' ").ObtenerUnicoCampo();
             //
+            int existe = (int)new Query("IF (SELECT ID_CANCELACION FROM TERCER_IMPACTO.CANCELACION"
+                                       + " WHERE ID_TURNO='" + id_Turno.ToString() + "') IS NOT NULL " +
+                                       "SELECT 1 ELSE SELECT 0").ObtenerUnicoCampo();
+
+            if (existe==1)
+            {
+                MessageBox.Show("El turno ya ha sido cancelado.", "Información", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+
             Query qr = new Query("TERCER_IMPACTO.AGREGAR_CANCELACION");
             qr.addParameter("@ID_TUR", id_Turno.ToString());
             qr.addParameter("@TIPO", "AFILIADO");
@@ -114,6 +137,7 @@ namespace ClinicaFrba.Cancelar_Atencion
             qr.Ejecutar();
             MessageBox.Show("Se ha cancelado el turno exitosamente",
                 "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            llenarCmbTurno();
 
         }
 

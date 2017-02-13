@@ -40,7 +40,7 @@ namespace ClinicaFrba.Cancelar_Atencion
             cmbAgenda.ValueMember = "FECHA";
             cmbAgenda.DataSource = new Query("SELECT D.FECHA FROM TERCER_IMPACTO.PROFESIONAL_DIA P JOIN TERCER_IMPACTO.DIA D ON" +
              " P.ID_DIA = D.ID_DIA JOIN TERCER_IMPACTO.PROFESIONAL_ESPECIALIDAD PE ON PE.ID_PROF_ESP=P.ID_PROF_ESP "+
-             "WHERE PE.ID_PROFESIONAL='"+cmbMedico.Text+"' AND P.HABILITADO=1 AND D.FECHA>CONVERT(DATE,'"+fecha.ToString(format)+"')").ObtenerDataTable();
+             "WHERE PE.ID_PROFESIONAL='"+cmbMedico.Text+"' AND P.HABILITADO=1 AND D.FECHA>=CONVERT(DATE,'"+fecha.ToString(format)+"')").ObtenerDataTable();
 
         }
 

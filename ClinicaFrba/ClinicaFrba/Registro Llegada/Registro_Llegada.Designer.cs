@@ -40,6 +40,8 @@
             this.lblBonos = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.btnEfectivizar = new System.Windows.Forms.Button();
+            this.label5 = new System.Windows.Forms.Label();
+            this.lblAfiliado = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // label1
@@ -154,11 +156,31 @@
             this.btnEfectivizar.UseVisualStyleBackColor = true;
             this.btnEfectivizar.Click += new System.EventHandler(this.btnEfectivizar_Click);
             // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(12, 311);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(70, 13);
+            this.label5.TabIndex = 12;
+            this.label5.Text = "Nro. Afiliado: ";
+            // 
+            // lblAfiliado
+            // 
+            this.lblAfiliado.AutoSize = true;
+            this.lblAfiliado.Location = new System.Drawing.Point(232, 311);
+            this.lblAfiliado.Name = "lblAfiliado";
+            this.lblAfiliado.Size = new System.Drawing.Size(10, 13);
+            this.lblAfiliado.TabIndex = 13;
+            this.lblAfiliado.Text = "-";
+            // 
             // Registro_Llegada
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(434, 413);
+            this.Controls.Add(this.lblAfiliado);
+            this.Controls.Add(this.label5);
             this.Controls.Add(this.btnEfectivizar);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.lblBonos);
@@ -193,5 +215,7 @@
         private System.Windows.Forms.Label lblBonos;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Button btnEfectivizar;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label lblAfiliado;
     }
 }

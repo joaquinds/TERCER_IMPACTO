@@ -133,7 +133,6 @@ D:\tp_gestion\ClinicaFrba\ClinicaFrba\obj\Debug\ClinicaFrba.ABM_Afiliado2.Baja.r
 D:\tp_gestion\ClinicaFrba\ClinicaFrba\obj\Debug\ClinicaFrba.ABM_Afiliado2.Modificacion.resources
 D:\tp_gestion\ClinicaFrba\ClinicaFrba\obj\Debug\ClinicaFrba.Cancelar_Atencion.CancelacionDia.resources
 D:\tp_gestion\ClinicaFrba\ClinicaFrba\obj\Debug\ClinicaFrba.Cancelar_Atencion.CancelacionPeriodo.resources
-D:\tp_gestion\ClinicaFrba\ClinicaFrba\obj\Debug\ClinicaFrba.Listados.ListadoEstadistico.resources
 C:\Users\ezequiel\GitHH\TERCER_IMPACTO\ClinicaFrba\ClinicaFrba\bin\Debug\ClinicaFrba.exe.config
 C:\Users\ezequiel\GitHH\TERCER_IMPACTO\ClinicaFrba\ClinicaFrba\obj\Debug\ClinicaFrba.exe
 C:\Users\ezequiel\GitHH\TERCER_IMPACTO\ClinicaFrba\ClinicaFrba\obj\Debug\ClinicaFrba.pdb
@@ -196,3 +195,9 @@ C:\Users\ezequiel\gitFinal\TERCER_IMPACTO\ClinicaFrba\ClinicaFrba\obj\Debug\Clin
 C:\Users\ezequiel\gitFinal\TERCER_IMPACTO\ClinicaFrba\ClinicaFrba\obj\Debug\ClinicaFrba.Registro_Llegada.Registro_Llegada.resources
 C:\Users\ezequiel\gitFinal\TERCER_IMPACTO\ClinicaFrba\ClinicaFrba\obj\Debug\ClinicaFrba.Registro_Resultado.Registrar_Resultado.resources
 C:\Users\ezequiel\gitFinal\TERCER_IMPACTO\ClinicaFrba\ClinicaFrba\obj\Debug\ClinicaFrba.csproj.GenerateResource.Cache
+D:\tp_gestion\ClinicaFrba\ClinicaFrba\obj\Debug\ClinicaFrba.Listados.AfiliadoConMasBonosComprados.resources
+D:\tp_gestion\ClinicaFrba\ClinicaFrba\obj\Debug\ClinicaFrba.Listados.EspecialidadConMasBonosUtilizados.resources
+D:\tp_gestion\ClinicaFrba\ClinicaFrba\obj\Debug\ClinicaFrba.Listados.EspecialidadesConMenosHorasTrabajadas.resources
+D:\tp_gestion\ClinicaFrba\ClinicaFrba\obj\Debug\ClinicaFrba.Listados.EspecialidadesQueMasRegistraronCancelaciones.resources
+D:\tp_gestion\ClinicaFrba\ClinicaFrba\obj\Debug\ClinicaFrba.Listados.ListadoMenu.resources
+D:\tp_gestion\ClinicaFrba\ClinicaFrba\obj\Debug\ClinicaFrba.Listados.ListadoProfPlan.resources

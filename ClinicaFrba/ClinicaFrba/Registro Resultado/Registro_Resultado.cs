@@ -38,11 +38,20 @@ namespace ClinicaFrba.Registro_Resultado
             btnDiagnostico.Visible = false;
             txtEnfermedad.Visible = false;
             txtSintomas.Visible = false;
+            btnMedico.Visible = false;
             if (Globals.nombre_rol == "ADMINISTRATIVO")
             {
                 lblAdmin.Visible = true;
                 cmbMedico.Visible = true;
+                btnMedico.Visible = true;
                 llenarCmbMedico();
+                
+            }
+            else
+            {
+
+                llenarCmbFechas();
+
             }
         }
 
@@ -56,8 +65,12 @@ namespace ClinicaFrba.Registro_Resultado
 
         private void llenarCmbFechas ()
         {
-         
 
+            if (Globals.nombre_rol == "PROFESIONAL")
+            {
+                id_Medico = (decimal)new Query("SELECT TOP 1 MATRICULA FROM TERCER_IMPACTO.PROFESIONAL WHERE USUARIO_ID='" + Globals.id_usuario + "'").ObtenerUnicoCampo();
+
+            }
 
             cmbHora.DataSource = new Query("SELECT FECHA FROM TERCER_IMPACTO.TURNO"
                +" JOIN TERCER_IMPACTO.PROFESIONAL_ESPECIALIDAD"

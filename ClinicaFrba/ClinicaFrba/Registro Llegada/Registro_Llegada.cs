@@ -65,23 +65,57 @@ namespace ClinicaFrba.Registro_Llegada
             cmbTurno.DropDownStyle = ComboBoxStyle.DropDownList;
             prof_esp = (decimal)new Query("SELECT ID_PROF_ESP FROM TERCER_IMPACTO.PROFESIONAL_ESPECIALIDAD " +
                 "WHERE ID_PROFESIONAL='" + id_Medico.ToString() + "' AND ID_ESPECIALIDAD='" + id_Especialidad.ToString() + "'").ObtenerUnicoCampo();
-            cmbTurno.DataSource = new Query("SELECT FECHA FROM TERCER_IMPACTO.TURNO " +
-               " WHERE ID_MEDICO='" + prof_esp.ToString() + "' ").ObtenerDataTable();
+            cmbTurno.DataSource = new Query("SELECT FECHA FROM TERCER_IMPACTO.TURNO T " +
+               " WHERE ID_MEDICO='" + prof_esp.ToString() + "' AND NOT EXISTS(SELECT 1 FROM TERCER_IMPACTO.CONSULTA C WHERE "+
+               " C.ID_TURNO=T.ID_TURNO) ").ObtenerDataTable();
         }
         private void obtenerCantBonos()
         {
-            //agregar a la tabla Afiliado id_consulta
-            cant_bonos = (int) new Query("SELECT COUNT(ID_BONO) FROM TERCER_IMPACTO.BONO " +
-                 " WHERE ID_AFILIADO='" + id_Afiliado + "' and  ID_CONSULTA is null").ObtenerUnicoCampo();
-            lblBonos.Text = Convert.ToString(cant_bonos);
-            if (cant_bonos == 0)
-             {
-                MessageBox.Show("El usuario no tiene bonos disponibles", "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                return;
-            }else
+            Query qr1 = new Query("SELECT TERCER_IMPACTO.TIENE_FAMILIA('" + id_Afiliado + "')");
+            bool tiene_familia = (bool)qr1.ObtenerUnicoCampo();
+
+            if (!tiene_familia)
             {
-                btnEfectivizar.Visible = true;
+
+
+                //agregar a la tabla Afiliado id_consulta
+                cant_bonos = (int)new Query("SELECT COUNT(ID_BONO) FROM TERCER_IMPACTO.BONO " +
+                     " WHERE ID_AFILIADO='" + id_Afiliado + "' and  ID_CONSULTA is null").ObtenerUnicoCampo();
+                lblBonos.Text = Convert.ToString(cant_bonos);
+                if (cant_bonos == 0)
+                {
+                    MessageBox.Show("El usuario no tiene bonos disponibles", "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    return;
+                }
+                else
+                {
+                    btnEfectivizar.Visible = true;
+                }
             }
+            else
+            {
+
+                decimal num_familia = (decimal)new Query("SELECT TOP 1 NUM_FAMILIA FROM TERCER_IMPACTO.AFILIADO WHERE ID_AFILIADO='" + id_Afiliado + "' ").ObtenerUnicoCampo();
+
+                cant_bonos = (int)new Query("SELECT COUNT(ID_BONO) FROM TERCER_IMPACTO.BONO " +
+                     " WHERE NUM_FAMILIA='" + num_familia + "' and  ID_CONSULTA is null").ObtenerUnicoCampo();
+                lblBonos.Text = Convert.ToString(cant_bonos);
+                if (cant_bonos == 0)
+                {
+                    MessageBox.Show("El usuario no tiene bonos disponibles", "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    return;
+                }
+                else
+                {
+                    btnEfectivizar.Visible = true;
+                }
+
+
+            }
+            
+            
+            
+        
         }
 
 
@@ -124,7 +158,7 @@ namespace ClinicaFrba.Registro_Llegada
         
             id_Afiliado = (decimal)new Query("SELECT TOP 1 ID_AFILIADO FROM TERCER_IMPACTO.TURNO WHERE FECHA='" + hora + "' AND ID_MEDICO ='" + id_prof_esp + "' ").ObtenerUnicoCampo();
             id_Turno = (decimal)new Query("SELECT TOP 1 ID_TURNO FROM TERCER_IMPACTO.TURNO WHERE FECHA='" + hora + "' AND ID_MEDICO ='" + prof_esp.ToString() + "'AND ID_AFILIADO ='" + id_Afiliado.ToString() + "' ").ObtenerUnicoCampo();
-
+            lblAfiliado.Text = id_Afiliado.ToString();
             obtenerCantBonos();
         }
 
@@ -155,7 +189,8 @@ namespace ClinicaFrba.Registro_Llegada
             qr = new Query("TERCER_IMPACTO.AGREGAR_ID_CONSULTA"); 
             qr.addParameter("@TURNO", id_Turno.ToString());
             qr.addParameter("@FECHA", hora);
-            
+            qr.addParameter("@AFILIADO",id_Afiliado.ToString());
+
             qr.Ejecutar();
             MessageBox.Show("La consulta se ha registrado exitosamente",
                 "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -164,7 +199,8 @@ namespace ClinicaFrba.Registro_Llegada
             cmbTurno.DataSource = null;
             cmbTurno.Items.Clear();
             cmbProfesional.Items.Clear();
-            
+            lblBonos.Text = "";
+            lblAfiliado.Text = "";
             btnEfectivizar.Visible = false;
         }
 

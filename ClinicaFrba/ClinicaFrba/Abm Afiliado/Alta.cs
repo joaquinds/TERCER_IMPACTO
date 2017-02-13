@@ -73,7 +73,7 @@ namespace ClinicaFrba.ABM_Afiliado2
             }
             
             
-            Query rand = new Query("SELECT convert(numeric(18,0),RAND()*9999999999999999)");
+            Query rand = new Query("SELECT convert(numeric(18,0),RAND()*99999999999)");
             random =(decimal) rand.ObtenerUnicoCampo();
             Query existe = new Query("SELECT TERCER_IMPACTO.NRO_UTILIZADO('" + random.ToString() + "')");
             bool existeNro = (bool)existe.ObtenerUnicoCampo();
@@ -98,6 +98,7 @@ namespace ClinicaFrba.ABM_Afiliado2
             string sexo = cmbSexo.Text;
             //string id_plan = cmbPlan.SelectedItem.ToString();
             string cant_hijos=numericUpDown1.Value.ToString();
+            decimal nro_familia = random;
             random=random*100+1;
             string id=random.ToString();
             string format = "yyyy-MM-dd HH:mm:ss";
@@ -105,8 +106,8 @@ namespace ClinicaFrba.ABM_Afiliado2
             decimal id_plan = (decimal)new Query("SELECT TOP 1 ID_PLAN_MEDICO FROM TERCER_IMPACTO.PLAN_MEDICO WHERE DESCRIPCION='" + cmbPlan.Text + "'").ObtenerUnicoCampo();
 
       
-            new Query("SET IDENTITY_INSERT TERCER_IMPACTO.AFILIADO ON; INSERT INTO TERCER_IMPACTO.AFILIADO (ID_AFILIADO,NOMBRE,APELLIDO,TIPO_DOC,NRO_DOC,DIRECCION,TELEFONO,"
-                + "MAIL,FECHA_NAC,SEXO,ESTADO_CIVIL,CANT_HIJOS,ID_PLAN_MEDICO,HABILITADO) VALUES ('" + id + "','" + nombre + "','" + apellido + "','" +
+            new Query("SET IDENTITY_INSERT TERCER_IMPACTO.AFILIADO ON; INSERT INTO TERCER_IMPACTO.AFILIADO (NUM_FAMILIA,ID_AFILIADO,NOMBRE,APELLIDO,TIPO_DOC,NRO_DOC,DIRECCION,TELEFONO,"
+                + "MAIL,FECHA_NAC,SEXO,ESTADO_CIVIL,CANT_HIJOS,ID_PLAN_MEDICO,HABILITADO) VALUES ('" + nro_familia.ToString() + "','" + id + "','" + nombre + "','" + apellido + "','" +
                 tipoDoc + "','" + nroDoc + "','" + direccion + "','" + tel + "','" + mail + "','" + dateTimePicker1.Value.ToString(format) + "','" + sexo + "','"
                 + estado + "','" + cant_hijos + "','" + id_plan.ToString() + "','1'); SET IDENTITY_INSERT TERCER_IMPACTO.AFILIADO OFF; ").Ejecutar();
 
@@ -128,7 +129,7 @@ namespace ClinicaFrba.ABM_Afiliado2
              numericUpDown1.Value = 0;
           
 
-             AltaFamiliar frm = new AltaFamiliar(random,id_plan);
+             AltaFamiliar frm = new AltaFamiliar(random,id_plan,nro_familia.ToString());
              frm.ShowDialog();
         }
     }

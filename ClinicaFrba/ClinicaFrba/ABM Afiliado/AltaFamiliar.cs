@@ -14,6 +14,7 @@ namespace ClinicaFrba.ABM_Afiliado2
     {
         private decimal random;
         private decimal id_plan;
+        private string nro_flia;
         private int menor_a_diez;
 
         public AltaFamiliar()
@@ -21,13 +22,14 @@ namespace ClinicaFrba.ABM_Afiliado2
             InitializeComponent();
         }
 
-        public AltaFamiliar(decimal random, decimal id_plan)
+        public AltaFamiliar(decimal random, decimal id_plan,string num_flia)
         {
             // TODO: Complete member initialization
             InitializeComponent();
             this.random = random+1;
             this.id_plan = id_plan;
             menor_a_diez = 2;
+            nro_flia = num_flia;
         }
 
         private void AltaFamiliar_Load(object sender, EventArgs e)
@@ -93,8 +95,8 @@ namespace ClinicaFrba.ABM_Afiliado2
             
             string format = "yyyy-MM-dd hh:mm:ss";
 
-            new Query("SET IDENTITY_INSERT TERCER_IMPACTO.AFILIADO ON; INSERT INTO TERCER_IMPACTO.AFILIADO (ID_AFILIADO,NOMBRE,APELLIDO,TIPO_DOC,NRO_DOC,DIRECCION,TELEFONO,"
-                + "MAIL,FECHA_NAC,SEXO,ESTADO_CIVIL,CANT_HIJOS,ID_PLAN_MEDICO,HABILITADO) VALUES ('" + id + "','" + nombre + "','" + apellido + "','" +
+            new Query("SET IDENTITY_INSERT TERCER_IMPACTO.AFILIADO ON; INSERT INTO TERCER_IMPACTO.AFILIADO (NUM_FAMILIA,ID_AFILIADO,NOMBRE,APELLIDO,TIPO_DOC,NRO_DOC,DIRECCION,TELEFONO,"
+                + "MAIL,FECHA_NAC,SEXO,ESTADO_CIVIL,CANT_HIJOS,ID_PLAN_MEDICO,HABILITADO) VALUES ('" + nro_flia + "','" + id + "','" + nombre + "','" + apellido + "','" +
                 tipoDoc + "','" + nroDoc + "','" + direccion + "','" + tel + "','" + mail + "','" + fechaNacPicker.Value.ToString(format) + "','" + sexo + "','"
                 + estado + "','" + cant_hijos + "','" + id_plan.ToString() + "','1'); SET IDENTITY_INSERT TERCER_IMPACTO.AFILIADO OFF; ").Ejecutar();
 
